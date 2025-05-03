@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "352808849408",
+    "project_id": "mdrm-b334b",
+    "storage_bucket": "mdrm-b334b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352808849408:android:c207a4fed11cbb819248e5",
+        "android_client_info": {
+          "package_name": "com.example.mr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAaRwxWFKTtR5dKdKgC45mHSF8vOdQOic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
