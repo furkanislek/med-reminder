@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:mr/services/services.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print(Auth().currentUser?.uid);
-    print("------------------");
     return Scaffold(
       appBar: AppBar(title: Text("Medicine Reminder")),
-      body: Text("DOLDUR"),
+      body: Text('home.noMedicines'.tr),
     );
   }
 }

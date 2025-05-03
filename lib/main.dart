@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:mr/controller/auth/auth_controller.dart';
 import 'package:mr/pages/Login/login.dart';
 import 'package:mr/pages/Menu/menu.dart';
+import 'package:mr/utils/localization/app_translations.dart';
 import 'firebase_options.dart';
 import 'package:get/get.dart';
 
@@ -16,19 +17,16 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      translations: AppTranslations(),
+      locale: Locale('en', 'US'),
+      fallbackLocale: Locale('en', 'US'),
       home: Obx(() {
         final authController = Get.find<AuthController>();
-
-        print("Auth + ${authController.user.value}");
         return authController.user.value == null ? const Login() : Menu();
       }),
     );

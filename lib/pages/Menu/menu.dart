@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mr/controller/menu/bottom_navigator.dart';
+import 'package:mr/pages/AddPill/add_pill.dart';
+import 'package:mr/pages/Calendar/calendar.dart';
 import 'package:mr/pages/Home/home.dart';
+import 'package:mr/pages/Profile/profile.dart';
 
 class Menu extends StatelessWidget {
   Menu({super.key});
@@ -12,6 +15,9 @@ class Menu extends StatelessWidget {
 
   final List<Widget> pages = [
     HomeScreen(), // İlaç hatırlatıcı özet
+    AddPillScreen(), // İlaç hatırlatıcı özet
+    CalendarScreen(), // İlaç hatırlatıcı özet
+    ProfileScreen(), // İlaç hatırlatıcı özet
     //Diğer sayfaları da yaz
   ];
 
@@ -26,11 +32,6 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        appBar: AppBar(
-          title: Text(titles[controller.currentIndex.value]),
-          centerTitle: true,
-          backgroundColor: Colors.teal,
-        ),
         body: pages[controller.currentIndex.value],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: controller.currentIndex.value,
