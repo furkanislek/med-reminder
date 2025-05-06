@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:mr/controller/home/home_controller.dart';
 import 'package:mr/models/medicine_model.dart';
 import 'package:mr/pages/AddPill/add_pill.dart';
-import 'package:mr/services/data_service.dart'; 
+import 'package:mr/services/data_service.dart';
+import 'package:mr/services/notification_service.dart';
 
 class HomeScreen extends StatelessWidget {
   final HomeController controller = Get.find<HomeController>();
   final DataService dataService = Get.find<DataService>();
-
+  final NotificationService _notificationService =
+      Get.find<NotificationService>();
   @override
   Widget build(BuildContext context) {
     dataService.getMedicinesStream();
@@ -21,16 +24,14 @@ class HomeScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.filter_list, color: Colors.grey),
-            onPressed: () {
-            },
+            onPressed: () {},
           ),
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                'assets/svg/vitamin.svg',
-              ), 
               radius: 16,
+              backgroundColor: Colors.white,
+              child: SvgPicture.asset('assets/svg/vitamin.svg'),
             ),
           ),
         ],
@@ -41,6 +42,12 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () async {
+                await _notificationService.checkPendingNotifications();
+              },
+              child: Text("data"),
+            ),
             TextField(
               decoration: InputDecoration(
                 hintText: 'Search Medicines...',
@@ -196,8 +203,7 @@ class MedicineCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                   ),
                 ],
               ),

@@ -1,18 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:intl/intl.dart'; 
+import 'package:intl/intl.dart';
 
 class MedicineModel {
   final String id;
   final String name;
-  final String type; 
-  final int dosesPerDay; 
-  final List<String> doseHours; 
-  final int dosageQuantity; 
-  final String dosageUnit; 
-  final int duration; 
+  final String type;
+  final int dosesPerDay;
+  final List<String> doseHours;
+  final int dosageQuantity;
+  final String dosageUnit;
+  final int duration;
   final String withFood;
-  final Timestamp startDate; 
-  final bool notificationsEnabled; 
+  final Timestamp startDate;
+  final bool notificationsEnabled;
 
   DateTime? nextDoseTime;
   bool isCompleted = false;
@@ -28,7 +28,7 @@ class MedicineModel {
     required this.duration,
     required this.withFood,
     required this.startDate,
-    required this.notificationsEnabled, 
+    required this.notificationsEnabled,
     this.nextDoseTime,
     this.isCompleted = false,
   });
@@ -44,9 +44,9 @@ class MedicineModel {
               DateTime dt = ts.toDate();
               return DateFormat('HH:mm').format(dt);
             }
-            return '00:00'; 
+            return '00:00';
           }).toList();
-      hours.sort(); 
+      hours.sort();
     }
 
     int inferredDosesPerDay = hours.length;
@@ -56,19 +56,15 @@ class MedicineModel {
     return MedicineModel(
       id: id,
       name: data['name'] ?? 'Unknown Name',
-      type: data['types'] ?? 'Unknown Type', 
+      type: data['types'] ?? 'Unknown Type',
       dosesPerDay: inferredDosesPerDay,
       doseHours: hours,
-      dosageQuantity:
-          data['quantity'] ??
-          (data['amount'] ?? 0), 
+      dosageQuantity: data['quantity'] ?? (data['amount'] ?? 0),
       dosageUnit: data['unit'] ?? '',
       duration: durationDays,
       withFood: data['withFood'] ?? data['whenTime'] ?? '',
       startDate: start,
-      notificationsEnabled:
-          data['notificationsEnabled'] ??
-          false, 
+      notificationsEnabled: data['notificationsEnabled'] ?? false,
     );
   }
 
@@ -76,12 +72,12 @@ class MedicineModel {
     return {
       'name': name,
       'types': type,
-      'doseHours': doseHours, 
+      'doseHours': doseHours,
       'quantity': dosageQuantity,
-      'unit': dosageUnit, 
+      'unit': dosageUnit,
       'duration': duration,
       'withFood': withFood,
-      'notificationsEnabled': notificationsEnabled, 
+      'notificationsEnabled': notificationsEnabled,
     };
   }
 }
