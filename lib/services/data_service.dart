@@ -1,51 +1,99 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:uuid/uuid.dart';
+import 'package:mr/models/medicine_model.dart';
 
 class DataService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  var uuid = Uuid();
 
   User? get currentUser => _firebaseAuth.currentUser;
 
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
-  Future<void> saveMedicines({
+  Future<void> saveMedicine({
     required String name,
-    required String doseTimes,
-    required String types,
+    required String type,
+    required int dosageQuantity,
+    required String dosageUnit,
+    required List<String> doseHours,
     required int duration,
     required String withFood,
-    required List<Timestamp> notifications,
-    required String whenTime,
+    required bool notificationsEnabled, // Added parameter
   }) async {
     try {
-      int currentTimestamp = DateTime.now().millisecondsSinceEpoch ~/ 1000;
-      // Şu anki kullanıcıyı al
       User? user = _firebaseAuth.currentUser;
       if (user == null) throw Exception("User Not Found!");
 
-      // Veriyi Firestore'a kaydet
+      doseHours.sort();
+
+      Map<String, dynamic> medicineData = {
+        'name': name,
+        'types': type,
+        'quantity': dosageQuantity,
+        'unit': dosageUnit,
+        'doseHours': doseHours,
+        'duration': duration,
+        'withFood': withFood,
+        'notificationsEnabled': notificationsEnabled, 
+        'createdAt': FieldValue.serverTimestamp(),
+        'uid': user.uid,
+      };
+
       await _firestore
           .collection('users')
           .doc(user.uid)
           .collection('medicines')
-          .add({
-            'name': name,
-            'doseTime': doseTimes,
-            'types': types,
-            'duration': duration,
-            'withFood': withFood,
-            'notifications': notifications,
-            'whenTime': whenTime,
-            'createdAt': FieldValue.serverTimestamp(),
-            'date': DateTime.now(),
-            'timestamp': currentTimestamp,
-            'uid': user.uid,
-          });
+          .add(medicineData);
     } catch (e) {
-      print("addMedicine error: $e");
+      print("saveMedicine error: $e");
+      rethrow; 
+    }
+  }
+
+  Stream<List<MedicineModel>> getMedicinesStream() {
+    User? user = _firebaseAuth.currentUser;
+    if (user == null) {
+      return Stream.value([]);
+    }
+
+    return _firestore
+        .collection('users')
+        .doc(user.uid)
+        .collection('medicines')
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map((snapshot) {
+          return snapshot.docs
+              .map((doc) {
+                try {
+                  return MedicineModel.fromMap(
+                    doc.id,
+                    doc.data(),
+                  );
+                } catch (e) {
+                  print("Error parsing medicine doc ${doc.id}: $e");
+                  return null;
+                }
+              })
+              .where((model) => model != null)
+              .cast<MedicineModel>()
+              .toList(); 
+        });
+  }
+
+  Future<void> updateNotificationStatus(String medicineId, bool enabled) async {
+    User? user = _firebaseAuth.currentUser;
+    if (user == null) throw Exception("User Not Found!");
+
+    try {
+      await _firestore
+          .collection('users')
+          .doc(user.uid)
+          .collection('medicines')
+          .doc(medicineId)
+          .update({'notificationsEnabled': enabled});
+    } catch (e) {
+      print("Error updating notification status for $medicineId: $e");
       rethrow;
     }
   }

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mr/controller/auth/auth_controller.dart';
+import 'package:mr/controller/data/data_service_controller.dart';
+import 'package:mr/controller/home/home_controller.dart';
 import 'package:mr/pages/Login/login.dart';
 import 'package:mr/pages/Menu/menu.dart';
+import 'package:mr/services/data_service.dart';
+import 'package:mr/services/notification_service.dart';
 import 'package:mr/utils/localization/app_translations.dart';
 import 'firebase_options.dart';
 import 'package:get/get.dart';
@@ -11,6 +15,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   Get.put(AuthController());
+  Get.put(DataService());
+  Get.put(NotificationService());
+  Get.put(HomeController());
+  Get.put(DataServiceController());
   runApp(MyApp());
 }
 

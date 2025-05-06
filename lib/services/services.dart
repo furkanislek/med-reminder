@@ -31,16 +31,10 @@ class Auth {
   }
 
   Future<void> signIn({required String email, required String password}) async {
-    UserCredential userCredential = await _firebaseAuth
-        .signInWithEmailAndPassword(email: email, password: password);
-
-    if (userCredential.user?.emailVerified == false) {
-      await _firebaseAuth.signOut();
-      throw FirebaseAuthException(
-        code: 'email-not-verified',
-        message: 'Please verify your email address before logging in.',
-      );
-    }
+    await _firebaseAuth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
   }
 
   Future<void> signOut() async {

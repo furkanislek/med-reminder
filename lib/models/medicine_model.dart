@@ -1,46 +1,87 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart'; 
+
 class MedicineModel {
   final String id;
   final String name;
-  final List<String> doseTime;
-  final int amount;
-  final int duration;
+  final String type; 
+  final int dosesPerDay; 
+  final List<String> doseHours; 
+  final int dosageQuantity; 
+  final String dosageUnit; 
+  final int duration; 
   final String withFood;
-  final int quantity;
-  final String unit;
+  final Timestamp startDate; 
+  final bool notificationsEnabled; 
+
+  DateTime? nextDoseTime;
+  bool isCompleted = false;
 
   MedicineModel({
     required this.id,
     required this.name,
-    required this.doseTime,
-    required this.amount,
+    required this.type,
+    required this.dosesPerDay,
+    required this.doseHours,
+    required this.dosageQuantity,
+    required this.dosageUnit,
     required this.duration,
     required this.withFood,
-    required this.quantity,
-    required this.unit,
+    required this.startDate,
+    required this.notificationsEnabled, 
+    this.nextDoseTime,
+    this.isCompleted = false,
   });
 
   factory MedicineModel.fromMap(String id, Map<String, dynamic> data) {
+    List<String> hours = [];
+    if (data['doseHours'] != null && data['doseHours'] is List) {
+      hours = List<String>.from(data['doseHours']);
+    } else if (data['notifications'] != null && data['notifications'] is List) {
+      hours =
+          (data['notifications'] as List).map((ts) {
+            if (ts is Timestamp) {
+              DateTime dt = ts.toDate();
+              return DateFormat('HH:mm').format(dt);
+            }
+            return '00:00'; 
+          }).toList();
+      hours.sort(); 
+    }
+
+    int inferredDosesPerDay = hours.length;
+    int durationDays = data['duration'] ?? 0;
+    Timestamp start = data['createdAt'] ?? data['date'] ?? Timestamp.now();
+
     return MedicineModel(
       id: id,
-      name: data['name'],
-      doseTime: List<String>.from(data['doseTime']),
-      amount: data['amount'],
-      duration: data['duration'],
-      withFood: data['withFood'],
-      quantity: data['quantity'],
-      unit: data['unit'],
+      name: data['name'] ?? 'Unknown Name',
+      type: data['types'] ?? 'Unknown Type', 
+      dosesPerDay: inferredDosesPerDay,
+      doseHours: hours,
+      dosageQuantity:
+          data['quantity'] ??
+          (data['amount'] ?? 0), 
+      dosageUnit: data['unit'] ?? '',
+      duration: durationDays,
+      withFood: data['withFood'] ?? data['whenTime'] ?? '',
+      startDate: start,
+      notificationsEnabled:
+          data['notificationsEnabled'] ??
+          false, 
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'name': name,
-      'doseTime': doseTime,
-      'amount': amount,
+      'types': type,
+      'doseHours': doseHours, 
+      'quantity': dosageQuantity,
+      'unit': dosageUnit, 
       'duration': duration,
       'withFood': withFood,
-      'quantity': quantity,
-      'unit': unit,
+      'notificationsEnabled': notificationsEnabled, 
     };
   }
 }
