@@ -14,7 +14,7 @@ class IntroductionScreens extends StatefulWidget {
 }
 
 class _IntroductionScreensState extends State<IntroductionScreens> {
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
   bool isLastPage = false;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
             children: [Page1(), Page2(), Page3()],
           ),
           Container(
-            alignment: Alignment(0, 0.75),
+            alignment: const Alignment(0, 0.75),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -39,10 +39,10 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                   onPressed: () {
                     Get.off(() => Menu());
                   },
-                  child: const Text("Skip"),
+                  child: Text("introduction.skip".tr),
                 ),
                 SmoothPageIndicator(
-                  effect: ExpandingDotsEffect(dotWidth: 15),
+                  effect: const ExpandingDotsEffect(dotWidth: 15),
                   controller: _controller,
                   count: 3,
                 ),
@@ -51,7 +51,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                       onPressed: () {
                         Get.off(() => Menu());
                       },
-                      child: const Text("Done"),
+                      child: Text("introduction.done".tr),
                     )
                     : TextButton(
                       onPressed: () {
@@ -60,7 +60,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                           curve: Curves.easeIn,
                         );
                       },
-                      child: const Text("Next"),
+                      child: Text("introduction.next".tr),
                     ),
               ],
             ),

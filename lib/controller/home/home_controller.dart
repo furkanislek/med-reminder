@@ -12,8 +12,10 @@ class HomeController extends GetxController {
   final _allMedicines = <MedicineModel>[].obs;
   // Filtered list to be displayed in the UI
   var filteredMedicines = <MedicineModel>[].obs;
-  // Search query state
+  // Search query state for name
   var searchQuery = ''.obs;
+  // Selected drug type filter state
+  var selectedDrugType = ''.obs;
 
   @override
   void onInit() {
@@ -29,29 +31,49 @@ class HomeController extends GetxController {
           processedList.add(processedMed);
           _notificationService.scheduleMedicineNotifications(processedMed);
         }
+        // Sort by nextDoseTime, nulls (completed or far future) at the end
+        processedList.sort((a, b) {
+          if (a.isCompleted && !b.isCompleted) return 1;
+          if (!a.isCompleted && b.isCompleted) return -1;
+          if (a.nextDoseTime == null && b.nextDoseTime != null) return 1;
+          if (a.nextDoseTime != null && b.nextDoseTime == null) return -1;
+          if (a.nextDoseTime == null && b.nextDoseTime == null) return 0;
+          return a.nextDoseTime!.compareTo(b.nextDoseTime!);
+        });
         return processedList;
       }),
     );
 
     ever(_allMedicines, (_) => _filterMedicines());
     ever(searchQuery, (_) => _filterMedicines());
+    ever(
+      selectedDrugType,
+      (_) => _filterMedicines(),
+    ); // React to drug type changes
   }
 
   void updateSearchQuery(String query) {
     searchQuery.value = query;
   }
 
+  void updateDrugTypeFilter(String type) {
+    selectedDrugType.value = type;
+  }
+
   void _filterMedicines() {
     String query = searchQuery.value.toLowerCase();
-    if (query.isEmpty) {
-      filteredMedicines.assignAll(_allMedicines);
-    } else {
-      filteredMedicines.assignAll(
+    String typeFilter = selectedDrugType.value.toLowerCase();
+
+    List<MedicineModel> tempFilteredList =
         _allMedicines.where((medicine) {
-          return medicine.name.toLowerCase().contains(query);
-        }).toList(),
-      );
-    }
+          final nameMatches = medicine.name.toLowerCase().contains(query);
+          final typeMatches =
+              typeFilter.isEmpty ||
+              medicine.type.toLowerCase().contains(typeFilter);
+          return nameMatches && typeMatches;
+        }).toList();
+
+    filteredMedicines.assignAll(tempFilteredList);
   }
 
   MedicineModel _calculateNextDose(MedicineModel medicine) {
@@ -59,9 +81,10 @@ class HomeController extends GetxController {
     DateTime startDate = medicine.startDate.toDate();
     DateTime endDate = startDate.add(Duration(days: medicine.duration));
 
-    if (now.isAfter(endDate)) {
+    if (medicine.duration > 0 && now.isAfter(endDate)) {
+      // Check duration only if it's positive
       medicine.isCompleted = true;
-      medicine.nextDoseTime = null; 
+      medicine.nextDoseTime = null;
       return medicine;
     }
 
@@ -84,38 +107,54 @@ class HomeController extends GetxController {
           minute,
         );
 
-        if (doseTimeToday.isAfter(now)) {
+        // Consider doses from the start date onwards
+        if (doseTimeToday.isAfter(now) && !doseTimeToday.isBefore(startDate)) {
           nextDoseDateTime = doseTimeToday;
-          break; 
+          break;
         }
       } catch (e) {
         print("Error parsing dose time: $timeStr - $e");
       }
     }
 
+    // If no dose today, check for tomorrow and subsequent days within duration
     if (nextDoseDateTime == null && medicine.doseHours.isNotEmpty) {
-      try {
-        String firstTimeStr = medicine.doseHours.first;
-        List<String> parts = firstTimeStr.split(':');
-        int hour = int.parse(parts[0]);
-        int minute = int.parse(parts[1]);
+      for (int i = 1; i <= medicine.duration + 1; i++) {
+        // Check a bit beyond duration just in case
+        DateTime nextDay = DateTime(now.year, now.month, now.day + i);
+        if (medicine.duration > 0 &&
+            nextDay.isAfter(endDate.add(const Duration(days: 1))))
+          break; // Don't go too far beyond end date
 
-        DateTime firstDoseTomorrow = DateTime(
-          now.year,
-          now.month,
-          now.day + 1,
-          hour,
-          minute,
-        );
-        nextDoseDateTime = firstDoseTomorrow;
-      } catch (e) {
-        print(
-          "Error parsing first dose time for tomorrow: ${medicine.doseHours.first} - $e",
-        );
+        try {
+          String firstTimeStr = medicine.doseHours.first;
+          List<String> parts = firstTimeStr.split(':');
+          int hour = int.parse(parts[0]);
+          int minute = int.parse(parts[1]);
+
+          DateTime firstDoseNextDay = DateTime(
+            nextDay.year,
+            nextDay.month,
+            nextDay.day,
+            hour,
+            minute,
+          );
+
+          if (!firstDoseNextDay.isBefore(startDate)) {
+            nextDoseDateTime = firstDoseNextDay;
+            break;
+          }
+        } catch (e) {
+          print(
+            "Error parsing first dose time for day $i: ${medicine.doseHours.first} - $e",
+          );
+        }
       }
     }
 
-    if (nextDoseDateTime != null && nextDoseDateTime.isAfter(endDate)) {
+    if (nextDoseDateTime != null &&
+        medicine.duration > 0 &&
+        nextDoseDateTime.isAfter(endDate)) {
       medicine.isCompleted = true;
       medicine.nextDoseTime = null;
     } else {
@@ -123,5 +162,12 @@ class HomeController extends GetxController {
     }
 
     return medicine;
+  }
+
+  // Method to get unique drug types for the filter dropdown
+  List<String> getUniqueDrugTypes() {
+    final types = _allMedicines.map((m) => m.type).toSet().toList();
+    types.sort((a, b) => a.toLowerCase().compareTo(b.toLowerCase()));
+    return types;
   }
 }

@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   final HomeController controller = Get.find<HomeController>();
   final DataService dataService = Get.find<DataService>();
 
-  HomeScreen({super.key}); // Added Key constructor
+  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +18,50 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        title: Text('home.title'.tr), // Localized title
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.filter_list, color: Colors.grey),
-            onPressed: () {
-              // TODO: Implement filter action
-            },
-          ),
+          Obx(() {
+            // Only show filter if there are types to filter by
+            if (controller.getUniqueDrugTypes().isNotEmpty &&
+                controller.getUniqueDrugTypes().length > 1) {
+              return PopupMenuButton<String>(
+                icon: const Icon(Icons.filter_list, color: Colors.grey),
+                onSelected: (String type) {
+                  controller.updateDrugTypeFilter(
+                    type == 'all_types_filter_key'.tr ? '' : type,
+                  );
+                },
+                itemBuilder: (BuildContext context) {
+                  List<PopupMenuItem<String>> items = [];
+                  items.add(
+                    PopupMenuItem<String>(
+                      value:
+                          'all_types_filter_key'
+                              .tr, // Use a distinct value for 'All Types'
+                      child: Text(
+                        'filter.allTypes'.tr,
+                      ), // Localized 'All Types'
+                    ),
+                  );
+                  items.addAll(
+                    controller.getUniqueDrugTypes().map((String type) {
+                      return PopupMenuItem<String>(
+                        value: type,
+                        child: Text(
+                          type.isNotEmpty ? type : 'filter.uncategorized'.tr,
+                        ), // Handle empty type names
+                      );
+                    }).toList(),
+                  );
+                  return items;
+                },
+              );
+            } else {
+              return Container(); // Return empty container if no types or only one type
+            }
+          }),
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: CircleAvatar(
@@ -46,7 +80,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 10),
             TextField(
               decoration: InputDecoration(
-                hintText: 'Search Medicines...',
+                hintText: 'filter.searchHint'.tr, // Localized hint text
                 prefixIcon: const Icon(Icons.search, color: Colors.grey),
                 filled: true,
                 fillColor: Colors.grey[100],
@@ -64,12 +98,11 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             const SizedBox(height: 20),
-            // Add Medicine Button
             ElevatedButton.icon(
               icon: const Icon(Icons.add, color: Colors.white),
-              label: const Text(
-                'Add Medicine',
-                style: TextStyle(color: Colors.white),
+              label: Text(
+                'home.addMedicine'.tr, // Localized button text
+                style: const TextStyle(color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.redAccent,
@@ -84,7 +117,6 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             const SizedBox(height: 20),
-            // Use the new MedicineListView component
             Expanded(child: MedicineListView(controller: controller)),
           ],
         ),

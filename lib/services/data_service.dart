@@ -34,7 +34,7 @@ class DataService {
         'doseHours': doseHours,
         'duration': duration,
         'withFood': withFood,
-        'notificationsEnabled': notificationsEnabled, 
+        'notificationsEnabled': notificationsEnabled,
         'createdAt': FieldValue.serverTimestamp(),
         'uid': user.uid,
       };
@@ -46,7 +46,48 @@ class DataService {
           .add(medicineData);
     } catch (e) {
       print("saveMedicine error: $e");
-      rethrow; 
+      rethrow;
+    }
+  }
+
+  Future<void> updateMedicine({
+    required String medicineId,
+    required String name,
+    required String type,
+    required int dosageQuantity,
+    required String dosageUnit,
+    required List<String> doseHours,
+    required int duration,
+    required String withFood,
+    required bool notificationsEnabled,
+  }) async {
+    try {
+      User? user = _firebaseAuth.currentUser;
+      if (user == null) throw Exception("User Not Found!");
+
+      doseHours.sort();
+
+      Map<String, dynamic> updatedMedicineData = {
+        'name': name,
+        'types': type,
+        'quantity': dosageQuantity,
+        'unit': dosageUnit,
+        'doseHours': doseHours,
+        'duration': duration,
+        'withFood': withFood,
+        'notificationsEnabled': notificationsEnabled,
+        'updatedAt': FieldValue.serverTimestamp(), // Add an updatedAt timestamp
+      };
+
+      await _firestore
+          .collection('users')
+          .doc(user.uid)
+          .collection('medicines')
+          .doc(medicineId)
+          .update(updatedMedicineData);
+    } catch (e) {
+      print("updateMedicine error for $medicineId: $e");
+      rethrow;
     }
   }
 
@@ -77,7 +118,7 @@ class DataService {
               })
               .where((model) => model != null)
               .cast<MedicineModel>()
-              .toList(); 
+              .toList();
         });
   }
 
@@ -98,3 +139,4 @@ class DataService {
     }
   }
 }
+
