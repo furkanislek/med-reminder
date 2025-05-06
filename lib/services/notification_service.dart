@@ -28,21 +28,24 @@ class NotificationService {
   Future<void> init() async {
     print("NotificationService: Initializing...");
     tz.initializeTimeZones();
-    final String currentTimeZone = await tz.local.name;
-    print("NotificationService: Current timezone: $currentTimeZone");
+    try {
+      final String currentTimeZone = await tz.local.name;
+      print("NotificationService: Current timezone: $currentTimeZone");
+    } catch (e) {
+      print("NotificationService: Error fetching local timezone name: $e");
+    }
 
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings(
           '@mipmap/ic_launcher', // Ensure this icon exists
         );
 
-    // Removed onDidReceiveLocalNotification for compatibility with user's plugin version
     final DarwinInitializationSettings
     initializationSettingsIOS = DarwinInitializationSettings(
       requestAlertPermission: false, // Permissions will be requested explicitly
       requestBadgePermission: false,
       requestSoundPermission: false,
-      // onDidReceiveLocalNotification: onDidReceiveLocalNotification, // Removed due to user-reported error
+      // onDidReceiveLocalNotification: onDidReceiveLocalNotification, // Removed due to user-reported error in original code
     );
 
     final InitializationSettings initializationSettings =
@@ -59,7 +62,7 @@ class NotificationService {
         ) async {
           final String? payload = notificationResponse.payload;
           print('NotificationService: Notification tapped. Payload: $payload');
-          // Handle notification tap
+          // Handle notification tap, e.g., navigate to a specific screen
         },
         onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
       );
@@ -75,20 +78,6 @@ class NotificationService {
     await _requestPermissions();
   }
 
-  // This function might not be called if onDidReceiveLocalNotification is removed from DarwinInitializationSettings.
-  // It's kept here for now in case it's used elsewhere or if a different iOS initialization is needed for older versions.
-  void onDidReceiveLocalNotification(
-    int id,
-    String? title,
-    String? body,
-    String? payload,
-  ) async {
-    print(
-      'NotificationService: onDidReceiveLocalNotification: id=$id, title=$title, payload=$payload',
-    );
-    // Display a dialog or handle the notification
-  }
-
   Future<void> _requestPermissions() async {
     print("NotificationService: Requesting permissions...");
     if (Platform.isIOS) {
@@ -98,6 +87,11 @@ class NotificationService {
           >()
           ?.requestPermissions(alert: true, badge: true, sound: true);
       print("NotificationService: iOS permission request result: $result");
+      if (result == false) {
+        print(
+          "NotificationService: WARNING - iOS notification permissions denied.",
+        );
+      }
     } else if (Platform.isAndroid) {
       final AndroidFlutterLocalNotificationsPlugin? androidImplementation =
           flutterLocalNotificationsPlugin
@@ -105,22 +99,49 @@ class NotificationService {
                 AndroidFlutterLocalNotificationsPlugin
               >();
 
-      bool? notificationPermissionGranted =
-          await androidImplementation?.requestNotificationsPermission();
-      print(
-        "NotificationService: Android notification permission granted: $notificationPermissionGranted",
-      );
+      // Request notification permission (POST_NOTIFICATIONS for Android 13+)
+      bool? notificationPermissionGranted;
+      try {
+        notificationPermissionGranted =
+            await androidImplementation?.requestNotificationsPermission();
+        print(
+          "NotificationService: Android notification permission request result: $notificationPermissionGranted",
+        );
+        if (notificationPermissionGranted == false) {
+          print(
+            "NotificationService: CRITICAL - Android notification permission denied by user.",
+          );
+        }
+      } catch (e) {
+        print(
+          "NotificationService: Error requesting notification permission: $e",
+        );
+      }
 
-      bool? exactAlarmPermissionGranted =
-          await androidImplementation?.requestExactAlarmsPermission();
-      print(
-        "NotificationService: Android exact alarm permission granted: $exactAlarmPermissionGranted",
-      );
+      // Request exact alarm permission (SCHEDULE_EXACT_ALARM / USE_EXACT_ALARM)
+      // This is crucial for reliable timed notifications, especially on Android 12+
+      bool? exactAlarmPermissionGranted;
+      try {
+        exactAlarmPermissionGranted =
+            await androidImplementation?.requestExactAlarmsPermission();
+        print(
+          "NotificationService: Android exact alarm permission request result: $exactAlarmPermissionGranted",
+        );
+        if (exactAlarmPermissionGranted == false) {
+          print(
+            "NotificationService: WARNING - Android exact alarm permission may not be granted. This can severely affect scheduled notifications. User might need to grant it manually in app settings.",
+          );
+        }
+      } catch (e) {
+        print(
+          "NotificationService: Error requesting exact alarm permission: $e",
+        );
+      }
 
       if (notificationPermissionGranted == false ||
           exactAlarmPermissionGranted == false) {
         print(
-          "NotificationService: One or more critical permissions denied on Android.",
+          "NotificationService: One or more critical permissions denied or not fully granted on Android. Notifications may not work reliably.",
         );
       }
     }
@@ -134,7 +155,9 @@ class NotificationService {
       "NotificationService: Medicine details: notificationsEnabled=${medicine.notificationsEnabled}, isCompleted=${medicine.isCompleted}, duration=${medicine.duration} days, doseHours=${medicine.doseHours}",
     );
 
-    await cancelMedicineNotifications(medicine.id);
+    await cancelMedicineNotifications(
+      medicine.id.toString(),
+    ); // Ensure medicine.id is string
 
     if (!medicine.notificationsEnabled || medicine.isCompleted) {
       print(
@@ -143,27 +166,30 @@ class NotificationService {
       return;
     }
 
-    final DateTime startDate = medicine.startDate.toDate();
+    final DateTime startDateFromModel = medicine.startDate.toDate();
     print(
-      "NotificationService: Medicine start date (from model, potentially UTC): $startDate",
+      "NotificationService: Medicine start date (from model, potentially UTC): $startDateFromModel",
     );
-
-    final DateTime endDate = startDate.add(Duration(days: medicine.duration));
+    final DateTime endDate = startDateFromModel.add(
+      Duration(days: medicine.duration),
+    );
     print("NotificationService: Medicine end date (calculated): $endDate");
 
     final String medicineName = medicine.name;
     final String dosageInfo =
         "${medicine.dosageQuantity} ${medicine.dosageUnit}";
 
-    int baseId = (medicine.id.hashCode % 2000000000).abs();
+    String medIdStr =
+        medicine.id is String ? medicine.id : medicine.id.toString();
+    int baseId = (medIdStr.hashCode % 2000000000).abs();
     int notificationIdCounter = baseId;
 
     print(
-      "NotificationService: Scheduling notifications for ${medicine.name} (ID: ${medicine.id}, Base Notification ID: $baseId). StartDate (local interpretation of model's date): ${tz.TZDateTime.from(startDate, tz.local)}",
+      "NotificationService: Scheduling for ${medicine.name} (ID: ${medicine.id}, Base Notification ID: $baseId). StartDate (model): $startDateFromModel",
     );
 
     for (int day = 0; day < medicine.duration; day++) {
-      DateTime currentDayBase = startDate.add(Duration(days: day));
+      DateTime currentDayBase = startDateFromModel.add(Duration(days: day));
 
       for (String timeStr in medicine.doseHours) {
         print(
@@ -184,9 +210,7 @@ class NotificationService {
             currentDayBase,
             tz.local,
           );
-          print("-----------------------------");
-          print(currentDayInLocalTz);
-          print("-----------------------------");
+
           tz.TZDateTime doseDateTimeInLocalTz = tz.TZDateTime(
             tz.local,
             currentDayInLocalTz.year,
@@ -209,118 +233,118 @@ class NotificationService {
             endDate,
             tz.local,
           );
+          tz.TZDateTime nowInLocalTz = tz.TZDateTime.now(tz.local);
 
-          if (notificationDateTimeInLocalTz.isAfter(
-                tz.TZDateTime.now(tz.local),
-              ) &&
+          if (notificationDateTimeInLocalTz.isAfter(nowInLocalTz) &&
               notificationDateTimeInLocalTz.isBefore(endDateInLocalTz)) {
             print(
-              "NotificationService: Scheduling notification ID $notificationIdCounter for $medicineName at $notificationDateTimeInLocalTz",
+              "NotificationService: Scheduling notification ID $notificationIdCounter for $medicineName at $notificationDateTimeInLocalTz (Device local time)",
             );
-
-            await flutterLocalNotificationsPlugin.zonedSchedule(
-              notificationIdCounter++,
-              'Time for your medicine!',
-              'Take your $dosageInfo of $medicineName now.',
-              notificationDateTimeInLocalTz,
-              const NotificationDetails(
-                android: AndroidNotificationDetails(
-                  'medicine_channel_id',
-                  'Medicine Reminders',
-                  channelDescription: 'Notifications for medicine doses',
-                  importance: Importance.max,
-                  priority: Priority.high,
-                  ticker: 'ticker',
-                  playSound: true,
+            try {
+              await flutterLocalNotificationsPlugin.zonedSchedule(
+                notificationIdCounter,
+                'Time for your medicine!',
+                'Take your $dosageInfo of $medicineName now. $endDateInLocalTz $notificationDateTimeInLocalTz',
+                notificationDateTimeInLocalTz,
+                const NotificationDetails(
+                  android: AndroidNotificationDetails(
+                    'medicine_channel_id',
+                    'Medicine Reminders',
+                    channelDescription: 'Notifications for medicine doses',
+                    importance: Importance.max,
+                    priority: Priority.high,
+                    ticker: 'ticker',
+                    playSound: true,
+                  ),
+                  iOS: DarwinNotificationDetails(
+                    presentAlert: true,
+                    presentBadge: true,
+                    presentSound: true,
+                  ),
                 ),
-                iOS: DarwinNotificationDetails(
-                  presentAlert: true,
-                  presentBadge: true,
-                  presentSound: true,
-                ),
-              ),
-              androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-              matchDateTimeComponents: DateTimeComponents.dateAndTime,
-              payload:
-                  'medicineId=${medicine.id}&doseTime=$doseDateTimeInLocalTz',
-            );
-            print(
-              "NotificationService: Successfully scheduled notification ID ${notificationIdCounter - 1} for $medicineName at $notificationDateTimeInLocalTz",
-            );
+                androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+                matchDateTimeComponents: DateTimeComponents.dateAndTime,
+                payload:
+                    'medicineId=${medicine.id}&doseTime=$doseDateTimeInLocalTz',
+              );
+              print(
+                "NotificationService: Successfully scheduled notification ID $notificationIdCounter for $medicineName at $notificationDateTimeInLocalTz",
+              );
+            } catch (e) {
+              print(
+                "NotificationService: ERROR scheduling notification ID $notificationIdCounter for $medicineName. Error: $e",
+              );
+            }
+            notificationIdCounter++;
           } else {
             print(
-              "NotificationService: Skipping schedule for $medicineName at $notificationDateTimeInLocalTz. Reason: " +
-                  (notificationDateTimeInLocalTz.isBefore(
-                        tz.TZDateTime.now(tz.local),
-                      )
-                      ? "Time is in the past."
-                      : "Time is after end date.") +
-                  " Now: ${tz.TZDateTime.now(tz.local)}, EndDate: $endDateInLocalTz",
+              "NotificationService: SKIPPING notification ID $notificationIdCounter for $medicineName. Calculated time $notificationDateTimeInLocalTz is in the past ($nowInLocalTz) or after medicine end date $endDateInLocalTz.",
             );
           }
-        } catch (e, s) {
+        } catch (e) {
           print(
-            "NotificationService: Error scheduling notification for $medicineName at $timeStr on day $day: $e\nStackTrace: $s",
+            "NotificationService: Error processing dose time $timeStr for ${medicine.name} on day $day. Error: $e. Skipping this dose.",
           );
         }
       }
-      if (notificationIdCounter > baseId + 500) {
-        print(
-          "NotificationService: Reached notification scheduling limit (500) for ${medicine.name}. Stopping further scheduling for this medicine.",
-        );
-        break;
-      }
     }
     print(
-      "NotificationService: Finished scheduling attempt for ${medicine.name}. Last potential ID: ${notificationIdCounter - 1}. Total scheduled for this run might be less due to past/future checks.",
+      "NotificationService: Finished scheduling attempts for ${medicine.name}.",
     );
   }
 
   Future<void> cancelMedicineNotifications(String medicineId) async {
-    int baseId = (medicineId.hashCode % 2000000000).abs();
-    int cancellationRange = 550;
     print(
-      "NotificationService: Cancelling notifications for medicine ID: $medicineId (Base Notification ID: $baseId, Range: $cancellationRange)",
+      "NotificationService: Attempting to cancel notifications for medicine ID: $medicineId",
     );
-    for (int i = 0; i < cancellationRange; i++) {
+    String medIdStr =
+        medicineId; // Already ensured it's a string in scheduleMedicineNotifications
+    int baseId = (medIdStr.hashCode % 2000000000).abs();
+    int maxNotificationsToCancel = 200;
+    int cancelledCount = 0;
+    for (int i = 0; i < maxNotificationsToCancel; i++) {
       try {
         await flutterLocalNotificationsPlugin.cancel(baseId + i);
+        cancelledCount++;
       } catch (e) {
-        if (kDebugMode) {
-          // print("NotificationService: Minor error cancelling notification ID ${baseId + i} (may not exist): $e");
-        }
+        // print("NotificationService: Error cancelling notification ID ${baseId + i}: $e");
       }
     }
     print(
-      "NotificationService: Finished cancelling potential notifications for medicine ID: $medicineId",
+      "NotificationService: Attempted to cancel $cancelledCount notifications starting from base ID $baseId for medicine ID: $medicineId. Some IDs may not have existed.",
     );
   }
 
   Future<void> cancelAllNotifications() async {
-    print("NotificationService: Cancelling ALL notifications.");
-    await flutterLocalNotificationsPlugin.cancelAll();
-    print("NotificationService: ALL notifications cancelled.");
+    print("NotificationService: Cancelling all scheduled notifications.");
+    try {
+      await flutterLocalNotificationsPlugin.cancelAll();
+      print("NotificationService: All notifications cancelled successfully.");
+    } catch (e) {
+      print("NotificationService: Error cancelling all notifications: $e");
+    }
   }
 
+  // Added method to address the build error
   Future<void> checkPendingNotifications() async {
-    if (kDebugMode) {
-      try {
-        final List<PendingNotificationRequest> pendingNotifications =
-            await flutterLocalNotificationsPlugin.pendingNotificationRequests();
+    print("NotificationService: Checking pending notification requests...");
+    try {
+      final List<PendingNotificationRequest> pendingRequests =
+          await flutterLocalNotificationsPlugin.pendingNotificationRequests();
+      if (pendingRequests.isEmpty) {
+        print("NotificationService: No pending notification requests.");
+      } else {
         print(
-          'NotificationService: Number of pending notifications: ${pendingNotifications.length}',
+          "NotificationService: Found ${pendingRequests.length} pending notification(s):",
         );
-        for (PendingNotificationRequest pnr in pendingNotifications) {
+        for (PendingNotificationRequest request in pendingRequests) {
           print(
-            'NotificationService: Pending ID: ${pnr.id}, Title: ${pnr.title}, Body: ${pnr.body}, Payload: ${pnr.payload}',
+            "  ID: ${request.id}, Title: ${request.title}, Body: ${request.body}, Payload: ${request.payload}",
           );
         }
-        if (pendingNotifications.isEmpty) {
-          print('NotificationService: No pending notifications found.');
-        }
-      } catch (e) {
-        print('NotificationService: Error fetching pending notifications: $e');
       }
+    } catch (e) {
+      print("NotificationService: Error checking pending notifications: $e");
     }
   }
 }
