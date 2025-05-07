@@ -16,7 +16,7 @@ class Menu extends StatelessWidget {
   final List<Widget> pages = [
     HomeScreen(), // İlaç hatırlatıcı özet
     AddPillScreen(), // İlaç hatırlatıcı özet
-    CalendarScreen(), // İlaç hatırlatıcı özet
+    BlogsScreen(), // İlaç hatırlatıcı özet
     ProfileScreen(), // İlaç hatırlatıcı özet
     //Diğer sayfaları da yaz
   ];
@@ -47,7 +47,7 @@ class Menu extends StatelessWidget {
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month),
+              icon: Icon(Icons.my_library_books),
               label: '',
             ),
             BottomNavigationBarItem(
