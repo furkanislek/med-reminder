@@ -60,14 +60,45 @@ const Map<String, String> trTR = {
   "addMedicine.endDateLabel": "Bitiş Tarihi (İsteğe bağlı)",
   "addMedicine.selectDate": "Tarih Seç",
   "addMedicine.selectTime": "Saat Seç",
-  "addMedicine.timesLabel": "Günlük Doz Sayısı", // Updated from "Saatler"
+  "addMedicine.timesLabel": "Günlük Doz Sayısı",
   "addMedicine.addTime": "Saat Ekle",
   "addMedicine.notesLabel":
-      "Ek Notlar (İsteğe bağlı)", // Updated from "Notlar (İsteğe bağlı)"
+      "Ek Notlar (İsteğe bağlı)", 
   "addMedicine.notesHint":
-      "Örn: Serin yerde saklayın", // Updated from "Örn: Yemekle birlikte alın"
+      "Örn: Serin yerde saklayın", 
   "addMedicine.enableNotificationsLabel": "Doz Hatırlatıcılarını Etkinleştir",
   "addMedicine.errorNumeric": "Lütfen geçerli bir sayı girin",
+  "addMedicine.addMedicine": "İlaç Ekle",
+  "addMedicine.save": "Kaydet",
+  "addMedicine.name": "İlaç Adı",
+  "addMedicine.addMedicineHint": "İlaç Adı (Örn: Parasetamol)",
+  "addMedicine.dosage": "Doz",
+  "addMedicine.dosageHint2": "Miktar (Örn: 500)",
+  "addMedicine.dosageUnit": "Birim (Örn: mg)",
+  "addMedicine.category": "Kategori",
+  "addMedicine.frequency": "Sıklık & Süre",
+  "addMedicine.selectDoseTimes": "Saat Seç",
+  "addMedicine.times": "Defa Seçildi",
+  "addMedicine.selectDuration": "Süre Seç",
+  "addMedicine.days": "Gün",
+  "addMedicine.whenToTake": "Alınma Zamanı",
+  "addMedicine.beforeFood": "Yemekten Önce",
+  "addMedicine.afterFood": "Yemekten Sonra",
+  "addMedicine.notifications": "Hatırlatıcılar",
+  "addMedicine.enableNotifications": "Doz Hatırlatıcılarını Etkinleştir",
+  "addMedicine.receiveNotification": "Her doz için 5 dakika önce bildirim alın",
+  "addMedicine.timesSelected": "Defa Seçildi",
+  "addMedicine.notificationsLabel": "Hatırlatıcılar",
+  "addMedicine.enableDoseReminders": "Doz Hatırlatıcılarını Etkinleştir",
+  "addMedicine.remindersSubtext": "Her doz için 5 dakika önce bildirim alın",
+  'addMedicine.frequencyDurationLabel': 'Sıklık & Süre',
+  'addMedicine.selectDoseTimesPlaceholder': 'Saat Seç',
+  'addMedicine.doseTimesBottomSheetTitle': 'Saat Seç',
+  'addMedicine.timesSelectedInfo': '{count} defa seçildi',
+  'addMedicine.selectDurationPlaceholder': 'Süre Seç',
+  'addMedicine.durationSelectedInfo': '{count} gün',
+  'addMedicine.whenToTakeLabelText': 'Alınma Zamanı',
+  
 
   // Medicine Controller Messages
   "medicine.addSuccess": "İlaç başarıyla eklendi.",
@@ -107,5 +138,13 @@ const Map<String, String> trTR = {
   "card.frequency.thriceDaily": "Günde üç kez",
   "card.frequency.timesDaily": "Günde {count} kez",
 
-  // Gerektiğinde diğer ayar anahtarlarını ekleyin
+  // Profil Sayfası
+  "personal_info": "Kişisel Bilgiler",
+  "preferences": "Tercihler",
+  "about_app": "Uygulama Hakkında",
+  "app_version": "Uygulama Versiyonu",
+  "privacy_policy": "Gizlilik Politikası",
+  "developer": "Geliştirici: Furkan Akif İŞLEK",
+  "noEmail": "E-posta bulunamadı",
+  "version.number": "1.0.0",
 };

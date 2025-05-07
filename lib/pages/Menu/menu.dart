@@ -14,11 +14,10 @@ class Menu extends StatelessWidget {
   );
 
   final List<Widget> pages = [
-    HomeScreen(), // İlaç hatırlatıcı özet
-    AddPillScreen(), // İlaç hatırlatıcı özet
-    BlogsScreen(), // İlaç hatırlatıcı özet
-    ProfileScreen(), // İlaç hatırlatıcı özet
-    //Diğer sayfaları da yaz
+    HomeScreen(), 
+    AddPillScreen(), 
+    BlogsScreen(), 
+    ProfileScreen(), 
   ];
 
   final List<String> titles = [

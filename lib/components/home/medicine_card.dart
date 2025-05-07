@@ -167,15 +167,10 @@ class MedicineCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: SvgPicture.asset(
-                  'assets/svg/${medicine.type.toLowerCase().replaceAll(' ', '_')}.svg', // Sanitize type for asset name
+                  'assets/svg/${medicine.type.toLowerCase().replaceAll(' ', '_')}.svg', 
                   width: 50,
                   height: 50,
                   fit: BoxFit.cover,
-                  // ignore: deprecated_member_use
-                  color:
-                      medicine.isCompleted
-                          ? Colors.grey
-                          : null, // Grey out if completed
                   colorBlendMode:
                       medicine.isCompleted
                           ? BlendMode.saturation

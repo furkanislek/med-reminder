@@ -5,6 +5,7 @@ import 'package:mr/components/home/medicine_card.dart';
 import 'package:mr/controller/home/home_controller.dart';
 import 'package:mr/pages/AddPill/add_pill.dart';
 import 'package:mr/services/data_service.dart';
+import 'package:mr/services/services.dart';
 
 class HomeScreen extends StatelessWidget {
   final HomeController controller = Get.find<HomeController>();
@@ -78,6 +79,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 10),
+            TextButton(onPressed: (){Auth().signOut();}, child: Text("logout".tr)),
             TextField(
               decoration: InputDecoration(
                 hintText: 'filter.searchHint'.tr, // Localized hint text

@@ -8,16 +8,20 @@ import 'package:mr/services/notification_service.dart'; // Import NotificationSe
 class DataServiceController extends GetxController {
   // Input fields observables
   var name = ''.obs;
-  var types = ''.obs; // This observable name can remain, but when interacting with MedicineModel, use 'type'
+  var types =
+      ''.obs; // This observable name can remain, but when interacting with MedicineModel, use 'type'
   var dosageQuantity = 0.obs;
   var dosageUnit = ''.obs;
   var duration = 0.obs;
   var withFood = ''.obs;
-  var notifications = <TimeOfDay>[].obs; // Stores selected TimeOfDay for dose times
-  var notificationsEnabled = true.obs; // New observable for notification toggle, default true
+  var notifications =
+      <TimeOfDay>[].obs; // Stores selected TimeOfDay for dose times
+  var notificationsEnabled =
+      true.obs; // New observable for notification toggle, default true
 
   final DataService dataService = Get.find<DataService>();
-  final NotificationService notificationService = Get.find<NotificationService>(); // Find NotificationService
+  final NotificationService notificationService =
+      Get.find<NotificationService>(); // Find NotificationService
 
   @override
   void onInit() {
@@ -30,23 +34,36 @@ class DataServiceController extends GetxController {
   void loadMedicineForUpdate(MedicineModel medicine) {
     name.value = medicine.name;
     types.value = medicine.type; // Corrected: medicine.type
-    dosageQuantity.value = medicine.dosageQuantity; // Corrected: medicine.dosageQuantity
+    dosageQuantity.value =
+        medicine.dosageQuantity; // Corrected: medicine.dosageQuantity
     dosageUnit.value = medicine.dosageUnit; // Corrected: medicine.dosageUnit
     duration.value = medicine.duration;
     withFood.value = medicine.withFood;
     notificationsEnabled.value = medicine.notificationsEnabled;
-    notifications.assignAll(medicine.doseHours.map((timeStr) {
-      final parts = timeStr.split(':');
-      return TimeOfDay(hour: int.parse(parts[0]), minute: int.parse(parts[1]));
-    }).toList());
+    notifications.assignAll(
+      medicine.doseHours.map((timeStr) {
+        final parts = timeStr.split(':');
+        return TimeOfDay(
+          hour: int.parse(parts[0]),
+          minute: int.parse(parts[1]),
+        );
+      }).toList(),
+    );
   }
 
   Future<void> saveMedicineData() async {
-    List<String> doseHoursList = notifications.map((time) {
-      final now = DateTime.now();
-      final dt = DateTime(now.year, now.month, now.day, time.hour, time.minute);
-      return DateFormat('HH:mm').format(dt);
-    }).toList();
+    List<String> doseHoursList =
+        notifications.map((time) {
+          final now = DateTime.now();
+          final dt = DateTime(
+            now.year,
+            now.month,
+            now.day,
+            time.hour,
+            time.minute,
+          );
+          return DateFormat('HH:mm').format(dt);
+        }).toList();
     doseHoursList.sort();
 
     if (name.value.isEmpty ||
@@ -56,15 +73,21 @@ class DataServiceController extends GetxController {
         doseHoursList.isEmpty ||
         duration.value <= 0 ||
         withFood.value.isEmpty) {
-      Get.snackbar('Error', 'Please fill all required fields correctly.',
-          snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.red, colorText: Colors.white);
+      Get.snackbar(
+        'Error',
+        'Please fill all required fields correctly.',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
       return;
     }
 
     try {
       await dataService.saveMedicine(
         name: name.value,
-        type: types.value, // This is passed to DataService, which expects 'type'
+        type:
+            types.value, // This is passed to DataService, which expects 'type'
         dosageQuantity: dosageQuantity.value,
         dosageUnit: dosageUnit.value,
         doseHours: doseHoursList,
@@ -72,22 +95,38 @@ class DataServiceController extends GetxController {
         withFood: withFood.value,
         notificationsEnabled: notificationsEnabled.value,
       );
-      resetForm();
-      Get.snackbar('Success', 'Medicine saved successfully!',
-          snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.green, colorText: Colors.white);
+      Get.snackbar(
+        'Success',
+        'Medicine saved successfully!',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.green,
+        colorText: Colors.white,
+      );
     } catch (e) {
       print("saveMedicineData error: $e");
-      Get.snackbar('Error', 'Failed to save medicine: ${e.toString()}',
-          snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.red, colorText: Colors.white);
+      Get.snackbar(
+        'Error',
+        'Failed to save medicine: ${e.toString()}',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
     }
   }
 
   Future<void> updateMedicineData(String medicineId) async {
-    List<String> doseHoursList = notifications.map((time) {
-      final now = DateTime.now();
-      final dt = DateTime(now.year, now.month, now.day, time.hour, time.minute);
-      return DateFormat('HH:mm').format(dt);
-    }).toList();
+    List<String> doseHoursList =
+        notifications.map((time) {
+          final now = DateTime.now();
+          final dt = DateTime(
+            now.year,
+            now.month,
+            now.day,
+            time.hour,
+            time.minute,
+          );
+          return DateFormat('HH:mm').format(dt);
+        }).toList();
     doseHoursList.sort();
 
     if (name.value.isEmpty ||
@@ -97,8 +136,13 @@ class DataServiceController extends GetxController {
         doseHoursList.isEmpty ||
         duration.value <= 0 ||
         withFood.value.isEmpty) {
-      Get.snackbar('Error', 'Please fill all required fields correctly for update.',
-          snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.red, colorText: Colors.white);
+      Get.snackbar(
+        'Error',
+        'Please fill all required fields correctly for update.',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
       return;
     }
 
@@ -114,13 +158,47 @@ class DataServiceController extends GetxController {
         withFood: withFood.value,
         notificationsEnabled: notificationsEnabled.value,
       );
+      resetForm();
       Get.back(); // Go back after successful update
-      Get.snackbar('Success', 'Medicine updated successfully!',
-          snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.green, colorText: Colors.white);
+      Get.snackbar(
+        'Success',
+        'Medicine updated successfully!',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.green,
+        colorText: Colors.white,
+      );
     } catch (e) {
       print("updateMedicineData error for $medicineId: $e");
-      Get.snackbar('Error', 'Failed to update medicine: ${e.toString()}',
-          snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.red, colorText: Colors.white);
+      Get.snackbar(
+        'Error',
+        'Failed to update medicine: ${e.toString()}',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
+    }
+  }
+
+  Future<void> deleteMedicineData(String medicineId) async {
+    try {
+      await dataService.deleteMedicine(medicineId);
+      await notificationService.cancelMedicineNotifications(medicineId);
+      Get.snackbar(
+        'Başarılı',
+        'İlaç başarıyla silindi!',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.green,
+        colorText: Colors.white,
+      );
+    } catch (e) {
+      print("deleteMedicineData error for $medicineId: $e");
+      Get.snackbar(
+        'Hata',
+        'İlaç silinirken hata oluştu: ${e.toString()}',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
     }
   }
 
@@ -135,4 +213,3 @@ class DataServiceController extends GetxController {
     notificationsEnabled.value = true;
   }
 }
-

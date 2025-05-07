@@ -107,10 +107,7 @@ class DataService {
           return snapshot.docs
               .map((doc) {
                 try {
-                  return MedicineModel.fromMap(
-                    doc.id,
-                    doc.data(),
-                  );
+                  return MedicineModel.fromMap(doc.id, doc.data());
                 } catch (e) {
                   print("Error parsing medicine doc ${doc.id}: $e");
                   return null;
@@ -138,5 +135,21 @@ class DataService {
       rethrow;
     }
   }
-}
 
+  Future<void> deleteMedicine(String medicineId) async {
+    try {
+      User? user = _firebaseAuth.currentUser;
+      if (user == null) throw Exception("User Not Found!");
+
+      await _firestore
+          .collection('users')
+          .doc(user.uid)
+          .collection('medicines')
+          .doc(medicineId)
+          .delete();
+    } catch (e) {
+      print("deleteMedicine error for $medicineId: $e");
+      rethrow;
+    }
+  }
+}

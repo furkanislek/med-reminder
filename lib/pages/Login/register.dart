@@ -5,6 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 
 class RegisterController extends GetxController {
   final TextEditingController emailController = TextEditingController();
@@ -17,6 +19,7 @@ class RegisterController extends GetxController {
   var isPasswordVisible = false.obs;
   var isConfirmPasswordVisible = false.obs;
   var errorMessage = ''.obs;
+  var selectedImage = Rx<File?>(null);
 
   Future<void> registerUser() async {
     if (passwordController.text != confirmPasswordController.text) {
@@ -50,6 +53,14 @@ class RegisterController extends GetxController {
 
   void toggleConfirmPasswordVisibility() {
     isConfirmPasswordVisible.value = !isConfirmPasswordVisible.value;
+  }
+
+  Future<void> pickImage() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      selectedImage.value = File(image.path);
+    }
   }
 }
 
@@ -99,7 +110,7 @@ class Register extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: "Sign In",
-                        style: TextStyle(color: const Color(0xFF8256DF)),
+                        style: TextStyle(color: const Color(0xFF0996C7)),
                       ),
                     ],
                   ),
@@ -130,6 +141,7 @@ class Register extends StatelessWidget {
                 height,
               ),
               SizedBox(height: height / 60),
+
               _buildPasswordField(
                 controller.passwordController,
                 "Type your password",
@@ -145,6 +157,7 @@ class Register extends StatelessWidget {
                 controller.toggleConfirmPasswordVisibility,
                 height,
               ),
+              SizedBox(height: height / 60),
               Obx(
                 () =>
                     controller.errorMessage.isNotEmpty
@@ -157,13 +170,29 @@ class Register extends StatelessWidget {
                         )
                         : const SizedBox.shrink(),
               ),
+              GestureDetector(
+                onTap: () => controller.pickImage(),
+                child: Obx(
+                  () =>
+                      controller.selectedImage.value != null
+                          ? Image.file(
+                            controller.selectedImage.value!,
+                            height: height / 6,
+                          )
+                          : Icon(
+                            Icons.add_a_photo,
+                            size: height / 6,
+                            color: Colors.grey,
+                          ),
+                ),
+              ),
               SizedBox(height: height / 30),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () => controller.registerUser(),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF8256DF),
+                    backgroundColor: const Color(0xFF0996C7),
                     padding: EdgeInsets.symmetric(
                       vertical: height / 56,
                       horizontal: width / 4,
