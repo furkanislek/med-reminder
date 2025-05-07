@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mr/controller/menu/bottom_navigator.dart';
 import 'package:mr/pages/AddPill/add_pill.dart';
-import 'package:mr/pages/Calendar/calendar.dart';
+import 'package:mr/pages/Blogs/blogs.dart';
 import 'package:mr/pages/Home/home.dart';
 import 'package:mr/pages/Profile/profile.dart';
 

@@ -534,7 +534,7 @@ class AddPillScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                "Select Duration (in days)",
+                "addMedicine.durationPickerTitle".tr,
                 style: Get.textTheme.titleLarge,
               ),
             ),
