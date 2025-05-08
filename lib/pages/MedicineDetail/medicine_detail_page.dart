@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mr/models/medicine_model.dart';
 import 'package:mr/controller/data/data_service_controller.dart';
+import 'package:mr/pages/Menu/menu.dart';
 import 'package:mr/services/notification_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -27,12 +28,12 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
   late DateTime _selectedStartDate;
 
   final List<List<String>> _categories = [
-    ['assets/svg/eardrops.svg', 'eardrops'],
-    ['assets/svg/heartmedicine.svg', 'heartmedicine'],
-    ['assets/svg/migraine.svg', 'migraine'],
     ['assets/svg/needle.svg', 'needle'],
+    ['assets/svg/pill.svg', 'pill'],
     ['assets/svg/stomach.svg', 'stomach'],
     ['assets/svg/syrup.svg', 'syrup'],
+    ['assets/svg/eardrops.svg', 'eardrops'],
+    ['assets/svg/nosalspray.svg', 'nosalspray'],
     ['assets/svg/vitamin.svg', 'vitamin'],
   ];
 
@@ -144,6 +145,7 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
         elevation: 0.5,
       ),
       bottomNavigationBar: Container(
+        // Delete Button
         color: Colors.white,
         padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 20),
         child: ElevatedButton(
@@ -417,6 +419,34 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                 ),
               ),
               const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () async {
+                  await _dataServiceController.deleteMedicineData(
+                    widget.medicine.id,
+                  );
+                  //delay 1 second
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Menu()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  minimumSize: const Size(double.infinity, 50),
+                ),
+                child: Text(
+                  'addMedicine.deleteMedicine'.tr,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ],
           ),
         ),

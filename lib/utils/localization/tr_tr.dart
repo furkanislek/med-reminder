@@ -96,12 +96,25 @@ const Map<String, String> trTR = {
   'addMedicine.selectDurationPlaceholder': 'Süre Seç',
   'addMedicine.durationSelectedInfo': '{count} gün',
   'addMedicine.whenToTakeLabelText': 'Alınma Zamanı',
+  'addMedicine.doseTimesPickerTitle': 'Saat Seç',
+  'addMedicine.done': 'Tamam',
 
   // Medicine Controller Messages
   "medicine.addSuccess": "İlaç başarıyla eklendi.",
   "medicine.updateSuccess": "İlaç başarıyla güncellendi.",
   "medicine.deleteSuccess": "İlaç başarıyla silindi.",
   "medicine.errorNeedTime": "Lütfen en az bir saat seçin.",
+  "medicine.saveMedicineSuccess": "İlaç başarıyla kaydedildi.",
+  "medicine.saveMedicineError": "Hata",
+  "medicine.saveMedicineErrorMessage": "İlaç kaydedilirken hata: {e}",
+  "medicine.updateMedicineSuccess": "İlaç başarıyla güncellendi.",
+  "medicine.updateMedicineError": "Hata",
+  "medicine.updateMedicineErrorMessage": "İlaç güncellenirken hata: {e}",
+  "medicine.deleteMedicineSuccess": "İlaç başarıyla silindi.",
+  "medicine.deleteMedicineError": "Hata",
+  "medicine.deleteMedicineErrorMessage": "İlaç silinirken hata: {e}",
+  "medicine.withFood": "Yemekle Beraber",
+  "medicine.deleteMedicineSuccessMessage": "İlaç başarıyla silindi.",
 
   // Settings Page
   "settings.title": "Ayarlar",

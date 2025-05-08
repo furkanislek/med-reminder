@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -70,46 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
-          Obx(() {
-            // Only show filter if there are types to filter by
-            if (controller.getUniqueDrugTypes().isNotEmpty &&
-                controller.getUniqueDrugTypes().length > 1) {
-              return PopupMenuButton<String>(
-                icon: const Icon(Icons.filter_list, color: Colors.grey),
-                onSelected: (String type) {
-                  controller.updateDrugTypeFilter(
-                    type == 'all_types_filter_key'.tr ? '' : type,
-                  );
-                },
-                itemBuilder: (BuildContext context) {
-                  List<PopupMenuItem<String>> items = [];
-                  items.add(
-                    PopupMenuItem<String>(
-                      value:
-                          'all_types_filter_key'
-                              .tr, // Use a distinct value for 'All Types'
-                      child: Text(
-                        'filter.allTypes'.tr,
-                      ), // Localized 'All Types'
-                    ),
-                  );
-                  items.addAll(
-                    controller.getUniqueDrugTypes().map((String type) {
-                      return PopupMenuItem<String>(
-                        value: type,
-                        child: Text(
-                          type.isNotEmpty ? type : 'filter.uncategorized'.tr,
-                        ), // Handle empty type names
-                      );
-                    }).toList(),
-                  );
-                  return items;
-                },
-              );
-            } else {
-              return Container(); // Return empty container if no types or only one type
-            }
-          }),
+           
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: GestureDetector(

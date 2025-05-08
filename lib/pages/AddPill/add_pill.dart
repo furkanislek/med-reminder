@@ -10,14 +10,13 @@ class AddPillScreen extends StatelessWidget {
   final DataServiceController controller =
       Get.find<DataServiceController>(); // Use Get.find if already put
 
-  // Categories remain the same
   final List<List<String>> _categories = [
-    ['assets/svg/eardrops.svg', 'eardrops'],
-    ['assets/svg/heartmedicine.svg', 'heartmedicine'],
-    ['assets/svg/migraine.svg', 'migraine'],
     ['assets/svg/needle.svg', 'needle'],
+    ['assets/svg/pill.svg', 'pill'],
     ['assets/svg/stomach.svg', 'stomach'],
     ['assets/svg/syrup.svg', 'syrup'],
+    ['assets/svg/eardrops.svg', 'eardrops'],
+    ['assets/svg/nosalspray.svg', 'nosalspray'],
     ['assets/svg/vitamin.svg', 'vitamin'],
   ];
 
@@ -42,12 +41,9 @@ class AddPillScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () async {
             await controller.saveMedicineData();
-            // Navigate only if save is successful (no snackbar shown)
             if (!Get.isSnackbarOpen) {
-              // Get.back(); // Go back after saving
-              // Or navigate to home
-              controller.resetForm(); // İlaç kaydedildikten sonra formu sıfırla
-              Get.offAll(() => Menu()); // Go to Menu, remove AddPill from stack
+              controller.resetForm();
+              Get.offAll(() => Menu());
             }
           },
           style: ElevatedButton.styleFrom(
@@ -75,7 +71,6 @@ class AddPillScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // --- Name Input ---
               Text(
                 'addMedicine.name'.tr,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
@@ -187,7 +182,6 @@ class AddPillScreen extends StatelessWidget {
               ),
               const SizedBox(height: 25),
 
-              // --- Dose Times & Duration Selection ---
               Text(
                 'addMedicine.frequency'.tr,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
@@ -242,7 +236,6 @@ class AddPillScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              // --- When to Take Selection (Using withFood) ---
               Text(
                 'addMedicine.whenToTake'.tr,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
@@ -268,7 +261,6 @@ class AddPillScreen extends StatelessWidget {
 
               const SizedBox(height: 25),
 
-              // --- Notification Toggle ---
               Text(
                 'addMedicine.notifications'.tr,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
@@ -310,7 +302,7 @@ class AddPillScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20), // Add some padding at the bottom
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -318,7 +310,6 @@ class AddPillScreen extends StatelessWidget {
     );
   }
 
-  // Helper widget for TextFields
   Widget _buildTextField({
     required String hint,
     required Function(String) onChanged,
@@ -353,7 +344,6 @@ class AddPillScreen extends StatelessWidget {
     );
   }
 
-  // Helper widget for picker containers
   Widget _buildPickerContainer({
     required String iconAsset,
     required Widget child,
@@ -389,7 +379,6 @@ class AddPillScreen extends StatelessWidget {
     );
   }
 
-  // Helper widget for 'When to Take' options
   Widget _buildWhenToTakeOption(
     BuildContext context, {
     required String label,
@@ -444,7 +433,6 @@ class AddPillScreen extends StatelessWidget {
     );
   }
 
-  // --- Bottom Sheet for Dose Times ---
   void _showDoseTimesPicker(BuildContext context) {
     Get.bottomSheet(
       Container(
@@ -454,7 +442,7 @@ class AddPillScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text("Select Dose Times", style: Get.textTheme.titleLarge),
+              child: Text("addMedicine.doseTimesPickerTitle".tr, style: Get.textTheme.titleLarge),
             ),
             Expanded(
               child: Obx(
@@ -464,7 +452,7 @@ class AddPillScreen extends StatelessWidget {
                     if (index == controller.notifications.length) {
                       return ListTile(
                         leading: Icon(Icons.add_alarm),
-                        title: Text("Add Time"),
+                        title: Text("addMedicine.addTime".tr),
                         onTap: () async {
                           TimeOfDay? selectedTime = await showTimePicker(
                             context: context,
@@ -510,7 +498,7 @@ class AddPillScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
-                child: Text("Done"),
+                child: Text("addMedicine.done".tr),
                 onPressed: () => Get.back(),
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 45),
@@ -524,7 +512,6 @@ class AddPillScreen extends StatelessWidget {
     );
   }
 
-  // --- Bottom Sheet for Duration ---
   void _showDurationPicker(BuildContext context) {
     Get.bottomSheet(
       Container(
@@ -560,7 +547,7 @@ class AddPillScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
-                child: Text("Done"),
+                child: Text("addMedicine.done".tr),
                 onPressed: () => Get.back(),
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 45),

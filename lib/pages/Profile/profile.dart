@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mr/services/locale_service.dart';
 import 'dart:convert';
 import '../../services/services.dart';
 import 'package:get/get.dart';
@@ -11,6 +12,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final LocaleService localeService = LocaleService();
+
   bool isLoading = true;
   String firstName = '';
   String surname = '';
@@ -48,15 +51,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-  void _changeLanguage(String languageCode) {
-    final locale =
-        languageCode == 'tr_TR'
-            ? const Locale('tr', 'TR')
-            : const Locale('en', 'US');
-    setState(() {
-      selectedLanguage = languageCode;
-    });
-    Get.updateLocale(locale);
+  void _changeLanguage(String languageCode) async {
+    if (languageCode == 'tr_TR') {
+      final locale = const Locale('tr', 'TR');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'en_US') {
+      final locale = const Locale('en', 'US');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    }
   }
 
   ImageProvider _getProfileImage() {

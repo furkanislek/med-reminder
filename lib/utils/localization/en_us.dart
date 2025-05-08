@@ -83,12 +83,26 @@ const Map<String, String> enUS = {
   'addMedicine.notifications': 'Notifications',
   'addMedicine.enableNotifications': 'Enable Dose Reminders',
   'addMedicine.receiveNotification': 'Receive a notification 5 minutes before each dose',
+  'addMedicine.doseTimesPickerTitle': 'Select Dose Times',
+  'addMedicine.done': 'Done',
   
   // Medicine Controller Messages
   'medicine.addSuccess': 'Medicine added successfully.',
   'medicine.updateSuccess': 'Medicine updated successfully.',
   'medicine.deleteSuccess': 'Medicine deleted successfully.',
   'medicine.errorNeedTime': 'Please select at least one time.',
+  'medicine.saveMedicineSuccess': 'Medicine saved successfully.',
+  'medicine.saveMedicineError': 'Error',
+  'medicine.saveMedicineErrorMessage': 'Failed to save medicine: {e}',
+  'medicine.updateMedicineSuccess': 'Medicine updated successfully.',
+  'medicine.updateMedicineError': 'Error',
+  'medicine.updateMedicineErrorMessage': 'Failed to update medicine: {e}',
+  'medicine.deleteMedicineSuccess': 'Medicine deleted successfully.',
+  'medicine.deleteMedicineError': 'Error',
+  'medicine.deleteMedicineErrorMessage': 'Failed to delete medicine: {e}',
+  'medicine.withFood': 'With Food',
+  'medicine.deleteMedicineSuccessMessage' : 'Medicine deleted successfully.',
+
 
   // Settings Page
   'settings.title': 'Settings',
