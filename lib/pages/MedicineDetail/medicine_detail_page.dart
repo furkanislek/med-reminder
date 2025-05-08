@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:mr/models/medicine_model.dart';
 import 'package:mr/controller/data/data_service_controller.dart';
 import 'package:mr/services/notification_service.dart';

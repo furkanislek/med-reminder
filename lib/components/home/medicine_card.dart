@@ -99,9 +99,10 @@ class MedicineCard extends StatelessWidget {
       case 3:
         return "card.frequency.thriceDaily".tr; // Localized
       default:
-        return "card.frequency.timesDaily".trParams({
-          'count': dosesPerDay.toString(),
-        }); // Localized
+        return "card.frequency.timesDaily".tr.replaceAll(
+          '{count}',
+          dosesPerDay.toString(),
+        ); // Localized with manual replacement
     }
   }
 
@@ -167,7 +168,7 @@ class MedicineCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: SvgPicture.asset(
-                  'assets/svg/${medicine.type.toLowerCase().replaceAll(' ', '_')}.svg', 
+                  'assets/svg/${medicine.type.toLowerCase().replaceAll(' ', '_')}.svg',
                   width: 50,
                   height: 50,
                   fit: BoxFit.cover,

@@ -62,10 +62,8 @@ const Map<String, String> trTR = {
   "addMedicine.selectTime": "Saat Seç",
   "addMedicine.timesLabel": "Günlük Doz Sayısı",
   "addMedicine.addTime": "Saat Ekle",
-  "addMedicine.notesLabel":
-      "Ek Notlar (İsteğe bağlı)", 
-  "addMedicine.notesHint":
-      "Örn: Serin yerde saklayın", 
+  "addMedicine.notesLabel": "Ek Notlar (İsteğe bağlı)",
+  "addMedicine.notesHint": "Örn: Serin yerde saklayın",
   "addMedicine.enableNotificationsLabel": "Doz Hatırlatıcılarını Etkinleştir",
   "addMedicine.errorNumeric": "Lütfen geçerli bir sayı girin",
   "addMedicine.addMedicine": "İlaç Ekle",
@@ -98,7 +96,6 @@ const Map<String, String> trTR = {
   'addMedicine.selectDurationPlaceholder': 'Süre Seç',
   'addMedicine.durationSelectedInfo': '{count} gün',
   'addMedicine.whenToTakeLabelText': 'Alınma Zamanı',
-  
 
   // Medicine Controller Messages
   "medicine.addSuccess": "İlaç başarıyla eklendi.",

@@ -1,17 +1,64 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mr/components/home/medicine_card.dart';
 import 'package:mr/controller/home/home_controller.dart';
 import 'package:mr/pages/AddPill/add_pill.dart';
+import 'package:mr/pages/Profile/profile.dart';
 import 'package:mr/services/data_service.dart';
 import 'package:mr/services/services.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   final HomeController controller = Get.find<HomeController>();
   final DataService dataService = Get.find<DataService>();
 
-  HomeScreen({super.key});
+  bool isLoading = true;
+  String? profileImageBase64;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserData();
+  }
+
+  Future<void> _fetchUserData() async {
+    try {
+      final userData = await Auth().fetchUser();
+
+      if (userData != null) {
+        setState(() {
+          profileImageBase64 = userData['profileImage'];
+          isLoading = false;
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+      }
+    } catch (e) {
+      print('Kullanıcı bilgileri yüklenirken hata: $e');
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  ImageProvider _getProfileImage() {
+    if (profileImageBase64 != null && profileImageBase64!.isNotEmpty) {
+      return MemoryImage(base64Decode(profileImageBase64!));
+    } else {
+      return const AssetImage('assets/avatar.png');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,10 +112,29 @@ class HomeScreen extends StatelessWidget {
           }),
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              radius: 16,
-              backgroundColor: Colors.white,
-              child: SvgPicture.asset('assets/svg/vitamin.svg'),
+            child: GestureDetector(
+              onTap: () {
+                Get.to(() => ProfileScreen());
+              },
+              child: CircleAvatar(
+                radius: 16,
+                backgroundColor: Colors.white,
+                child:
+                    isLoading
+                        ? CircularProgressIndicator(
+                          strokeWidth: 2,
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            Colors.blueAccent,
+                          ),
+                        )
+                        : profileImageBase64 != null &&
+                            profileImageBase64!.isNotEmpty
+                        ? CircleAvatar(
+                          radius: 16,
+                          backgroundImage: _getProfileImage(),
+                        )
+                        : SvgPicture.asset('assets/svg/vitamin.svg'),
+              ),
             ),
           ),
         ],
@@ -79,7 +145,12 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 10),
-            TextButton(onPressed: (){Auth().signOut();}, child: Text("logout".tr)),
+            TextButton(
+              onPressed: () {
+                Auth().signOut();
+              },
+              child: Text("logout".tr),
+            ),
             TextField(
               decoration: InputDecoration(
                 hintText: 'filter.searchHint'.tr, // Localized hint text
