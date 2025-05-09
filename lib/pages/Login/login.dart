@@ -24,7 +24,6 @@ class _LoginState extends State<Login> {
 
   Future<void> signIn() async {
     try {
-
       await Auth().signIn(
         email: emailController.text,
         password: passwordController.text,
@@ -89,6 +88,21 @@ class _LoginState extends State<Login> {
     }
   }
 
+  Future<void> signInWithGoogle() async {
+    try {
+      await Auth().signInWithGoogle();
+
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        Get.off(() => const IntroductionScreens());
+      }
+    } catch (e) {
+      setState(() {
+        errorMessage = "Google ile giriş yapılırken bir hata oluştu.";
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
@@ -106,7 +120,7 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: height / 20),
+              SizedBox(height: height / 50),
               SvgPicture.asset('assets/svg/login.svg', height: height / 3.75),
               SizedBox(height: height / 50),
               Text(
@@ -230,11 +244,56 @@ class _LoginState extends State<Login> {
                 ),
               ),
 
-              GestureDetector(
-                onTap: () {
-                  Auth().signOut();
-                },
-                child: Text("Sign Out"),
+              SizedBox(height: height / 90),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: width / 20),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Divider(thickness: 1, color: Colors.grey[400]),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        "ya da",
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: height / 60,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(thickness: 1, color: Colors.grey[400]),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: height / 40),
+              Container(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: signInWithGoogle,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(vertical: height / 56.33),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      side: BorderSide(color: Colors.grey[300]!),
+                    ),
+                  ),
+                  icon: SvgPicture.asset(
+                    'assets/svg/google.svg',
+                    height: height / 40,
+                  ),
+                  label: Text(
+                    "Google ile Giriş Yap",
+                    style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: height / 55,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

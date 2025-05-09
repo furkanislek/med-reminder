@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:uuid/uuid.dart';
 import 'dart:convert';
 import 'dart:io';
@@ -91,6 +92,64 @@ class Auth {
       print("Bildirim tercihi güncellendi: $enabled");
     } catch (e) {
       print("Bildirim tercihi güncellenirken hata: $e");
+    }
+  }
+
+  Future<void> signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) {
+        // Kullanıcı işlemi iptal etti
+        print('Google oturumu iptal edildi.');
+        return;
+      }
+
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+
+      final OAuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      final UserCredential userCredential = await _firebaseAuth
+          .signInWithCredential(credential);
+
+      final user = userCredential.user;
+
+      if (user != null) {
+        // Firestore'da kullanıcı belgesi var mı kontrol et
+        DocumentSnapshot userDoc =
+            await FirebaseFirestore.instance
+                .collection('users')
+                .doc(user.uid)
+                .get();
+
+        if (!userDoc.exists) {
+          // Yeni kullanıcıysa Firestore'a kaydet
+          final userInfo = user.providerData.firstWhere(
+            (info) => info.providerId == 'google.com',
+            orElse: () => user.providerData.first,
+          );
+
+          final email = user.email ?? userInfo.email;
+          final photoUrl = user.photoURL ?? userInfo.photoURL;
+
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(user.uid)
+              .set({
+                "firstName": user.displayName?.split(" ").first ?? "",
+                "surname": user.displayName?.split(" ").skip(1).join(" ") ?? "",
+                "photoUrl": photoUrl,
+                "email": email,
+                "notificationsEnabled": true,
+              });
+        }
+      }
+    } catch (e) {
+      print('Google ile girişte hata: $e');
+      rethrow;
     }
   }
 }

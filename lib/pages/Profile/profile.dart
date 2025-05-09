@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mr/pages/Login/login.dart';
 import 'package:mr/services/locale_service.dart';
 import 'dart:convert';
 import '../../services/services.dart';
@@ -13,7 +14,8 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final LocaleService localeService = LocaleService();
-
+  String? profileImageSource; // Base64 ya da URL olabilir
+  bool isBase64Image = true;
   bool isLoading = true;
   String firstName = '';
   String surname = '';
@@ -30,19 +32,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Future<void> _fetchUserData() async {
     try {
       final userData = await Auth().fetchUser();
+      final firebaseUser = Auth().currentUser;
 
-      if (userData != null) {
-        setState(() {
-          firstName = userData['firstName'] ?? '';
-          surname = userData['surname'] ?? '';
-          profileImageBase64 = userData['profileImage'];
-          isLoading = false;
-        });
-      } else {
-        setState(() {
-          isLoading = false;
-        });
-      }
+      setState(() {
+        firstName = userData?['firstName'] ?? '';
+        surname = userData?['surname'] ?? '';
+
+        final base64Image = userData?['profileImage'];
+        if (base64Image != null && base64Image.toString().isNotEmpty) {
+          profileImageSource = base64Image;
+          isBase64Image = true;
+        } else if (firebaseUser?.photoURL != null) {
+          profileImageSource = firebaseUser!.photoURL!;
+          isBase64Image = false;
+        }
+
+        isLoading = false;
+      });
     } catch (e) {
       print('Kullanıcı bilgileri yüklenirken hata: $e');
       setState(() {
@@ -64,8 +70,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   ImageProvider _getProfileImage() {
-    if (profileImageBase64 != null && profileImageBase64!.isNotEmpty) {
-      return MemoryImage(base64Decode(profileImageBase64!));
+    if (profileImageSource != null && profileImageSource!.isNotEmpty) {
+      if (isBase64Image) {
+        return MemoryImage(base64Decode(profileImageSource!));
+      } else {
+        return NetworkImage(profileImageSource!);
+      }
     } else {
       return const AssetImage('assets/avatar.png');
     }
@@ -73,6 +83,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("----------------------------------");
+    print(Auth().currentUser);
+    print("----------------------------------");
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -333,7 +346,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           InkWell(
                             onTap: () async {
                               await Auth().signOut();
-                              Get.offAllNamed('/login');
+                              Get.offAll(() => Login());
                             },
                             child: _buildSettingItem(
                               'logout'.tr,
