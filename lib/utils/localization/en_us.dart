@@ -82,10 +82,11 @@ const Map<String, String> enUS = {
   'addMedicine.afterFood': 'After Food',
   'addMedicine.notifications': 'Notifications',
   'addMedicine.enableNotifications': 'Enable Dose Reminders',
-  'addMedicine.receiveNotification': 'Receive a notification 5 minutes before each dose',
+  'addMedicine.receiveNotification':
+      'Receive a notification 5 minutes before each dose',
   'addMedicine.doseTimesPickerTitle': 'Select Dose Times',
   'addMedicine.done': 'Done',
-  
+
   // Medicine Controller Messages
   'medicine.addSuccess': 'Medicine added successfully.',
   'medicine.updateSuccess': 'Medicine updated successfully.',
@@ -101,8 +102,7 @@ const Map<String, String> enUS = {
   'medicine.deleteMedicineError': 'Error',
   'medicine.deleteMedicineErrorMessage': 'Failed to delete medicine: {e}',
   'medicine.withFood': 'With Food',
-  'medicine.deleteMedicineSuccessMessage' : 'Medicine deleted successfully.',
-
+  'medicine.deleteMedicineSuccessMessage': 'Medicine deleted successfully.',
 
   // Settings Page
   'settings.title': 'Settings',
@@ -152,11 +152,12 @@ const Map<String, String> enUS = {
       'Receive a notification 5 minutes before each dose',
   'addMedicine.durationPickerTitle': 'Select Duration (in days)',
   'addMedicine.durationPickerItemText': '{days} day(s)',
-  'addMedicine.timesSelected' : 'times selected',
-  "addMedicine.notificationsLabel" : "Notifications",
+  'addMedicine.timesSelected': 'times selected',
+  "addMedicine.notificationsLabel": "Notifications",
   'addMedicine.enableDoseReminders': 'Enable Dose Reminders',
-  'addMedicine.remindersSubtext': 'Receive a notification 5 minutes before each dose',
-  
+  'addMedicine.remindersSubtext':
+      'Receive a notification 5 minutes before each dose',
+
   // Profile Page
   'personal_info': 'Personal Information',
   'preferences': 'Preferences',
@@ -166,4 +167,9 @@ const Map<String, String> enUS = {
   'developer': 'Developer: Furkan Akif İŞLEK',
   'noEmail': 'No email found',
   'version.number': '1.0.0',
+
+  // Profile Page
+  'logout': 'Logout',
+  'account': 'Account',
+  
 };

@@ -61,11 +61,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    dataService.getMedicinesStream(); // Initialize stream
-
+    dataService.getMedicinesStream(); 
     return Scaffold(
       appBar: AppBar(
-        title: Text('home.title'.tr), // Localized title
+        title: Text('home.title'.tr), 
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
@@ -93,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           radius: 16,
                           backgroundImage: _getProfileImage(),
                         )
-                        : SvgPicture.asset('assets/svg/vitamin.svg'),
+                        : SvgPicture.asset('assets/svg/pill.svg'),
               ),
             ),
           ),
@@ -105,15 +104,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             const SizedBox(height: 10),
-            TextButton(
-              onPressed: () {
-                Auth().signOut();
-              },
-              child: Text("logout".tr),
-            ),
+     
             TextField(
               decoration: InputDecoration(
-                hintText: 'filter.searchHint'.tr, // Localized hint text
+                hintText: 'filter.searchHint'.tr, 
                 prefixIcon: const Icon(Icons.search, color: Colors.grey),
                 filled: true,
                 fillColor: Colors.grey[100],
@@ -134,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ElevatedButton.icon(
               icon: const Icon(Icons.add, color: Colors.white),
               label: Text(
-                'home.addMedicine'.tr, // Localized button text
+                'home.addMedicine'.tr,
                 style: const TextStyle(color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(

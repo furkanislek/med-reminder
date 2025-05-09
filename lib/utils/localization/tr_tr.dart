@@ -157,4 +157,8 @@ const Map<String, String> trTR = {
   "developer": "Geliştirici: Furkan Akif İŞLEK",
   "noEmail": "E-posta bulunamadı",
   "version.number": "1.0.0",
+
+  // Profile Page
+  "logout": "Çıkış Yap",
+  "account": "Hesap",
 };

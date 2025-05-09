@@ -113,7 +113,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       "${firstName.toUpperCase()} ${surname.toUpperCase()}",
                       style: const TextStyle(
                         fontSize: 24,
-                        fontWeight: FontWeight.normal,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Sansita',
                       ),
                     ),
                     const SizedBox(height: 32),
@@ -164,7 +165,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                     // Tercihler
                     Container(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.only(
+                        left: 16,
+                        right: 16,
+                        top: 8,
+                        bottom: 0,
+                      ),
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 255, 253, 253),
                         borderRadius: BorderRadius.circular(12),
@@ -235,7 +241,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                     // Uygulama Hakkında
                     Container(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.only(
+                        left: 16,
+                        right: 16,
+                        top: 8,
+                        bottom: 0,
+                      ),
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 255, 253, 253),
                         borderRadius: BorderRadius.circular(12),
@@ -287,7 +298,58 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
 
-                    const SizedBox(height: 32),
+                    const SizedBox(height: 20),
+
+                    // Çıkış Düğmesi
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 255, 253, 253),
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color.fromARGB(
+                              255,
+                              0,
+                              0,
+                              0,
+                            ).withOpacity(0.1),
+                            spreadRadius: 1,
+                            blurRadius: 5,
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'account'.tr,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          InkWell(
+                            onTap: () async {
+                              await Auth().signOut();
+                              Get.offAllNamed('/login');
+                            },
+                            child: _buildSettingItem(
+                              'logout'.tr,
+                              const Icon(Icons.logout, color: Colors.red),
+                              trailing: const Icon(
+                                Icons.arrow_forward_ios,
+                                size: 16,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    const SizedBox(height: 20),
 
                     // Geliştirici Bilgisi
                     Text(
@@ -295,8 +357,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: const TextStyle(color: Colors.grey, fontSize: 13),
                       textAlign: TextAlign.center,
                     ),
-
-                    const SizedBox(height: 20),
                   ],
                 ),
               ),
