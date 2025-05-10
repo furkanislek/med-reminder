@@ -11,6 +11,7 @@ const Map<String, String> bnBD = {
   'general.error': 'ত্রুটি',
   'general.loading': 'লোড হচ্ছে...',
   'general.requiredField': 'এই ক্ষেত্রটি প্রয়োজনীয়',
+  'general.done': 'সম্পন্ন',
 
   // Auth
   'auth.login': 'লগইন',

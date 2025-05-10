@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   bool isLoading = true;
   String? profileImageBase64;
+  String? photoUrl;
 
   @override
   void initState() {
@@ -32,10 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _fetchUserData() async {
     try {
       final userData = await Auth().fetchUser();
-
       if (userData != null) {
         setState(() {
           profileImageBase64 = userData['profileImage'];
+          photoUrl = userData['photo'];
           isLoading = false;
         });
       } else {
@@ -44,7 +45,6 @@ class _HomeScreenState extends State<HomeScreen> {
         });
       }
     } catch (e) {
-      print('Kullanıcı bilgileri yüklenirken hata: $e');
       setState(() {
         isLoading = false;
       });
@@ -54,6 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
   ImageProvider _getProfileImage() {
     if (profileImageBase64 != null && profileImageBase64!.isNotEmpty) {
       return MemoryImage(base64Decode(profileImageBase64!));
+    } else if (photoUrl != null) {
+      return NetworkImage(photoUrl!);
     } else {
       return const AssetImage('assets/avatar.png');
     }
@@ -61,14 +63,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    dataService.getMedicinesStream(); 
+    dataService.getMedicinesStream();
     return Scaffold(
       appBar: AppBar(
-        title: Text('home.title'.tr), 
+        title: Text('home.title'.tr),
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
-           
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: GestureDetector(
@@ -89,8 +90,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         : profileImageBase64 != null &&
                             profileImageBase64!.isNotEmpty
                         ? CircleAvatar(
-                          radius: 16,
+                          radius: 60,
                           backgroundImage: _getProfileImage(),
+                        )
+                        : photoUrl != null
+                        ? CircleAvatar(
+                          radius: 60,
+                          backgroundImage: NetworkImage(photoUrl!),
                         )
                         : SvgPicture.asset('assets/svg/pill.svg'),
               ),
@@ -104,10 +110,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             const SizedBox(height: 10),
-     
+
             TextField(
               decoration: InputDecoration(
-                hintText: 'filter.searchHint'.tr, 
+                hintText: 'filter.searchHint'.tr,
                 prefixIcon: const Icon(Icons.search, color: Colors.grey),
                 filled: true,
                 fillColor: Colors.grey[100],

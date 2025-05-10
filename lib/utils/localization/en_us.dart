@@ -13,6 +13,7 @@ const Map<String, String> enUS = {
   'general.error': 'Error',
   'general.loading': 'Loading...',
   'general.requiredField': 'This field is required',
+  'general.done': 'Done',
 
   // Auth
   'auth.login': 'Login',
@@ -178,5 +179,4 @@ const Map<String, String> enUS = {
   // Profile Page
   'logout': 'Logout',
   'account': 'Account',
-  
 };

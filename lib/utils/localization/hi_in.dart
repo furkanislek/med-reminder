@@ -13,6 +13,7 @@ const Map<String, String> hiIN = {
   'general.error': 'त्रुटि',
   'general.loading': 'लोड हो रहा है...',
   'general.requiredField': 'यह फ़ील्ड आवश्यक है',
+  'general.done': 'पूर्ण',
 
   // Auth
   'auth.login': 'लॉगिन',

@@ -13,6 +13,7 @@ const Map<String, String> koKR = {
   'general.error': '오류',
   'general.loading': '로딩 중...',
   'general.requiredField': '이 필드는 필수입니다',
+  'general.done': '완료',
 
   // Auth
   'auth.login': '로그인',

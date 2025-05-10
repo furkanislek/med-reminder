@@ -13,6 +13,7 @@ const Map<String, String> arSA = {
   'general.error': 'خطأ',
   'general.loading': 'جار التحميل...',
   'general.requiredField': 'هذا الحقل مطلوب',
+  'general.done': 'تم',
 
   // Auth
   'auth.login': 'تسجيل الدخول',

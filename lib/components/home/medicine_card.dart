@@ -86,7 +86,7 @@ class MedicineCard extends StatelessWidget {
       dayDesc =
           "${DateFormat.MMMd().format(nextDoseTime)} ${'card.at'.tr} "; // Localized 'at'
     }
-    return "${'card.nextDose'.tr} $dayDesc${DateFormat('h:mm a').format(nextDoseTime)}"; // Localized
+    return "${'card.nextDose'.tr} $dayDesc ${DateFormat('h:mm a').format(nextDoseTime)}"; // Localized
   }
 
   String _getFrequencyText(int dosesPerDay) {

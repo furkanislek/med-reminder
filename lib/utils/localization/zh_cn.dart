@@ -13,6 +13,7 @@ const Map<String, String> zhCN = {
   'general.error': '错误',
   'general.loading': '加载中...',
   'general.requiredField': '此字段为必填项',
+  'general.done': '完成',
 
   // Auth
   'auth.login': '登录',

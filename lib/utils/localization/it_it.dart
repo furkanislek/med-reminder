@@ -13,6 +13,7 @@ const Map<String, String> itIT = {
   'general.error': 'Errore',
   'general.loading': 'Caricamento...',
   'general.requiredField': 'Questo campo è obbligatorio',
+  'general.done': 'Fatto',
 
   // Auth
   'auth.login': 'Accedi',

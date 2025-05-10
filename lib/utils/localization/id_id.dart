@@ -13,6 +13,7 @@ const Map<String, String> idID = {
   'general.error': 'Kesalahan',
   'general.loading': 'Memuat...',
   'general.requiredField': 'Bidang ini wajib diisi',
+  'general.done': 'Selesai',
 
   // Auth
   'auth.login': 'Masuk',

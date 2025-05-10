@@ -13,6 +13,7 @@ const Map<String, String> ruRU = {
   'general.error': 'Ошибка',
   'general.loading': 'Загрузка...',
   'general.requiredField': 'Это поле обязательно к заполнению',
+  'general.done': 'Готово',
 
   // Auth
   'auth.login': 'Вход',

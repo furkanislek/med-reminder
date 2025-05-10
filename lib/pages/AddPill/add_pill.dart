@@ -442,7 +442,10 @@ class AddPillScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text("addMedicine.doseTimesPickerTitle".tr, style: Get.textTheme.titleLarge),
+              child: Text(
+                "addMedicine.doseTimesPickerTitle".tr,
+                style: Get.textTheme.titleLarge,
+              ),
             ),
             Expanded(
               child: Obx(
@@ -513,6 +516,9 @@ class AddPillScreen extends StatelessWidget {
   }
 
   void _showDurationPicker(BuildContext context) {
+    int tempDuration = controller.duration.value;
+    if (tempDuration == 0) tempDuration = 1;
+
     Get.bottomSheet(
       Container(
         height: 300,
@@ -523,35 +529,54 @@ class AddPillScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 "addMedicine.durationPickerTitle".tr,
-                style: Get.textTheme.titleLarge,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Expanded(
-              child: ListView.builder(
-                itemCount: 90, // Increased duration limit
-                itemBuilder: (ctx, index) {
-                  final days = index + 1;
-                  return Obx(
-                    () => RadioListTile<int>(
-                      title: Text("$days day${days > 1 ? 's' : ''}"),
-                      value: days,
-                      groupValue: controller.duration.value,
-                      onChanged: (value) {
-                        if (value != null) controller.duration.value = value;
-                      },
+              child: ListWheelScrollView.useDelegate(
+                itemExtent: 50,
+                perspective: 0.005,
+                diameterRatio: 1.2,
+                physics: const FixedExtentScrollPhysics(),
+                onSelectedItemChanged: (index) => tempDuration = index + 1,
+                childDelegate: ListWheelChildLoopingListDelegate(
+                  children: List<Widget>.generate(
+                    90,
+                    (index) => Center(
+                      child: Text(
+                        '${index + 1} ${'addMedicine.days'.tr}',
+                        style: const TextStyle(fontSize: 18),
+                      ),
                     ),
-                  );
-                },
+                  ),
+                ),
+                controller: FixedExtentScrollController(
+                  initialItem: tempDuration > 0 ? tempDuration - 1 : 0,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
-                child: Text("addMedicine.done".tr),
-                onPressed: () => Get.back(),
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 45),
+                  backgroundColor: const Color(0xFF0996C7),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12.0,
+                    horizontal: 24.0,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  minimumSize: const Size(double.infinity, 45),
                 ),
+                child: Text("addMedicine.done".tr),
+                onPressed: () {
+                  controller.duration.value = tempDuration;
+                  Get.back();
+                },
               ),
             ),
           ],

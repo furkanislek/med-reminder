@@ -22,6 +22,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String selectedLanguage = 'tr_TR';
   String? photoUrl;
 
+  List<Map<String, String>> languages = [
+    {'code': 'tr_TR', 'name': 'Türkçe'},
+    {'code': 'en_US', 'name': 'English'},
+    {'code': 'de_DE', 'name': 'Deutsch'},
+    {'code': 'fr_FR', 'name': 'Français'},
+    {'code': 'es_ES', 'name': 'Español'},
+    {'code': 'pt_BR', 'name': 'Português'},
+    {'code': 'zh_CN', 'name': '中文'},
+    {'code': 'hi_IN', 'name': 'हिन्दी'},
+    {'code': 'ar_SA', 'name': 'العربية'},
+    {'code': 'ru_RU', 'name': 'Русский'},
+    {'code': 'ms_MY', 'name': 'Bahasa Malaysia'},
+    {'code': 'id_ID', 'name': 'Bahasa Indonesia'},
+    {'code': 'bn_BD', 'name': 'বাংলা'},
+    {'code': 'ja_JP', 'name': '日本語'},
+    {'code': 'ko_KR', 'name': '한국어'},
+    {'code': 'it_IT', 'name': 'Italiano'},
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -135,6 +154,96 @@ class _ProfileScreenState extends State<ProfileScreen> {
     } else {
       return const AssetImage('assets/avatar.png');
     }
+  }
+
+  void _showLanguagePicker(BuildContext context) {
+    String tempLanguage = selectedLanguage;
+    int initialIndex = languages.indexWhere(
+      (lang) => lang['code'] == selectedLanguage,
+    );
+    if (initialIndex < 0) initialIndex = 0;
+
+    Get.bottomSheet(
+      Container(
+        height: 300,
+        color: Colors.white,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'settings.selectLanguage'.tr,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Expanded(
+              child: ListWheelScrollView.useDelegate(
+                itemExtent: 50,
+                perspective: 0.005,
+                diameterRatio: 1.2,
+                physics: const FixedExtentScrollPhysics(),
+                onSelectedItemChanged:
+                    (index) => tempLanguage = languages[index]['code']!,
+                childDelegate: ListWheelChildLoopingListDelegate(
+                  children:
+                      languages
+                          .map(
+                            (lang) => Center(
+                              child: Text(
+                                lang['name']!,
+                                style: const TextStyle(fontSize: 18),
+                              ),
+                            ),
+                          )
+                          .toList(),
+                ),
+                controller: FixedExtentScrollController(
+                  initialItem: initialIndex,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                ),
+                child: SizedBox(
+                  width: 250,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Text(
+                      'general.done'.tr,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        backgroundColor: Colors.white,
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                onPressed: () {
+                  _changeLanguage(tempLanguage);
+                  Get.back();
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+      isScrollControlled: true,
+    );
   }
 
   @override
@@ -266,80 +375,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           _buildSettingItem(
                             'settings.language'.tr,
                             const Icon(Icons.language, color: Colors.green),
-                            trailing: DropdownButton<String>(
-                              value: selectedLanguage,
-                              underline: Container(),
-                              icon: const Icon(
-                                Icons.arrow_forward_ios,
-                                size: 16,
-                                color: Colors.grey,
+                            trailing: GestureDetector(
+                              onTap: () => _showLanguagePicker(context),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    languages.firstWhere(
+                                      (lang) =>
+                                          lang['code'] == selectedLanguage,
+                                      orElse: () => languages.first,
+                                    )['name']!,
+                                    style: const TextStyle(color: Colors.grey),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  const Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 16,
+                                    color: Colors.grey,
+                                  ),
+                                ],
                               ),
-                              onChanged: (String? newValue) {
-                                if (newValue != null) {
-                                  _changeLanguage(newValue);
-                                }
-                              },
-                              items:
-                                  <String>[
-                                    'tr_TR',
-                                    'en_US',
-                                    'de_DE',
-                                    'fr_FR',
-                                    'es_ES',
-                                    'pt_BR',
-                                    'zh_CN',
-                                    'hi_IN',
-                                    'ar_SA',
-                                    'ru_RU',
-                                    'ms_MY',
-                                    'id_ID',
-                                    'bn_BD',
-                                    'ja_JP',
-                                    'ko_KR',
-                                    'it_IT',
-                                  ].map<DropdownMenuItem<String>>((
-                                    String value,
-                                  ) {
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Text(
-                                        value == 'tr_TR'
-                                            ? 'Türkçe'
-                                            : value == 'en_US'
-                                            ? 'English'
-                                            : value == 'de_DE'
-                                            ? 'Deutsch'
-                                            : value == 'fr_FR'
-                                            ? 'Français'
-                                            : value == 'es_ES'
-                                            ? 'Español'
-                                            : value == 'pt_BR'
-                                            ? 'Português'
-                                            : value == 'zh_CN'
-                                            ? '中文'
-                                            : value == 'hi_IN'
-                                            ? 'हिन्दी'
-                                            : value == 'ar_SA'
-                                            ? 'العربية'
-                                            : value == 'ru_RU'
-                                            ? 'Русский'
-                                            : value == 'ms_MY'
-                                            ? 'Bahasa Malaysia'
-                                            : value == 'id_ID'
-                                            ? 'Bahasa Indonesia'
-                                            : value == 'bn_BD'
-                                            ? 'বাংলা'
-                                            : value == 'ja_JP'
-                                            ? '日本語'
-                                            : value == 'ko_KR'
-                                            ? '한국어'
-                                            : 'Italiano',
-                                        style: const TextStyle(
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    );
-                                  }).toList(),
                             ),
                           ),
                         ],

@@ -13,6 +13,7 @@ const Map<String, String> msMY = {
   'general.error': 'Ralat',
   'general.loading': 'Memuatkan...',
   'general.requiredField': 'Bidang ini diperlukan',
+  'general.done': 'Selesai',
 
   // Auth
   'auth.login': 'Log Masuk',

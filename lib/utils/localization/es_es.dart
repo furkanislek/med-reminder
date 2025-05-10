@@ -13,6 +13,7 @@ const Map<String, String> esES = {
   'general.error': 'Error',
   'general.loading': 'Cargando...',
   'general.requiredField': 'Este campo es obligatorio',
+  'general.done': 'Hecho',
 
   // Auth
   'auth.login': 'Iniciar Sesión',

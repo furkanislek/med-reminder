@@ -13,6 +13,7 @@ const Map<String, String> jaJP = {
   'general.error': 'エラー',
   'general.loading': '読み込み中...',
   'general.requiredField': 'この項目は必須です',
+  'general.done': '完了',
 
   // Auth
   'auth.login': 'ログイン',

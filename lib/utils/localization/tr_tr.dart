@@ -167,4 +167,8 @@ const Map<String, String> trTR = {
   // Profile Page
   "logout": "Çıkış Yap",
   "account": "Hesap",
+  "general.done": "Tamam",
+  "addMedicine.durationPickerTitle": "Süre Seç",
+  "addMedicine.durationPickerItemText": "{count} gün",
+
 };

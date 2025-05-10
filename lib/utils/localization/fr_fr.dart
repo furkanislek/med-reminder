@@ -13,6 +13,7 @@ const Map<String, String> frFR = {
   'general.error': 'Erreur',
   'general.loading': 'Chargement...',
   'general.requiredField': 'Ce champ est obligatoire',
+  'general.done': 'Terminé',
 
   // Auth
   'auth.login': 'Connexion',

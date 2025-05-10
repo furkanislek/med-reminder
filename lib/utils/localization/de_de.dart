@@ -13,6 +13,7 @@ const Map<String, String> deDE = {
   'general.error': 'Fehler',
   'general.loading': 'Wird geladen...',
   'general.requiredField': 'Dieses Feld ist erforderlich',
+  'general.done': 'Fertig',
 
   // Auth
   'auth.login': 'Anmelden',

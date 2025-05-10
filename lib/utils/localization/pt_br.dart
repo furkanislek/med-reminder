@@ -11,6 +11,7 @@ const Map<String, String> ptBR = {
   'general.error': 'Erro',
   'general.loading': 'Carregando...',
   'general.requiredField': 'Este campo é obrigatório',
+  'general.done': 'Concluído',
 
   // Auth
   'auth.login': 'Entrar',
