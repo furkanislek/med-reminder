@@ -99,7 +99,6 @@ class Auth {
     }
   }
 
-
   Future<void> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -144,6 +143,21 @@ class Auth {
       }
     } catch (e) {
       print('Google ile girişte hata: $e');
+      rethrow;
+    }
+  }
+
+  Future<void> deleteUser() async {
+    final currentUserID = Auth().currentUser!.uid;
+    try {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(currentUserID)
+          .delete();
+      await FirebaseAuth.instance.currentUser?.delete();
+      print('Kullanıcı başarıyla silindi.');
+    } catch (e) {
+      print('Kullanıcı silinirken hata: $e');
       rethrow;
     }
   }

@@ -157,6 +157,12 @@ const Map<String, String> trTR = {
   "developer": "Geliştirici: Furkan Akif İŞLEK",
   "noEmail": "E-posta bulunamadı",
   "version.number": "1.0.0",
+  "profile.deleteAccountImportant": "Hesabı Sil",
+  "profile.deleteAccountImportantText":
+      "Hesabınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+  "profile.cancel": "İptal",
+  "profile.delete": "Sil",
+  "profile.errorDeletingAccount": "Hesap silinirken bir hata oluştu",
 
   // Profile Page
   "logout": "Çıkış Yap",

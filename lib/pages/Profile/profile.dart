@@ -85,15 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     print("---------------------------------------------------");
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          'settings.profile'.tr,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.white,
-      ),
+
       body:
           isLoading
               ? const Center(child: CircularProgressIndicator())
@@ -367,6 +359,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ),
                             ),
                           ),
+                          const SizedBox(height: 16),
+                          InkWell(
+                            onTap: () {
+                              _showDeleteAccountConfirmation();
+                            },
+                            child: _buildSettingItem(
+                              'Hesabı Sil'.tr,
+                              const Icon(
+                                Icons.delete_forever,
+                                color: Colors.red,
+                              ),
+                              trailing: const Icon(
+                                Icons.arrow_forward_ios,
+                                size: 16,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -414,5 +424,52 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
       ),
     );
+  }
+
+  void _showDeleteAccountConfirmation() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('profile.deleteAccountImportant'.tr),
+          content: Text('profile.deleteAccountImportantText'.tr),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('profile.cancel'.tr),
+            ),
+            TextButton(
+              onPressed: () {
+                _deleteAccount();
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                'profile.delete'.tr,
+                style: const TextStyle(color: Colors.red),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _deleteAccount() async {
+    try {
+      await Auth().deleteUser();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Login()),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('profile.errorDeletingAccount'.tr),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 }

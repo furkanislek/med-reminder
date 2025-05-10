@@ -167,6 +167,12 @@ const Map<String, String> enUS = {
   'developer': 'Developer: Furkan Akif İŞLEK',
   'noEmail': 'No email found',
   'version.number': '1.0.0',
+  'profile.deleteAccountImportant': 'Delete Account',
+  'profile.deleteAccountImportantText':
+      'Are you sure you want to delete your account? This action cannot be undone.',
+  'profile.cancel': 'Cancel',
+  'profile.delete': 'Delete',
+  'profile.errorDeletingAccount': 'Error deleting account',
 
   // Profile Page
   'logout': 'Logout',
