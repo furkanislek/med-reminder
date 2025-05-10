@@ -37,6 +37,7 @@ class RegisterController extends GetxController {
         password: passwordController.text,
         firstName: nameController.text,
         surname: surnameController.text,
+        profileImage: selectedImage.value,
       );
 
       errorMessage.value = '';
@@ -58,6 +59,7 @@ class RegisterController extends GetxController {
   Future<void> pickImage() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    print("image: $image");
     if (image != null) {
       selectedImage.value = File(image.path);
     }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mr/pages/Login/login.dart';
 import 'package:mr/services/locale_service.dart';
 import 'dart:convert';
 import '../../services/services.dart';
@@ -19,6 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String surname = '';
   String? profileImageBase64;
   String selectedLanguage = 'tr_TR';
+  String? photoUrl;
 
   @override
   void initState() {
@@ -30,12 +32,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Future<void> _fetchUserData() async {
     try {
       final userData = await Auth().fetchUser();
-
+      final user = await Auth().currentUser;
+      print("user: ${user?.providerData[0].email}");
       if (userData != null) {
         setState(() {
           firstName = userData['firstName'] ?? '';
           surname = userData['surname'] ?? '';
-          profileImageBase64 = userData['profileImage'];
+          profileImageBase64 = userData['photoBase64'];
+          photoUrl = userData['photo'];
           isLoading = false;
         });
       } else {
@@ -66,6 +70,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   ImageProvider _getProfileImage() {
     if (profileImageBase64 != null && profileImageBase64!.isNotEmpty) {
       return MemoryImage(base64Decode(profileImageBase64!));
+    } else if (profileImageBase64 == null && photoUrl != null) {
+      return NetworkImage(photoUrl!);
     } else {
       return const AssetImage('assets/avatar.png');
     }
@@ -73,6 +79,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("---------------------------------------------------");
+    print("profileImageBase64: $profileImageBase64");
+    print("photoUrl: $photoUrl");
+    print("---------------------------------------------------");
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -96,6 +106,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ? CircleAvatar(
                           radius: 60,
                           backgroundImage: _getProfileImage(),
+                        )
+                        : photoUrl != null
+                        ? CircleAvatar(
+                          radius: 60,
+                          backgroundImage: NetworkImage(photoUrl!),
                         )
                         : const CircleAvatar(
                           radius: 60,
@@ -155,7 +170,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           const SizedBox(height: 16),
                           _buildInfoRow(
                             Icons.email,
-                            Auth().currentUser?.email ?? 'profile.noEmail'.tr,
+                            Auth().currentUser?.email ??
+                                Auth().currentUser?.providerData[0].email ??
+                                'profile.noEmail'.tr,
                           ),
                         ],
                       ),
@@ -333,7 +350,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           InkWell(
                             onTap: () async {
                               await Auth().signOut();
-                              Get.offAllNamed('/login');
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Login(),
+                                ),
+                              );
                             },
                             child: _buildSettingItem(
                               'logout'.tr,
