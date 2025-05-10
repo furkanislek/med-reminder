@@ -163,7 +163,7 @@ const Map<String, String> trTR = {
   "profile.cancel": "İptal",
   "profile.delete": "Sil",
   "profile.errorDeletingAccount": "Hesap silinirken bir hata oluştu",
-
+  "profile.deleteAccountButton": "Hesabı Sil",
   // Profile Page
   "logout": "Çıkış Yap",
   "account": "Hesap",

@@ -173,6 +173,7 @@ const Map<String, String> enUS = {
   'profile.cancel': 'Cancel',
   'profile.delete': 'Delete',
   'profile.errorDeletingAccount': 'Error deleting account',
+  'profile.deleteAccountButton': 'Delete Account',
 
   // Profile Page
   'logout': 'Logout',

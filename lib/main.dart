@@ -31,6 +31,34 @@ void main() async {
 
     if (deviceLocale != null && deviceLocale.languageCode == 'tr') {
       initialAppLocale = const Locale('tr', 'TR');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'de') {
+      initialAppLocale = const Locale('de', 'DE');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'fr') {
+      initialAppLocale = const Locale('fr', 'FR');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'es') {
+      initialAppLocale = const Locale('es', 'ES');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'pt') {
+      initialAppLocale = const Locale('pt', 'BR');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'zh') {
+      initialAppLocale = const Locale('zh', 'CN');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'hi') {
+      initialAppLocale = const Locale('hi', 'IN');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'ar') {
+      initialAppLocale = const Locale('ar', 'SA');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'ru') {
+      initialAppLocale = const Locale('ru', 'RU');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'ms') {
+      initialAppLocale = const Locale('ms', 'MY');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'id') {
+      initialAppLocale = const Locale('id', 'ID');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'bn') {
+      initialAppLocale = const Locale('bn', 'BD');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'ja') {
+      initialAppLocale = const Locale('ja', 'JP');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'ko') {
+      initialAppLocale = const Locale('ko', 'KR');
+    } else if (deviceLocale != null && deviceLocale.languageCode == 'it') {
+      initialAppLocale = const Locale('it', 'IT');
     } else {
       initialAppLocale = const Locale('en', 'US');
     }

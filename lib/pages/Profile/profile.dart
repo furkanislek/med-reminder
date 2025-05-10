@@ -64,7 +64,67 @@ class _ProfileScreenState extends State<ProfileScreen> {
       final locale = const Locale('en', 'US');
       Get.updateLocale(locale);
       await localeService.saveLocale(locale);
+    } else if (languageCode == 'de_DE') {
+      final locale = const Locale('de', 'DE');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'fr_FR') {
+      final locale = const Locale('fr', 'FR');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'es_ES') {
+      final locale = const Locale('es', 'ES');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'pt_BR') {
+      final locale = const Locale('pt', 'BR');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'zh_CN') {
+      final locale = const Locale('zh', 'CN');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'hi_IN') {
+      final locale = const Locale('hi', 'IN');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'ar_SA') {
+      final locale = const Locale('ar', 'SA');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'ru_RU') {
+      final locale = const Locale('ru', 'RU');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'ms_MY') {
+      final locale = const Locale('ms', 'MY');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'id_ID') {
+      final locale = const Locale('id', 'ID');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'bn_BD') {
+      final locale = const Locale('bn', 'BD');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'ja_JP') {
+      final locale = const Locale('ja', 'JP');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'ko_KR') {
+      final locale = const Locale('ko', 'KR');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
+    } else if (languageCode == 'it_IT') {
+      final locale = const Locale('it', 'IT');
+      Get.updateLocale(locale);
+      await localeService.saveLocale(locale);
     }
+
+    setState(() {
+      selectedLanguage = languageCode;
+    });
   }
 
   ImageProvider _getProfileImage() {
@@ -79,10 +139,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("---------------------------------------------------");
-    print("profileImageBase64: $profileImageBase64");
-    print("photoUrl: $photoUrl");
-    print("---------------------------------------------------");
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -227,13 +283,57 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   <String>[
                                     'tr_TR',
                                     'en_US',
+                                    'de_DE',
+                                    'fr_FR',
+                                    'es_ES',
+                                    'pt_BR',
+                                    'zh_CN',
+                                    'hi_IN',
+                                    'ar_SA',
+                                    'ru_RU',
+                                    'ms_MY',
+                                    'id_ID',
+                                    'bn_BD',
+                                    'ja_JP',
+                                    'ko_KR',
+                                    'it_IT',
                                   ].map<DropdownMenuItem<String>>((
                                     String value,
                                   ) {
                                     return DropdownMenuItem<String>(
                                       value: value,
                                       child: Text(
-                                        value == 'tr_TR' ? 'Türkçe' : 'English',
+                                        value == 'tr_TR'
+                                            ? 'Türkçe'
+                                            : value == 'en_US'
+                                            ? 'English'
+                                            : value == 'de_DE'
+                                            ? 'Deutsch'
+                                            : value == 'fr_FR'
+                                            ? 'Français'
+                                            : value == 'es_ES'
+                                            ? 'Español'
+                                            : value == 'pt_BR'
+                                            ? 'Português'
+                                            : value == 'zh_CN'
+                                            ? '中文'
+                                            : value == 'hi_IN'
+                                            ? 'हिन्दी'
+                                            : value == 'ar_SA'
+                                            ? 'العربية'
+                                            : value == 'ru_RU'
+                                            ? 'Русский'
+                                            : value == 'ms_MY'
+                                            ? 'Bahasa Malaysia'
+                                            : value == 'id_ID'
+                                            ? 'Bahasa Indonesia'
+                                            : value == 'bn_BD'
+                                            ? 'বাংলা'
+                                            : value == 'ja_JP'
+                                            ? '日本語'
+                                            : value == 'ko_KR'
+                                            ? '한국어'
+                                            : 'Italiano',
                                         style: const TextStyle(
                                           color: Colors.grey,
                                         ),
@@ -365,7 +465,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               _showDeleteAccountConfirmation();
                             },
                             child: _buildSettingItem(
-                              'Hesabı Sil'.tr,
+                              'profile.deleteAccountButton'.tr,
                               const Icon(
                                 Icons.delete_forever,
                                 color: Colors.red,
