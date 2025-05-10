@@ -122,7 +122,6 @@ class Auth {
       final user = userCredential.user;
 
       if (user != null) {
-        // Firestore'da kullanıcı belgesi var mı kontrol et
         DocumentSnapshot userDoc =
             await FirebaseFirestore.instance
                 .collection('users')
