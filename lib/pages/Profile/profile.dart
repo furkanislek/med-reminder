@@ -44,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         });
       }
     } catch (e) {
-      print('Kullanıcı bilgileri yüklenirken hata: $e');
+      print('Kullanıcı bilgileri yüklenirken hata alındı: $e');
       setState(() {
         isLoading = false;
       });
