@@ -43,8 +43,11 @@ class AddPillScreen extends StatelessWidget {
             await controller.saveMedicineData();
             if (!Get.isSnackbarOpen) {
               controller.resetForm();
-              Get.offAll(() => Menu());
             }
+            await Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => Menu()),
+            );
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF0996C7),

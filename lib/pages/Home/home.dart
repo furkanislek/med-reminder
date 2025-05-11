@@ -61,6 +61,12 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  // Pull-to-refresh işlevi
+  Future<void> _refreshMedicines() async {
+    // İlaç listesini yenile
+    dataService.getMedicinesStream();
+  }
+
   @override
   Widget build(BuildContext context) {
     dataService.getMedicinesStream();
@@ -150,7 +156,12 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             const SizedBox(height: 20),
-            Expanded(child: MedicineListView(controller: controller)),
+            Expanded(
+              child: RefreshIndicator(
+                onRefresh: _refreshMedicines,
+                child: MedicineListView(controller: controller),
+              ),
+            ),
           ],
         ),
       ),

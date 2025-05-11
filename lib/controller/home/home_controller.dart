@@ -14,7 +14,7 @@ class HomeController extends GetxController {
   var filteredMedicines = <MedicineModel>[].obs;
   // Search query state for name
   var searchQuery = ''.obs;
-  // Selected drug type filter state
+  var showOnlyActiveMedicines = true.obs;
   var selectedDrugType = ''.obs;
 
   @override
@@ -49,7 +49,9 @@ class HomeController extends GetxController {
     ever(
       selectedDrugType,
       (_) => _filterMedicines(),
+
     ); // React to drug type changes
+        ever(showOnlyActiveMedicines, (_) => _filterMedicines()); // Yeni durumu dinle
   }
 
   void updateSearchQuery(String query) {

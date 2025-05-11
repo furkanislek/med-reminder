@@ -44,6 +44,7 @@ class DataService {
           .doc(user.uid)
           .collection('medicines')
           .add(medicineData);
+      await getMedicinesStream();
     } catch (e) {
       print("saveMedicine error: $e");
       rethrow;
@@ -147,6 +148,7 @@ class DataService {
           .collection('medicines')
           .doc(medicineId)
           .delete();
+      await getMedicinesStream();
     } catch (e) {
       print("deleteMedicine error for $medicineId: $e");
       rethrow;
