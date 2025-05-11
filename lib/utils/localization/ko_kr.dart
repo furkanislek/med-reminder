@@ -102,6 +102,7 @@ const Map<String, String> koKR = {
   'medicine.deleteMedicineErrorMessage': '약 삭제 실패: {e}',
   'medicine.withFood': '식사와 함께',
   'medicine.deleteMedicineSuccessMessage': '약이 성공적으로 삭제되었습니다.',
+  'medicine.saveMedicineSuccessMessage': '약이 성공적으로 저장되었습니다.',
 
   // Settings Page
   'settings.title': '설정',

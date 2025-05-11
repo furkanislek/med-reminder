@@ -101,6 +101,7 @@ const Map<String, String> bnBD = {
   'medicine.deleteMedicineErrorMessage': 'ঔষধ মুছতে ব্যর্থ: {e}',
   'medicine.withFood': 'খাবারের সাথে',
   'medicine.deleteMedicineSuccessMessage': 'ঔষধ সফলভাবে মুছে ফেলা হয়েছে।',
+  'medicine.saveMedicineSuccessMessage': 'ঔষধ সফলভাবে সংরক্ষিত হয়েছে।',
 
   // Settings Page
   'settings.title': 'সেটিংস',

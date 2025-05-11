@@ -102,6 +102,7 @@ const Map<String, String> arSA = {
   'medicine.deleteMedicineErrorMessage': 'فشل في حذف الدواء: {e}',
   'medicine.withFood': 'مع الطعام',
   'medicine.deleteMedicineSuccessMessage': 'تم حذف الدواء بنجاح.',
+  'medicine.saveMedicineSuccessMessage': 'تم حفظ الدواء بنجاح.',
 
   // Settings Page
   'settings.title': 'الإعدادات',

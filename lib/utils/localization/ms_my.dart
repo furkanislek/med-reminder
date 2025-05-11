@@ -102,8 +102,9 @@ const Map<String, String> msMY = {
   'medicine.deleteMedicineSuccess': 'Ubat berjaya dipadam.',
   'medicine.deleteMedicineError': 'Ralat',
   'medicine.deleteMedicineErrorMessage': 'Gagal memadam ubat: {e}',
-  'medicine.withFood': 'Dengan Makanan',
   'medicine.deleteMedicineSuccessMessage': 'Ubat berjaya dipadam.',
+  'medicine.saveMedicineSuccessMessage': 'Ubat berjaya disimpan.',
+  'medicine.withFood': 'Dengan Makanan',
 
   // Settings Page
   'settings.title': 'Tetapan',

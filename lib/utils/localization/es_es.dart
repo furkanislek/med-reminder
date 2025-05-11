@@ -106,8 +106,8 @@ const Map<String, String> esES = {
   'medicine.deleteMedicineErrorMessage':
       'Error al eliminar el medicamento: {e}',
   'medicine.withFood': 'Con Comida',
-  'medicine.deleteMedicineSuccessMessage':
-      'Medicamento eliminado correctamente.',
+  'medicine.deleteMedicineSuccessMessage': 'Medicamento eliminado con éxito.',
+  'medicine.saveMedicineSuccessMessage': 'Medicamento guardado con éxito.',
 
   // Settings Page
   'settings.title': 'Ajustes',

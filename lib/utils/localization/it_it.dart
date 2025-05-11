@@ -105,6 +105,7 @@ const Map<String, String> itIT = {
       'Errore nell\'eliminare il farmaco: {e}',
   'medicine.withFood': 'Con i pasti',
   'medicine.deleteMedicineSuccessMessage': 'Farmaco eliminato con successo.',
+  'medicine.saveMedicineSuccessMessage': 'Farmaco salvato con successo.',
 
   // Settings Page
   'settings.title': 'Impostazioni',

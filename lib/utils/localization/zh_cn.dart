@@ -102,6 +102,7 @@ const Map<String, String> zhCN = {
   'medicine.deleteMedicineErrorMessage': '删除药物失败：{e}',
   'medicine.withFood': '随餐',
   'medicine.deleteMedicineSuccessMessage': '药物删除成功。',
+  'medicine.saveMedicineSuccessMessage': '药品保存成功。',
 
   // Settings Page
   'settings.title': '设置',

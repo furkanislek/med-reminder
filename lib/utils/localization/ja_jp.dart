@@ -102,6 +102,7 @@ const Map<String, String> jaJP = {
   'medicine.deleteMedicineErrorMessage': '薬の削除に失敗しました：{e}',
   'medicine.withFood': '食事と一緒に',
   'medicine.deleteMedicineSuccessMessage': '薬が正常に削除されました。',
+  'medicine.saveMedicineSuccessMessage': '薬が正常に保存されました。',
 
   // Settings Page
   'settings.title': '設定',

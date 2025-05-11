@@ -115,6 +115,7 @@ const Map<String, String> trTR = {
   "medicine.deleteMedicineErrorMessage": "İlaç silinirken hata: {e}",
   "medicine.withFood": "Yemekle Beraber",
   "medicine.deleteMedicineSuccessMessage": "İlaç başarıyla silindi.",
+  "medicine.saveMedicineSuccessMessage": "İlaç başarıyla kaydedildi.",
 
   // Settings Page
   "settings.title": "Ayarlar",

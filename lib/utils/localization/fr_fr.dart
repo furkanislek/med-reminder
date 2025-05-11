@@ -106,8 +106,8 @@ const Map<String, String> frFR = {
   'medicine.deleteMedicineError': 'Erreur',
   'medicine.deleteMedicineErrorMessage':
       'Échec de la suppression du médicament: {e}',
+  'medicine.saveMedicineSuccessMessage': 'Médicament enregistré avec succès.',
   'medicine.withFood': 'Avec la Nourriture',
-  'medicine.deleteMedicineSuccessMessage': 'Médicament supprimé avec succès.',
 
   // Settings Page
   'settings.title': 'Paramètres',

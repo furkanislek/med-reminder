@@ -108,6 +108,7 @@ const Map<String, String> deDE = {
       'Fehler beim Löschen des Medikaments: {e}',
   'medicine.withFood': 'Mit Essen',
   'medicine.deleteMedicineSuccessMessage': 'Medikament erfolgreich gelöscht.',
+  'medicine.saveMedicineSuccessMessage': 'Medikament erfolgreich gespeichert.',
 
   // Settings Page
   'settings.title': 'Einstellungen',

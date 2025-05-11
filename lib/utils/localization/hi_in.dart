@@ -104,7 +104,8 @@ const Map<String, String> hiIN = {
   'medicine.deleteMedicineError': 'त्रुटि',
   'medicine.deleteMedicineErrorMessage': 'दवा हटाने में विफल: {e}',
   'medicine.withFood': 'भोजन के साथ',
-  'medicine.deleteMedicineSuccessMessage': 'दवा सफलतापूर्वक हटा दी गई।',
+  'medicine.deleteMedicineSuccessMessage': 'दवा सफलतापूर्वक हटाई गई।',
+  'medicine.saveMedicineSuccessMessage': 'दवा सफलतापूर्वक सहेजी गई।',
 
   // Settings Page
   'settings.title': 'सेटिंग्स',

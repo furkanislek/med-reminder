@@ -100,8 +100,9 @@ const Map<String, String> ptBR = {
   'medicine.deleteMedicineSuccess': 'Medicamento excluído com sucesso.',
   'medicine.deleteMedicineError': 'Erro',
   'medicine.deleteMedicineErrorMessage': 'Falha ao excluir medicamento: {e}',
-  'medicine.withFood': 'Com Comida',
   'medicine.deleteMedicineSuccessMessage': 'Medicamento excluído com sucesso.',
+  'medicine.saveMedicineSuccessMessage': 'Medicamento salvo com sucesso.',
+  'medicine.withFood': 'Com Comida',
 
   // Settings Page
   'settings.title': 'Configurações',

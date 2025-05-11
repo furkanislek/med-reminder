@@ -104,6 +104,7 @@ const Map<String, String> enUS = {
   'medicine.deleteMedicineErrorMessage': 'Failed to delete medicine: {e}',
   'medicine.withFood': 'With Food',
   'medicine.deleteMedicineSuccessMessage': 'Medicine deleted successfully.',
+  'medicine.saveMedicineSuccessMessage': 'Medicine saved successfully.',
 
   // Settings Page
   'settings.title': 'Settings',

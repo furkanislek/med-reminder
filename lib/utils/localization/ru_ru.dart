@@ -103,6 +103,7 @@ const Map<String, String> ruRU = {
   'medicine.deleteMedicineErrorMessage': 'Не удалось удалить лекарство: {e}',
   'medicine.withFood': 'С едой',
   'medicine.deleteMedicineSuccessMessage': 'Лекарство успешно удалено.',
+  'medicine.saveMedicineSuccessMessage': 'Лекарство успешно сохранено.',
 
   // Settings Page
   'settings.title': 'Настройки',

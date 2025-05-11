@@ -104,6 +104,7 @@ const Map<String, String> idID = {
   'medicine.deleteMedicineErrorMessage': 'Gagal menghapus obat: {e}',
   'medicine.withFood': 'Dengan Makanan',
   'medicine.deleteMedicineSuccessMessage': 'Obat berhasil dihapus.',
+  'medicine.saveMedicineSuccessMessage': 'Obat berhasil disimpan.',
 
   // Settings Page
   'settings.title': 'Pengaturan',
