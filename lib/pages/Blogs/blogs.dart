@@ -14,8 +14,6 @@ class BlogsScreen extends StatefulWidget {
 
 class _BlogsScreenState extends State<BlogsScreen> {
   final BlogService _blogService = BlogService();
-  final TextEditingController _searchController = TextEditingController();
-  String _searchTerm = '';
 
   // Kategoriler
   final List<String> categories = ["pills", "health", "Yaşam Tarzı"];
@@ -42,16 +40,10 @@ class _BlogsScreenState extends State<BlogsScreen> {
   @override
   void initState() {
     super.initState();
-    _searchController.addListener(() {
-      setState(() {
-        _searchTerm = _searchController.text.toLowerCase();
-      });
-    });
   }
 
   @override
   void dispose() {
-    _searchController.dispose();
     super.dispose();
   }
 
@@ -76,7 +68,7 @@ class _BlogsScreenState extends State<BlogsScreen> {
         elevation: 0,
         title: Text(
           _getLocalized("Blog", "Blog"),
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontSize: 24,
@@ -112,75 +104,30 @@ class _BlogsScreenState extends State<BlogsScreen> {
             }
 
             List<Blog> allBlogs = snapshot.data!;
+            Map<String, List<Blog>> filteredBlogsByCategory = {};
 
-            // Arama termi varsa, filtreleme yap
-            if (_searchTerm.isNotEmpty) {
-              allBlogs =
-                  allBlogs.where((blog) {
-                    final localizedTitle =
-                        blog.getTitle(currentLocaleTag).toLowerCase();
-                    final localizedSummary =
-                        blog.getSummary(currentLocaleTag).toLowerCase();
-                    return localizedTitle.contains(_searchTerm) ||
-                        localizedSummary.contains(_searchTerm);
-                  }).toList();
+            // Tüm kategorileri başlat
+            for (var category in categories) {
+              filteredBlogsByCategory[category] = [];
+            }
 
-              if (allBlogs.isEmpty) {
-                return Center(
-                  child: Text(
-                    _getLocalized(
-                      'Aramanızla eşleşen sonuç bulunamadı.',
-                      'No results found for your search.',
-                    ),
-                  ),
-                );
+            // Normal mod - tüm blogları kategorilere ayır
+            for (var blog in allBlogs) {
+              final category = blog.category;
+              if (categories.contains(category)) {
+                filteredBlogsByCategory[category]!.add(blog);
               }
             }
 
-            // Kategorilere göre blogları grupla
             return ListView(
               padding: const EdgeInsets.only(bottom: 20),
               children: [
-                if (_searchTerm.isEmpty) ...[
-                  // Arama kutusu
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: TextField(
-                      controller: _searchController,
-                      decoration: InputDecoration(
-                        hintText: _getLocalized(
-                          'Makalelerde ara...',
-                          'Search articles...',
-                        ),
-                        prefixIcon: const Icon(Icons.search),
-                        fillColor: Colors.grey[100],
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12.0),
-                          borderSide: BorderSide.none,
-                        ),
-                        filled: true,
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: 0,
-                          horizontal: 20,
-                        ),
-                        suffixIcon:
-                            _searchTerm.isNotEmpty
-                                ? IconButton(
-                                  icon: const Icon(Icons.clear),
-                                  onPressed: () {
-                                    _searchController.clear();
-                                  },
-                                )
-                                : null,
-                      ),
-                    ),
+                for (String category in categories)
+                  _buildCategorySection(
+                    category,
+                    filteredBlogsByCategory[category] ?? [],
+                    currentLocaleTag,
                   ),
-
-                  for (String category in categories)
-                    _buildCategorySection(category, allBlogs, currentLocaleTag),
-                ] else
-                  // Arama sonuçları
-                  _buildSearchResults(allBlogs, currentLocaleTag),
               ],
             );
           },
@@ -191,13 +138,9 @@ class _BlogsScreenState extends State<BlogsScreen> {
 
   Widget _buildCategorySection(
     String category,
-    List<Blog> allBlogs,
+    List<Blog> categoryBlogs,
     String currentLocaleTag,
   ) {
-    // Kategoriye ait blogları filtrele
-    final categoryBlogs =
-        allBlogs.where((blog) => blog.category == category).toList();
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -253,41 +196,6 @@ class _BlogsScreenState extends State<BlogsScreen> {
       ],
     );
   }
-
-  Widget _buildSearchResults(List<Blog> blogs, String currentLocaleTag) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () {
-                  _searchController.clear();
-                },
-              ),
-              Text(
-                _getLocalized('Arama Sonuçları', 'Search Results'),
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          for (final blog in blogs)
-            SearchResultCard(
-              blog: blog,
-              onTap: () => _navigateToDetail(blog),
-              currentLanguageCode: currentLocaleTag,
-            ),
-        ],
-      ),
-    );
-  }
 }
 
 class CategoryBlogCard extends StatelessWidget {
@@ -311,9 +219,7 @@ class CategoryBlogCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = blog.getTitle(currentLanguageCode);
-    print("--------------------------------");
-    print(blog.imgSrc);
-    print("--------------------------------");
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -341,7 +247,7 @@ class CategoryBlogCard extends StatelessWidget {
                                 image: NetworkImage(blog.imgSrc),
                                 fit: BoxFit.cover,
                               ),
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(20),
                                 topRight: Radius.circular(20),
                               ),
@@ -367,7 +273,7 @@ class CategoryBlogCard extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: secondaryColor,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20),
                     topLeft: Radius.circular(20),
