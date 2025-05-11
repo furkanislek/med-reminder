@@ -6,6 +6,7 @@ class Blog {
   final String imgSrc;
   final Map<String, List<String>> tags;
   final String svg;
+  final String category;
 
   Blog({
     required this.id,
@@ -15,6 +16,7 @@ class Blog {
     required this.imgSrc,
     required this.tags,
     required this.svg,
+    required this.category,
   });
 
   factory Blog.fromFirestore(Map<String, dynamic> data, String documentId) {
@@ -33,6 +35,7 @@ class Blog {
     return Blog(
       id: documentId,
       svg: (data["svg"] ?? data["Svg"] ?? "") as String,
+      category: (data["category"] ?? data["Category"] ?? "") as String,
       title: Map<String, String>.from(rawTitle),
       summary: Map<String, String>.from(rawSummary),
       article: Map<String, String>.from(rawArticle),

@@ -171,4 +171,8 @@ const Map<String, String> trTR = {
   "addMedicine.durationPickerTitle": "Süre Seç",
   "addMedicine.durationPickerItemText": "{count} gün",
 
+  // Blog Page
+  "pills": "İlaçlar",
+  "health": "Sağlık",
+  "lifeStyle": "Yaşam Tarzı",
 };

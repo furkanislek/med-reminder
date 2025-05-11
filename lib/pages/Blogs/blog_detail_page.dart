@@ -50,7 +50,7 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-      
+
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF2D6654)),
           onPressed: () => Navigator.of(context).pop(),
@@ -92,7 +92,7 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
                       width: 60,
                       height: 60,
                       decoration: const BoxDecoration(
-                        color: Color(0xFF2D6654), 
+                        color: Color(0xFF2D6654),
                         shape: BoxShape.circle,
                       ),
                       child: Center(
@@ -142,11 +142,13 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
               ),
 
               Positioned(
-                right: 0,
-                bottom: 0,
-                child: widget.blog?.svg.isNotEmpty ?? true
-                    ? SvgPicture.network(widget.blog?.svg ?? "")
-                    : SvgPicture.asset("assets/svg/money.svg"),
+                right: 10,
+                bottom: 10,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.asset("assets/svg/detail.svg", height: 200, width: 50),
+                ),
+                
               ),
             ],
           );
