@@ -46,6 +46,7 @@ class _BlogsScreenState extends State<BlogsScreen> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final currentLocaleTag = Get.locale?.toString() ?? 'en_US';
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -122,22 +123,13 @@ class _BlogsScreenState extends State<BlogsScreen> {
                 List<Blog> allBlogs = snapshot.data!;
                 List<Blog> filteredBlogs =
                     allBlogs.where((blog) {
-                      final titleTR = blog.titleTR.toLowerCase();
-                      final titleEN = blog.titleEN.toLowerCase();
-                      final summaryTR = blog.summaryTR.toLowerCase();
-                      final summaryEN = blog.summaryEN.toLowerCase();
-                      final currentLangTitle = _getLocalized(titleTR, titleEN);
-                      final currentLangSummary = _getLocalized(
-                        summaryTR,
-                        summaryEN,
-                      );
+                      final localizedTitle =
+                          blog.getTitle(currentLocaleTag).toLowerCase();
+                      final localizedSummary =
+                          blog.getSummary(currentLocaleTag).toLowerCase();
 
-                      return currentLangTitle.contains(_searchTerm) ||
-                          currentLangSummary.contains(_searchTerm) ||
-                          titleTR.contains(_searchTerm) ||
-                          titleEN.contains(_searchTerm) ||
-                          summaryTR.contains(_searchTerm) ||
-                          summaryEN.contains(_searchTerm);
+                      return localizedTitle.contains(_searchTerm) ||
+                          localizedSummary.contains(_searchTerm);
                     }).toList();
 
                 if (filteredBlogs.isEmpty && _searchTerm.isNotEmpty) {
@@ -165,7 +157,7 @@ class _BlogsScreenState extends State<BlogsScreen> {
                     return BlogCard(
                       blog: blog,
                       onTap: () => _navigateToDetail(blog),
-                      currentLanguageCode: Get.locale?.languageCode ?? 'en',
+                      currentLanguageCode: currentLocaleTag,
                     );
                   },
                 );
@@ -191,13 +183,13 @@ class BlogCard extends StatelessWidget {
   });
 
   String _getLocalizedText(String tr, String en) {
-    return currentLanguageCode == 'tr' ? tr : en;
+    return currentLanguageCode.startsWith('tr') ? tr : en;
   }
 
   @override
   Widget build(BuildContext context) {
-    final title = _getLocalizedText(blog.titleTR, blog.titleEN);
-    final summary = _getLocalizedText(blog.summaryTR, blog.summaryEN);
+    final title = blog.getTitle(currentLanguageCode);
+    final summary = blog.getSummary(currentLanguageCode);
 
     return Card(
       elevation: 2.0,
@@ -211,11 +203,11 @@ class BlogCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (blog.imgsrc.isNotEmpty)
+              if (blog.imgSrc.isNotEmpty)
                 AspectRatio(
                   aspectRatio: 16 / 9,
                   child: Image.network(
-                    blog.imgsrc,
+                    blog.imgSrc,
                     fit: BoxFit.cover,
                     width: double.infinity,
                     errorBuilder:

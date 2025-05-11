@@ -14,16 +14,17 @@ class Menu extends StatelessWidget {
   );
 
   final List<Widget> pages = [
-    HomeScreen(), 
-    AddPillScreen(), 
-    BlogsScreen(), 
-    ProfileScreen(), 
+    HomeScreen(),
+    AddPillScreen(),
+    BlogsScreen(),
+    ProfileScreen(),
   ];
 
   final List<String> titles = [
     'İlaçlarım',
     'Planlarım',
     'Yeni Plan',
+    'Blog',
     'İstatistikler',
   ];
 
