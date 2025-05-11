@@ -424,11 +424,10 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                   await _dataServiceController.deleteMedicineData(
                     widget.medicine.id,
                   );
-                  //delay 1 second
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Menu()),
-                  );
+                  // Formdaki değerleri temizle
+                  _dataServiceController.resetForm();
+                  // GetX navigasyon kullanarak sayfa değişimi
+                  Get.offAll(() => Menu());
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
@@ -609,7 +608,6 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                       icon: const Icon(Icons.delete_outline, color: Colors.red),
                       onPressed: () async {
                         tempTimes.removeAt(index);
-                        setState(() {});
 
                         // Eğer tüm saatler silindiyse uyarı göster
                         if (tempTimes.isEmpty) {
@@ -639,7 +637,6 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                       );
                       if (picked != null) {
                         tempTimes[index] = picked;
-                        setState(() {});
 
                         // Güncel saatleri controller'a atama
                         _dataServiceController.notifications.assignAll(
@@ -664,7 +661,6 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                 );
                 if (picked != null) {
                   tempTimes.add(picked);
-                  setState(() {});
 
                   // Güncel saatleri controller'a atama
                   _dataServiceController.notifications.assignAll(tempTimes);
