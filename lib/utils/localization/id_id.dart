@@ -194,4 +194,61 @@ const Map<String, String> idID = {
   // Privacy Policy
   'privacy_policy_content':
       '<h3>Pengingat Obat - Kebijakan Privasi</h3><br><p><b>Penggunaan Informasi Pribadi:</b><br>Aplikasi kami berkomitmen untuk melindungi privasi pengguna kami. Dalam aplikasi pengingat obat kami, kami mengumpulkan informasi yang diperlukan (email, informasi profil, dan rencana pengobatan) untuk pelacakan obat dan pengingat. Informasi ini digunakan untuk menyediakan dan meningkatkan layanan kami dan tidak dibagikan kepada pihak ketiga.</p><br><p><b>Penyimpanan dan Keamanan Data:</b><br>Data pengguna Anda disimpan di server yang aman dalam format terenkripsi. Informasi obat dan data pribadi Anda dilindungi di bawah langkah-langkah keamanan yang kuat. Hanya personel yang diperlukan yang dapat mengakses data Anda.</p><br><p><b>Hak Pengguna:</b><br>Pengguna memiliki hak untuk melihat, mengedit, atau menghapus akun dan data mereka kapan saja. Ketika Anda menghapus akun Anda, semua data Anda secara permanen dihapus dari sistem kami.</p><br><p><b>Cookie dan Pelacakan:</b><br>Aplikasi kami mungkin menggunakan cookie untuk meningkatkan pengalaman pengguna. Cookie ini menyimpan preferensi pengguna dan data penggunaan aplikasi. Anda dapat menonaktifkan cookie dari pengaturan browser Anda jika Anda mau.</p><br><p><b>Notifikasi:</b><br>Aplikasi kami hanya mengirimkan notifikasi untuk pengingat obat yang disetujui oleh pengguna. Anda tidak akan menerima notifikasi yang tidak diinginkan dan dapat menonaktifkan notifikasi dari bagian pengaturan.</p><br><p><b>Perubahan:</b><br>Kebijakan privasi kami dapat diperbarui dari waktu ke waktu. Pengguna akan diberitahu ketika ada perubahan signifikan. Dengan menggunakan aplikasi kami, Anda menyetujui persyaratan ini.</p><br><p><b>Kontak:</b><br>Silakan hubungi kami dengan pertanyaan apa pun tentang kebijakan privasi kami.</p>',
+
+  // Introduction Page
+  "introduction.page1.title": "Minum Obat Tepat Waktu, Jaga Kesehatan Anda",
+  "introduction.page1.description":
+      "Sangat mudah lupa waktu minum obat dalam kesibukan hidup. Dengan aplikasi kami, Anda tidak akan melewatkan dosis lagi. Tetapkan obat, waktu, dan durasi Anda – kami akan mengingatkan Anda tepat waktu.",
+  "introduction.page1.tip":
+      "Kesehatan dimulai dengan satu dosis perawatan yang diminum tepat waktu.",
+
+  "introduction.page2.title": "Pantau Kesehatan Anda, Tetap Terinformasi",
+  "introduction.page2.description":
+      "Kami tidak hanya mengingatkan Anda, tetapi juga memberikan informasi berguna tentang kesehatan Anda. Perkuat kebiasaan kesehatan harian Anda dengan postingan blog yang didukung oleh pakar.",
+  "introduction.page2.tip": "Informasi kecil dapat membuat perbedaan besar.",
+
+  "introduction.page3.title": "Terbuka untuk Dunia, Dipersonalisasi untuk Anda",
+  "introduction.page3.description":
+      "Aplikasi kami dapat diakses oleh semua orang dengan dukungan untuk 16 bahasa. Dengan antarmuka yang mudah digunakan, tambahkan obat Anda hanya dengan beberapa ketukan dan buat hidup Anda lebih mudah.",
+  "introduction.page3.tip":
+      "Kesehatan bersifat universal, dan kami juga demikian.",
+
+  "introduction.back": "Kembali",
+  "introduction.start": "Mulai",
+
+  // Register Page
+  "register.register_to_medreminder_app": "Daftar ke aplikasi Medreminder",
+  "register.already_have_an_account": "Sudah punya akun? ",
+  "register.sign_in": "Masuk",
+  "register.full_name": "Nama lengkap Anda",
+  "register.surname": "Nama belakang Anda",
+  "register.your_email": "Email Anda",
+  "register.type_your_password": "Ketik kata sandi Anda",
+  "register.re_type_your_password": "Ketik ulang kata sandi Anda",
+  "register.register": "Daftar",
+  "register.fill_all_fields": "Silakan isi semua kolom",
+  "register.password_not_match": "Kata sandi tidak cocok",
+  "register.error_occurred": "Terjadi kesalahan",
+
+  // Login Page
+  "login.invalid_email": "Alamat email tidak valid",
+  "login.user_disabled": "Pengguna telah dinonaktifkan",
+  "login.email_already_in_use": "Alamat email ini sudah digunakan",
+  "login.wrong_password": "Informasi yang Anda masukkan salah",
+  "login.email_not_verified":
+      "Silakan verifikasi alamat email Anda terlebih dahulu",
+  "login.operation_not_allowed": "Operasi ini tidak diizinkan",
+  "login.error_occurred": "Terjadi kesalahan",
+  "login.error_occured_google": "Terjadi kesalahan saat masuk dengan Google",
+  "login.please_enter_your_email": "Silakan masukkan alamat email Anda",
+  "login.password_reset_email_sent": "Email reset kata sandi telah dikirim",
+  "login.login_into_your_account": "Masuk ke akun Anda",
+  "login.dont_have_an_account": "Belum punya akun? ",
+  "login.sign_up": "Daftar",
+  "login.your_email": "Email Anda",
+  "login.type_your_password": "Ketik kata sandi Anda",
+  "login.login": "Masuk",
+  "login.forgot_password": "Lupa kata sandi?",
+  "login.or": "atau",
+  "login.login_with_google": "Masuk dengan Google",
 };

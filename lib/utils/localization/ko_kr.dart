@@ -188,4 +188,58 @@ const Map<String, String> koKR = {
   // Privacy Policy
   'privacy_policy_content':
       '<h3>약물 알림 - 개인정보 처리방침</h3><br><p><b>개인 정보 사용:</b><br>당사의 애플리케이션은 사용자의 개인 정보 보호에 최선을 다하고 있습니다. 약물 알림 앱에서는 약물 추적 및 알림을 위해 필요한 정보(이메일, 프로필 정보 및 약물 계획)를 수집합니다. 이 정보는 서비스 제공 및 개선을 위해 사용되며 제3자와 공유되지 않습니다.</p><br><p><b>데이터 저장 및 보안:</b><br>사용자 데이터는 암호화된 형식으로 안전한 서버에 저장됩니다. 약물 정보 및 개인 데이터는 강력한 보안 조치 하에 보호됩니다. 필요한 직원만이 귀하의 데이터에 접근할 수 있습니다.</p><br><p><b>사용자 권리:</b><br>사용자는 언제든지 계정 및 데이터를 보거나, 편집하거나, 삭제할 권리가 있습니다. 계정을 삭제하면 모든 데이터가 당사 시스템에서 영구적으로 제거됩니다.</p><br><p><b>쿠키 및 추적:</b><br>당사 애플리케이션은 사용자 경험을 향상시키기 위해 쿠키를 사용할 수 있습니다. 이러한 쿠키는 사용자 환경 설정 및 애플리케이션 사용 데이터를 저장합니다. 원하는 경우 브라우저 설정에서 쿠키를 비활성화할 수 있습니다.</p><br><p><b>알림:</b><br>당사 애플리케이션은 사용자가 승인한 약물 알림에 대해서만 알림을 보냅니다. 원치 않는 알림을 받지 않으며 설정 섹션에서 알림을 비활성화할 수 있습니다.</p><br><p><b>변경 사항:</b><br>당사의 개인정보 처리방침은 때때로 업데이트될 수 있습니다. 중요한 변경 사항이 있을 때 사용자에게 알립니다. 당사 애플리케이션을 사용함으로써 이 약관에 동의하게 됩니다.</p><br><p><b>연락처:</b><br>당사의 개인정보 처리방침에 관한 질문이 있으시면 언제든지 문의해 주십시오.</p>',
+
+  // Introduction Page
+  "introduction.page1.title": "약을 제때 복용하고, 건강을 지키세요",
+  "introduction.page1.description":
+      "바쁜 일상에서 약 복용 시간을 잊기 쉽습니다. 저희 앱을 사용하면 더 이상 어떤 약도 놓치지 않습니다. 약, 시간, 기간을 설정하면 – 저희가 제때 알려드립니다.",
+  "introduction.page1.tip": "건강은 제때 복용한 한 알의 약부터 시작됩니다.",
+
+  "introduction.page2.title": "건강을 추적하고, 정보를 얻으세요",
+  "introduction.page2.description":
+      "저희는 약 복용을 알려드릴 뿐만 아니라, 건강에 대한 유용한 정보도 제공합니다. 전문가가 지원하는 블로그 포스트로 일상 건강 습관을 강화하세요.",
+  "introduction.page2.tip": "작은 정보가 큰 차이를 만들 수 있습니다.",
+
+  "introduction.page3.title": "세계에 열려 있고, 당신에게 맞춤화되었습니다",
+  "introduction.page3.description":
+      "저희 앱은 16개 언어를 지원하여 모든 사람이 접근할 수 있습니다. 사용하기 쉬운 인터페이스로 몇 번의 탭만으로 약을 추가하고 생활을 더 편리하게 만드세요.",
+  "introduction.page3.tip": "건강은 보편적이며, 저희도 그렇습니다.",
+
+  "introduction.back": "이전",
+  "introduction.start": "시작",
+
+  // Register Page
+  "register.register_to_medreminder_app": "약 알림 앱에 등록하기",
+  "register.already_have_an_account": "이미 계정이 있으신가요? ",
+  "register.sign_in": "로그인",
+  "register.full_name": "귀하의 전체 이름",
+  "register.surname": "귀하의 성",
+  "register.your_email": "귀하의 이메일",
+  "register.type_your_password": "비밀번호 입력",
+  "register.re_type_your_password": "비밀번호 재입력",
+  "register.register": "등록",
+  "register.fill_all_fields": "모든 필드를 작성해주세요",
+  "register.password_not_match": "비밀번호가 일치하지 않습니다",
+  "register.error_occurred": "오류가 발생했습니다",
+
+  // Login Page
+  "login.invalid_email": "잘못된 이메일 주소",
+  "login.user_disabled": "사용자가 비활성화되었습니다",
+  "login.email_already_in_use": "이 이메일 주소는 이미 사용 중입니다",
+  "login.wrong_password": "입력하신 정보가 올바르지 않습니다",
+  "login.email_not_verified": "먼저 이메일 주소를 확인해주세요",
+  "login.operation_not_allowed": "이 작업은 허용되지 않습니다",
+  "login.error_occurred": "오류가 발생했습니다",
+  "login.error_occured_google": "Google로 로그인 중 오류가 발생했습니다",
+  "login.please_enter_your_email": "이메일 주소를 입력해주세요",
+  "login.password_reset_email_sent": "비밀번호 재설정 이메일이 발송되었습니다",
+  "login.login_into_your_account": "계정에 로그인하세요",
+  "login.dont_have_an_account": "계정이 없으신가요? ",
+  "login.sign_up": "가입하기",
+  "login.your_email": "귀하의 이메일",
+  "login.type_your_password": "비밀번호 입력",
+  "login.login": "로그인",
+  "login.forgot_password": "비밀번호를 잊으셨나요?",
+  "login.or": "또는",
+  "login.login_with_google": "Google로 로그인",
 };

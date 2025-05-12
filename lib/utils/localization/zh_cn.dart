@@ -188,4 +188,58 @@ const Map<String, String> zhCN = {
   // Privacy Policy
   'privacy_policy_content':
       '<h3>药物提醒 - 隐私政策</h3><br><p><b>个人信息使用：</b><br>我们的应用程序致力于保护用户的隐私。在我们的药物提醒应用程序中，我们收集药物跟踪和提醒所需的必要信息（电子邮件、个人资料信息和药物计划）。这些信息用于提供和改进我们的服务，不会与第三方共享。</p><br><p><b>数据存储和安全：</b><br>您的用户数据以加密格式存储在安全服务器上。您的药物信息和个人数据受到强大的安全措施保护。只有必要的人员才能访问您的数据。</p><br><p><b>用户权利：</b><br>用户有权随时查看、编辑或删除他们的账户和数据。当您删除账户时，您的所有数据将从我们的系统中永久删除。</p><br><p><b>Cookie和跟踪：</b><br>我们的应用程序可能使用Cookie来改善用户体验。这些Cookie存储用户偏好和应用程序使用数据。如果您愿意，可以从浏览器设置中禁用Cookie。</p><br><p><b>通知：</b><br>我们的应用程序仅发送用户批准的药物提醒通知。您不会收到不需要的通知，并且可以从设置部分禁用通知。</p><br><p><b>变更：</b><br>我们的隐私政策可能会不时更新。当有重大变化时，用户将会收到通知。使用我们的应用程序即表示您同意这些条款。</p><br><p><b>联系：</b><br>如有关于我们隐私政策的任何问题，请联系我们。</p>',
+
+  // Introduction Page
+  "introduction.page1.title": "按时服药，守护健康",
+  "introduction.page1.description":
+      "在忙碌的生活中，很容易忘记服药时间。有了我们的应用，您再也不会错过任何一剂药物。设置您的药物、时间和持续时间 – 我们会及时提醒您。",
+  "introduction.page1.tip": "健康始于按时服用的一剂关爱。",
+
+  "introduction.page2.title": "跟踪健康，保持信息畅通",
+  "introduction.page2.description":
+      "我们不仅提醒您，还提供有关您健康的有用信息。通过专家支持的博客文章，增强您的日常健康习惯。",
+  "introduction.page2.tip": "一点小信息可能带来巨大的改变。",
+
+  "introduction.page3.title": "面向世界，为您定制",
+  "introduction.page3.description":
+      "我们的应用支持16种语言，让每个人都能使用。凭借其易用的界面，只需几次点击即可添加您的药物，让生活更加便捷。",
+  "introduction.page3.tip": "健康是普遍的，我们也是如此。",
+
+  "introduction.back": "返回",
+  "introduction.start": "开始",
+
+  // Register Page
+  "register.register_to_medreminder_app": "注册药物提醒应用",
+  "register.already_have_an_account": "已有账户？ ",
+  "register.sign_in": "登录",
+  "register.full_name": "您的全名",
+  "register.surname": "您的姓氏",
+  "register.your_email": "您的电子邮箱",
+  "register.type_your_password": "输入您的密码",
+  "register.re_type_your_password": "重新输入您的密码",
+  "register.register": "注册",
+  "register.fill_all_fields": "请填写所有字段",
+  "register.password_not_match": "密码不匹配",
+  "register.error_occurred": "发生错误",
+
+  // Login Page
+  "login.invalid_email": "无效的电子邮箱地址",
+  "login.user_disabled": "用户已被禁用",
+  "login.email_already_in_use": "该电子邮箱地址已被使用",
+  "login.wrong_password": "您输入的信息不正确",
+  "login.email_not_verified": "请先验证您的电子邮箱地址",
+  "login.operation_not_allowed": "不允许此操作",
+  "login.error_occurred": "发生错误",
+  "login.error_occured_google": "使用谷歌登录时发生错误",
+  "login.please_enter_your_email": "请输入您的电子邮箱地址",
+  "login.password_reset_email_sent": "密码重置邮件已发送",
+  "login.login_into_your_account": "登录您的账户",
+  "login.dont_have_an_account": "没有账户？ ",
+  "login.sign_up": "注册",
+  "login.your_email": "您的电子邮箱",
+  "login.type_your_password": "输入您的密码",
+  "login.login": "登录",
+  "login.forgot_password": "忘记密码？",
+  "login.or": "或",
+  "login.login_with_google": "使用谷歌登录",
 };

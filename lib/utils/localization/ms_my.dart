@@ -194,4 +194,63 @@ const Map<String, String> msMY = {
   // Privacy Policy
   'privacy_policy_content':
       '<h3>Peringatan Ubat - Dasar Privasi</h3><br><p><b>Penggunaan Maklumat Peribadi:</b><br>Aplikasi kami komited untuk melindungi privasi pengguna kami. Dalam aplikasi peringatan ubat kami, kami mengumpulkan maklumat yang diperlukan (e-mel, maklumat profil, dan pelan pengambilan ubat) untuk penjejakan ubat dan peringatan. Maklumat ini digunakan untuk menyediakan dan meningkatkan perkhidmatan kami dan tidak dikongsi dengan pihak ketiga.</p><br><p><b>Penyimpanan Data dan Keselamatan:</b><br>Data pengguna anda disimpan di pelayan yang selamat dalam format yang terenkripsi. Maklumat ubat dan data peribadi anda dilindungi di bawah langkah-langkah keselamatan yang kuat. Hanya kakitangan yang diperlukan sahaja yang boleh mengakses data anda.</p><br><p><b>Hak Pengguna:</b><br>Pengguna mempunyai hak untuk melihat, mengedit, atau menghapus akaun dan data mereka pada bila-bila masa. Apabila anda menghapus akaun anda, semua data anda akan dibuang secara kekal dari sistem kami.</p><br><p><b>Kuki dan Penjejakan:</b><br>Aplikasi kami mungkin menggunakan kuki untuk meningkatkan pengalaman pengguna. Kuki ini menyimpan pilihan pengguna dan data penggunaan aplikasi. Anda boleh menyahaktifkan kuki daripada tetapan pelayar anda jika anda mahu.</p><br><p><b>Pemberitahuan:</b><br>Aplikasi kami hanya menghantar pemberitahuan untuk peringatan ubat yang diluluskan oleh pengguna. Anda tidak akan menerima pemberitahuan yang tidak diingini dan boleh menyahaktifkan pemberitahuan dari bahagian tetapan.</p><br><p><b>Perubahan:</b><br>Dasar privasi kami mungkin dikemas kini dari semasa ke semasa. Pengguna akan dimaklumkan apabila terdapat perubahan yang ketara. Dengan menggunakan aplikasi kami, anda bersetuju dengan syarat-syarat ini.</p><br><p><b>Hubungi:</b><br>Sila hubungi kami dengan sebarang pertanyaan mengenai dasar privasi kami.</p>',
+
+  // Introduction Page
+  "introduction.page1.title":
+      "Ambil Ubat Anda Tepat Pada Masanya, Jaga Kesihatan Anda",
+  "introduction.page1.description":
+      "Mudah untuk lupa masa pengambilan ubat dalam kesibukan kehidupan. Dengan aplikasi kami, anda tidak akan terlepas mana-mana dos lagi. Tetapkan ubat, masa, dan tempoh anda – kami akan mengingatkan anda tepat pada masanya.",
+  "introduction.page1.tip":
+      "Kesihatan bermula dengan satu dos penjagaan yang diambil tepat pada masanya.",
+
+  "introduction.page2.title": "Jejaki Kesihatan Anda, Dapatkan Informasi",
+  "introduction.page2.description":
+      "Kami bukan sahaja mengingatkan anda tetapi juga memberikan maklumat berguna tentang kesihatan anda. Perkuatkan tabiat kesihatan harian anda dengan artikel blog yang disokong pakar.",
+  "introduction.page2.tip":
+      "Sepotong kecil maklumat boleh membuat perbezaan besar.",
+
+  "introduction.page3.title":
+      "Terbuka kepada Dunia, Dipersonalisasikan untuk Anda",
+  "introduction.page3.description":
+      "Aplikasi kami boleh diakses oleh semua orang dengan sokongan untuk 16 bahasa. Dengan antaramuka yang mudah digunakan, tambahkan ubat anda dengan hanya beberapa ketukan dan buat hidup anda lebih mudah.",
+  "introduction.page3.tip": "Kesihatan adalah universal, begitu juga kami.",
+
+  "introduction.back": "Kembali",
+  "introduction.start": "Mula",
+
+  // Register Page
+  "register.register_to_medreminder_app": "Daftar ke aplikasi Medreminder",
+  "register.already_have_an_account": "Sudah mempunyai akaun? ",
+  "register.sign_in": "Log masuk",
+  "register.full_name": "Nama penuh anda",
+  "register.surname": "Nama keluarga anda",
+  "register.your_email": "E-mel anda",
+  "register.type_your_password": "Taip kata laluan anda",
+  "register.re_type_your_password": "Taip semula kata laluan anda",
+  "register.register": "Daftar",
+  "register.fill_all_fields": "Sila isi semua ruangan",
+  "register.password_not_match": "Kata laluan tidak sepadan",
+  "register.error_occurred": "Ralat telah berlaku",
+
+  // Login Page
+  "login.invalid_email": "Alamat e-mel tidak sah",
+  "login.user_disabled": "Pengguna telah dinyahaktifkan",
+  "login.email_already_in_use": "Alamat e-mel ini sudah digunakan",
+  "login.wrong_password": "Maklumat yang anda masukkan tidak betul",
+  "login.email_not_verified": "Sila sahkan alamat e-mel anda terlebih dahulu",
+  "login.operation_not_allowed": "Operasi ini tidak dibenarkan",
+  "login.error_occurred": "Ralat telah berlaku",
+  "login.error_occured_google": "Ralat berlaku semasa log masuk dengan Google",
+  "login.please_enter_your_email": "Sila masukkan alamat e-mel anda",
+  "login.password_reset_email_sent":
+      "E-mel tetapan semula kata laluan telah dihantar",
+  "login.login_into_your_account": "Log masuk ke akaun anda",
+  "login.dont_have_an_account": "Tidak mempunyai akaun? ",
+  "login.sign_up": "Daftar",
+  "login.your_email": "E-mel anda",
+  "login.type_your_password": "Taip kata laluan anda",
+  "login.login": "Log masuk",
+  "login.forgot_password": "Lupa kata laluan?",
+  "login.or": "atau",
+  "login.login_with_google": "Log masuk dengan Google",
 };

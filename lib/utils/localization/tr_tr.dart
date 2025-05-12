@@ -126,7 +126,6 @@ const Map<String, String> trTR = {
   // Introduction Screen
   "introduction.skip": "Atla",
   "introduction.done": "Bitti",
-  "introduction.next": "İleri",
 
   // Filter
   "filter.allTypes": "Tüm Tipler",
@@ -184,4 +183,59 @@ const Map<String, String> trTR = {
   // Privacy Policy
   "privacy_policy_content":
       "<h3>İlaç Hatırlatıcı - Gizlilik Politikası</h3><br><p><b>Kişisel Verilerinizin Kullanımı:</b><br>Uygulamamamız, kullanıcılarımızın gizliliğini korumayı taahhüt eder. İlaç hatırlatıcı uygulamamızda, kullanıcıların ilaç takibi ve hatırlatmalar için gerekli bilgileri (e-posta, profil bilgileri ve ilaç planları) toplanmaktadır. Bu bilgiler, hizmetimizi sağlamak ve geliştirmek için kullanılır ve üçüncü taraflarla paylaşılmaz.</p><br><p><b>Veri Saklama ve Güvenlik:</b><br>Kullanıcı verileriniz güvenli sunucularda ve şifrelenmiş formatta saklanır. İlaç bilgileriniz ve kişisel verileriniz, güçlü güvenlik önlemleri altında korunur. Verilerinize yalnızca gerekli personel erişebilir.</p><br><p><b>Kullanıcı Hakları:</b><br>Kullanıcılar, hesaplarını ve verilerini dilediği zaman görüntüleme, düzenleme veya silme hakkına sahiptir. Hesabınızı sildiğinizde, tüm verileriniz kalıcı olarak sistemimizden kaldırılır.</p><br><p><b>Çerezler ve Takip:</b><br>Uygulamamız, kullanıcı deneyimini geliştirmek için çerezler kullanabilir. Bu çerezler, kullanıcı tercihlerini ve uygulama kullanım verilerini saklar. İsterseniz tarayıcı ayarlarınızdan çerezleri devre dışı bırakabilirsiniz.</p><br><p><b>Bildirimler:</b><br>Uygulamamamız, yalnızca kullanıcının onayladığı ilaç hatırlatmaları için bildirimler gönderir. İstenmeyen bildirimler alınmaz ve bildirimleri ayarlar bölümünden devre dışı bırakabilirsiniz.</p><br><p><b>Değişiklikler:</b><br>Gizlilik politikamız zaman zaman güncellenebilir. Önemli değişiklikler olduğunda kullanıcılarımıza bildirim yapılacaktır. Uygulamamamızı kullanarak, bu şartları kabul etmiş olursunuz.</p><br><p><b>İletişim:</b><br>Gizlilik politikamızla ilgili sorularınız için lütfen bize ulaşın.</p>",
+
+  // Introduction Page
+  "introduction.page1.title": "İlacını Zamanında Al, Sağlığını Güvende Tut",
+  "introduction.page1.description":
+      "Hayat koşuşturmasında ilaç saatlerini unutmak çok kolay. Uygulamamız sayesinde artık hiçbir dozu kaçırmayacaksın. İlacını, saatini, süresini belirle – biz sana zamanında hatırlatalım.",
+  "introduction.page1.tip": "Sağlık, zamanında alınan bir doz dikkatle başlar.",
+
+  "introduction.page2.title": "Sağlığını Takip Et, Bilgilen",
+  "introduction.page2.description":
+      "Sadece hatırlatmakla kalmaz, sağlığına dair faydalı bilgiler de sunarız. Uzman destekli blog yazılarıyla günlük sağlık alışkanlıklarını güçlendir.",
+  "introduction.page2.tip": "Küçük bir bilgi, büyük bir fark yaratabilir.",
+
+  "introduction.page3.title": "Dünyaya Açık, Sana Özel",
+  "introduction.page3.description":
+      "Uygulamamız 16 dil desteğiyle herkes için erişilebilir. Kullanımı kolay arayüzüyle sadece birkaç dokunuşla ilacını ekle, hayatını kolaylaştır.",
+  "introduction.page3.tip": "Sağlık evrenseldir, biz de öyleyiz.",
+
+  "introduction.back": "Geri",
+  "introduction.start": "Başla",
+  "introduction.next": "İleri",
+
+  // Register Page
+  "register.register_to_medreminder_app": "Medreminder uygulamasına kayıt olun",
+  "register.already_have_an_account": "Hesabınız var mı? ",
+  "register.sign_in": "Giriş yapın",
+  "register.full_name": "Tam adınız",
+  "register.surname": "Soyadınız",
+  "register.your_email": "E-posta adresiniz",
+  "register.type_your_password": "Şifrenizi yazın",
+  "register.re_type_your_password": "Şifrenizi tekrar yazın",
+  "register.register": "Kayıt ol",
+  "register.fill_all_fields": "Tüm alanları doldurun",
+  "register.password_not_match": "Şifreler eşleşmiyor",
+  "register.error_occurred": "Bir hata oluştu",
+
+  // Login Page
+  "login.invalid_email": "Geçersiz e-posta adresi",
+  "login.user_disabled": "Kullanıcı devre dışı bırakıldı",
+  "login.email_already_in_use": "Bu e-posta adresi zaten kullanılıyor",
+  "login.wrong_password": "Girdiğiniz bilgiler yanlış",
+  "login.email_not_verified": "Lütfen önce e-posta adresinizi doğrulayın",
+  "login.operation_not_allowed": "Bu işlem yapılamıyor",
+  "login.error_occurred": "Bir hata oluştu",
+  "login.error_occured_google": "Google ile giriş yapılırken bir hata oluştu",
+  "login.please_enter_your_email": "Lütfen e-posta adresinizi girin",
+  "login.password_reset_email_sent": "Şifre sıfırlama e-postası gönderildi",
+  "login.login_into_your_account": "Hesabınıza giriş yapın",
+  "login.dont_have_an_account": "Hesabınız yok mu? ",
+  "login.sign_up": "Kayıt olun",
+  "login.your_email": "E-posta adresiniz",
+  "login.type_your_password": "Şifrenizi yazın",
+  "login.login": "Giriş yap",
+  "login.forgot_password": "Şifrenizi mi unuttunuz?",
+  "login.or": "ya da",
+  "login.login_with_google": "Google ile Giriş Yap",
 };

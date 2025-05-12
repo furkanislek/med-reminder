@@ -197,4 +197,68 @@ const Map<String, String> esES = {
   // Privacy Policy
   'privacy_policy_content':
       '<h3>Recordatorio de Medicamentos - Política de Privacidad</h3><br><p><b>Uso de Información Personal:</b><br>Nuestra aplicación se compromete a proteger la privacidad de nuestros usuarios. En nuestra aplicación de recordatorio de medicamentos, recopilamos información necesaria (correo electrónico, información de perfil y planes de medicación) para el seguimiento de medicamentos y recordatorios. Esta información se utiliza para proporcionar y mejorar nuestro servicio y no se comparte con terceros.</p><br><p><b>Almacenamiento y Seguridad de Datos:</b><br>Sus datos de usuario se almacenan en servidores seguros en formato encriptado. Su información de medicamentos y datos personales están protegidos bajo fuertes medidas de seguridad. Solo el personal necesario puede acceder a sus datos.</p><br><p><b>Derechos del Usuario:</b><br>Los usuarios tienen derecho a ver, editar o eliminar sus cuentas y datos en cualquier momento. Cuando elimina su cuenta, todos sus datos se eliminan permanentemente de nuestro sistema.</p><br><p><b>Cookies y Seguimiento:</b><br>Nuestra aplicación puede usar cookies para mejorar la experiencia del usuario. Estas cookies almacenan preferencias de usuario y datos de uso de la aplicación. Puede desactivar las cookies desde la configuración de su navegador si lo desea.</p><br><p><b>Notificaciones:</b><br>Nuestra aplicación solo envía notificaciones para recordatorios de medicamentos aprobados por el usuario. No recibirá notificaciones no deseadas y puede desactivar las notificaciones desde la sección de configuración.</p><br><p><b>Cambios:</b><br>Nuestra política de privacidad puede actualizarse de vez en cuando. Los usuarios serán notificados cuando haya cambios significativos. Al usar nuestra aplicación, acepta estos términos.</p><br><p><b>Contacto:</b><br>Por favor, contáctenos con cualquier pregunta sobre nuestra política de privacidad.</p>',
+
+  // Introduction Page
+  "introduction.page1.title":
+      "Toma Tu Medicina a Tiempo, Mantén Tu Salud Segura",
+  "introduction.page1.description":
+      "Es fácil olvidar los horarios de medicación en el ajetreo de la vida. Con nuestra aplicación, ya no te perderás ninguna dosis. Configura tu medicina, hora y duración – te lo recordaremos a tiempo.",
+  "introduction.page1.tip":
+      "La salud comienza con una dosis de cuidado tomada a tiempo.",
+
+  "introduction.page2.title": "Controla Tu Salud, Mantente Informado",
+  "introduction.page2.description":
+      "No solo te recordamos, también te proporcionamos información útil sobre tu salud. Fortalece tus hábitos diarios de salud con publicaciones de blog respaldadas por expertos.",
+  "introduction.page2.tip":
+      "Un pequeño trozo de información puede marcar una gran diferencia.",
+
+  "introduction.page3.title": "Abierto al Mundo, Personalizado para Ti",
+  "introduction.page3.description":
+      "Nuestra aplicación es accesible para todos con soporte para 16 idiomas. Con su interfaz fácil de usar, añade tu medicina con solo unos toques y haz tu vida más fácil.",
+  "introduction.page3.tip":
+      "La salud es universal, y nosotros también lo somos.",
+
+  "introduction.back": "Atrás",
+  "introduction.start": "Comenzar",
+
+  // Register Page
+  "register.register_to_medreminder_app":
+      "Regístrate en la aplicación Medreminder",
+  "register.already_have_an_account": "¿Ya tienes una cuenta? ",
+  "register.sign_in": "Iniciar sesión",
+  "register.full_name": "Tu nombre completo",
+  "register.surname": "Tu apellido",
+  "register.your_email": "Tu correo electrónico",
+  "register.type_your_password": "Escribe tu contraseña",
+  "register.re_type_your_password": "Vuelve a escribir tu contraseña",
+  "register.register": "Registrarse",
+  "register.fill_all_fields": "Por favor, completa todos los campos",
+  "register.password_not_match": "Las contraseñas no coinciden",
+  "register.error_occurred": "Ha ocurrido un error",
+
+  // Login Page
+  "login.invalid_email": "Dirección de correo electrónico inválida",
+  "login.user_disabled": "El usuario ha sido deshabilitado",
+  "login.email_already_in_use":
+      "Esta dirección de correo electrónico ya está en uso",
+  "login.wrong_password": "La información que has introducido es incorrecta",
+  "login.email_not_verified":
+      "Por favor, verifica primero tu dirección de correo electrónico",
+  "login.operation_not_allowed": "Esta operación no está permitida",
+  "login.error_occurred": "Ha ocurrido un error",
+  "login.error_occured_google":
+      "Ha ocurrido un error al iniciar sesión con Google",
+  "login.please_enter_your_email":
+      "Por favor, introduce tu dirección de correo electrónico",
+  "login.password_reset_email_sent":
+      "Correo de restablecimiento de contraseña enviado",
+  "login.login_into_your_account": "Inicia sesión en tu cuenta",
+  "login.dont_have_an_account": "¿No tienes una cuenta? ",
+  "login.sign_up": "Regístrate",
+  "login.your_email": "Tu correo electrónico",
+  "login.type_your_password": "Escribe tu contraseña",
+  "login.login": "Iniciar sesión",
+  "login.forgot_password": "¿Olvidaste tu contraseña?",
+  "login.or": "o",
+  "login.login_with_google": "Iniciar sesión con Google",
 };

@@ -23,13 +23,13 @@ class RegisterController extends GetxController {
 
   Future<void> registerUser() async {
     if (passwordController.text != confirmPasswordController.text) {
-      errorMessage.value = "Passwords do not match.";
+      errorMessage.value = "register.password_not_match".tr;
       return;
     } else if (emailController.text.isEmpty ||
         passwordController.text.isEmpty ||
         nameController.text.isEmpty ||
         surnameController.text.isEmpty) {
-      errorMessage.value = "Fill all fields.";
+      errorMessage.value = "register.fill_all_fields".tr;
     }
     try {
       await Auth().registerUser(
@@ -44,7 +44,7 @@ class RegisterController extends GetxController {
       Get.off(() => RegisterConfirm());
     } on FirebaseAuthException catch (e) {
       print("E $e");
-      errorMessage.value = e.message ?? 'An error occurred';
+      errorMessage.value = e.message ?? 'register.error_occurred'.tr;
     }
   }
 
@@ -81,7 +81,7 @@ class Register extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: width / 13,
-            vertical: height / 18,
+            vertical: height / 25,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -92,9 +92,9 @@ class Register extends StatelessWidget {
                 width: double.infinity,
               ),
               Text(
-                "Register to PocketPath app",
+                "register.register_to_medreminder_app".tr,
                 style: TextStyle(
-                  fontSize: height / 40,
+                  fontSize: height / 50,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87,
                 ),
@@ -104,14 +104,14 @@ class Register extends StatelessWidget {
                 onTap: () => Get.to(() => const Login()),
                 child: RichText(
                   text: TextSpan(
-                    text: "Already have an account? ",
+                    text: "register.already_have_an_account".tr,
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: height / 60,
                     ),
                     children: [
                       TextSpan(
-                        text: "Sign In",
+                        text: "register.sign_in".tr,
                         style: TextStyle(color: const Color(0xFF0996C7)),
                       ),
                     ],
@@ -121,7 +121,7 @@ class Register extends StatelessWidget {
               SizedBox(height: height / 30),
               _buildTextField(
                 controller.nameController,
-                "Full name",
+                "register.full_name".tr,
                 Icons.person,
                 width,
                 height,
@@ -129,7 +129,7 @@ class Register extends StatelessWidget {
               SizedBox(height: height / 60),
               _buildTextField(
                 controller.surnameController,
-                "Surname",
+                "register.surname".tr,
                 Icons.person,
                 width,
                 height,
@@ -137,7 +137,7 @@ class Register extends StatelessWidget {
               SizedBox(height: height / 60),
               _buildTextField(
                 controller.emailController,
-                "Your e-mail",
+                "register.your_email".tr,
                 Icons.email,
                 width,
                 height,
@@ -146,7 +146,7 @@ class Register extends StatelessWidget {
 
               _buildPasswordField(
                 controller.passwordController,
-                "Type your password",
+                "register.type_your_password".tr,
                 controller.isPasswordVisible,
                 controller.togglePasswordVisibility,
                 height,
@@ -154,7 +154,7 @@ class Register extends StatelessWidget {
               SizedBox(height: height / 60),
               _buildPasswordField(
                 controller.confirmPasswordController,
-                "Re-type your password",
+                "register.re_type_your_password".tr,
                 controller.isConfirmPasswordVisible,
                 controller.toggleConfirmPasswordVisibility,
                 height,
@@ -204,7 +204,7 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    "Register",
+                    "register.register".tr,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: height / 50,

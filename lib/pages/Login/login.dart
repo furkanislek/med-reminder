@@ -37,26 +37,26 @@ class _LoginState extends State<Login> {
       String? errorText;
       switch (e.code) {
         case 'invalid-email':
-          errorText = "You entered an invalid e-mail address.";
+          errorText = "login.invalid_email".tr;
           break;
         case 'user-disabled':
-          errorText = "The user has been deactivated.";
+          errorText = "login.user_disabled".tr;
           break;
         case 'user-not-found':
         case 'invalid-credential':
         case 'wrong-password':
-          errorText = "The information entered is incorrect. Please try again.";
+          errorText = "login.wrong_password".tr;
           break;
         case 'email-already-in-use':
-          errorText = "This email address is already in use.";
+          errorText = "login.email_already_in_use".tr;
           break;
         case 'operation-not-allowed':
-          errorText = "This process was not allowed.";
+          errorText = "login.operation_not_allowed".tr;
           break;
         case 'email-not-verified':
-          errorText = 'Please verify your email address before logging in.';
+          errorText = 'login.email_not_verified'.tr;
         default:
-          errorText = "An error has occurred. Please try again later.";
+          errorText = "login.error_occured".tr;
       }
       setState(() {
         errorMessage = errorText;
@@ -68,7 +68,7 @@ class _LoginState extends State<Login> {
     String email = emailController.text;
     if (email.isEmpty) {
       setState(() {
-        errorMessage = "Lütfen e-posta adresinizi girin.";
+        errorMessage = "login.please_enter_your_email".tr;
       });
       return;
     }
@@ -76,9 +76,7 @@ class _LoginState extends State<Login> {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Şifre sıfırlama e-postası gönderildi!"),
-          ),
+          SnackBar(content: Text("login.password_reset_email_sent".tr)),
         );
       }
     } on FirebaseAuthException catch (e) {
@@ -101,7 +99,7 @@ class _LoginState extends State<Login> {
       }
     } catch (e) {
       setState(() {
-        errorMessage = "Google ile giriş yapılırken bir hata oluştu.";
+        errorMessage = "login.error_occured_google".tr;
       });
     }
   }
@@ -125,9 +123,9 @@ class _LoginState extends State<Login> {
             children: [
               SizedBox(height: height / 20),
               SvgPicture.asset('assets/svg/login.svg', height: height / 3.75),
-              SizedBox(height: height / 50),
+              SizedBox(height: height / 120),
               Text(
-                "Login into your account",
+                "login.login_into_your_account".tr,
                 style: TextStyle(
                   fontSize: height / 30,
                   fontWeight: FontWeight.bold,
@@ -137,11 +135,11 @@ class _LoginState extends State<Login> {
               SizedBox(height: height / 80),
               RichText(
                 text: TextSpan(
-                  text: "Don't have an account? ",
+                  text: "login.dont_have_an_account".tr,
                   style: TextStyle(color: Colors.grey[700]),
                   children: [
                     TextSpan(
-                      text: "Sign Up",
+                      text: "login.sign_up".tr,
                       style: TextStyle(
                         color: const Color(0xFF8256DF),
                         fontWeight: FontWeight.bold,
@@ -166,7 +164,7 @@ class _LoginState extends State<Login> {
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  labelText: "Your e-mail",
+                  labelText: "login.your_email".tr,
                   prefixIcon: Icon(Icons.email),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -179,7 +177,7 @@ class _LoginState extends State<Login> {
                 obscureText: !isPasswordVisible,
                 textInputAction: TextInputAction.done,
                 decoration: InputDecoration(
-                  labelText: "Type your password",
+                  labelText: "login.type_your_password".tr,
                   prefixIcon: const Icon(Icons.lock),
                   suffixIcon: IconButton(
                     onPressed: () {
@@ -218,7 +216,7 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   child: Text(
-                    "Login",
+                    "login.login".tr,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: height / 50,
@@ -238,7 +236,7 @@ class _LoginState extends State<Login> {
                   );
                 },
                 child: Text(
-                  "Forgot Password?",
+                  "login.forgot_password".tr,
                   style: TextStyle(
                     color: const Color(0xFF8256DF),
                     fontWeight: FontWeight.bold,
@@ -258,7 +256,7 @@ class _LoginState extends State<Login> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
-                        "ya da",
+                        "login.or".tr,
                         style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: height / 60,
@@ -289,7 +287,7 @@ class _LoginState extends State<Login> {
                     height: height / 40,
                   ),
                   label: Text(
-                    "Google ile Giriş Yap",
+                    "login.login_with_google".tr,
                     style: TextStyle(
                       color: Colors.black87,
                       fontSize: height / 55,

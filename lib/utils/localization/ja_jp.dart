@@ -188,4 +188,58 @@ const Map<String, String> jaJP = {
   // Privacy Policy
   'privacy_policy_content':
       '<h3>薬のリマインダー - プライバシーポリシー</h3><br><p><b>個人情報の使用：</b><br>私たちのアプリケーションは、ユーザーのプライバシーを保護することを約束します。薬のリマインダーアプリでは、薬の追跡とリマインダーに必要な情報（メール、プロフィール情報、服薬計画）を収集しています。この情報は、サービスの提供と改善のために使用され、第三者と共有されることはありません。</p><br><p><b>データの保存とセキュリティ：</b><br>ユーザーデータは暗号化された形式で安全なサーバーに保存されます。お薬の情報や個人データは強力なセキュリティ対策の下で保護されています。必要なスタッフのみがあなたのデータにアクセスできます。</p><br><p><b>ユーザーの権利：</b><br>ユーザーはいつでもアカウントとデータを表示、編集、削除する権利を持っています。アカウントを削除すると、すべてのデータは私たちのシステムから完全に削除されます。</p><br><p><b>Cookie とトラッキング：</b><br>アプリケーションはユーザーエクスペリエンスを向上させるために Cookie を使用することがあります。これらの Cookie はユーザーの設定とアプリケーションの使用データを保存します。必要に応じて、ブラウザの設定から Cookie を無効にすることができます。</p><br><p><b>通知：</b><br>アプリケーションは、ユーザーが承認した薬のリマインダーの通知のみを送信します。不要な通知は受け取らず、設定セクションから通知を無効にすることができます。</p><br><p><b>変更：</b><br>プライバシーポリシーは時々更新されることがあります。重要な変更がある場合、ユーザーに通知されます。アプリケーションを使用することで、これらの条件に同意したことになります。</p><br><p><b>お問い合わせ：</b><br>プライバシーポリシーに関するご質問は、お気軽にお問い合わせください。</p>',
+
+  // Introduction Page
+  "introduction.page1.title": "時間通りに薬を服用し、健康を守りましょう",
+  "introduction.page1.description":
+      "忙しい毎日の中で、服薬時間を忘れがちです。当アプリを使えば、もう二度と服用を忘れることはありません。お薬、時間、期間を設定すれば、私たちが適切なタイミングでお知らせします。",
+  "introduction.page1.tip": "健康は、時間通りに服用するケアの一服から始まります。",
+
+  "introduction.page2.title": "健康を追跡し、情報を得よう",
+  "introduction.page2.description":
+      "私たちはリマインドするだけでなく、あなたの健康に関する有益な情報も提供します。専門家の支援を受けたブログ記事で、毎日の健康習慣を強化しましょう。",
+  "introduction.page2.tip": "小さな情報が大きな違いを生むことがあります。",
+
+  "introduction.page3.title": "世界に開かれ、あなたのために個別化",
+  "introduction.page3.description":
+      "当アプリは16言語をサポートし、誰もがアクセスできます。使いやすいインターフェースで、数回のタップだけでお薬を追加し、生活をより便利にしましょう。",
+  "introduction.page3.tip": "健康は普遍的であり、私たちもそうです。",
+
+  "introduction.back": "戻る",
+  "introduction.start": "開始",
+
+  // Register Page
+  "register.register_to_medreminder_app": "薬リマインダーアプリに登録",
+  "register.already_have_an_account": "すでにアカウントをお持ちですか？ ",
+  "register.sign_in": "サインイン",
+  "register.full_name": "氏名",
+  "register.surname": "姓",
+  "register.your_email": "メールアドレス",
+  "register.type_your_password": "パスワードを入力",
+  "register.re_type_your_password": "パスワードを再入力",
+  "register.register": "登録",
+  "register.fill_all_fields": "すべての項目に入力してください",
+  "register.password_not_match": "パスワードが一致しません",
+  "register.error_occurred": "エラーが発生しました",
+
+  // Login Page
+  "login.invalid_email": "無効なメールアドレス",
+  "login.user_disabled": "ユーザーが無効になっています",
+  "login.email_already_in_use": "このメールアドレスはすでに使用されています",
+  "login.wrong_password": "入力された情報が正しくありません",
+  "login.email_not_verified": "まずメールアドレスを確認してください",
+  "login.operation_not_allowed": "この操作は許可されていません",
+  "login.error_occurred": "エラーが発生しました",
+  "login.error_occured_google": "Googleでサインイン中にエラーが発生しました",
+  "login.please_enter_your_email": "メールアドレスを入力してください",
+  "login.password_reset_email_sent": "パスワードリセットメールを送信しました",
+  "login.login_into_your_account": "アカウントにログイン",
+  "login.dont_have_an_account": "アカウントをお持ちでないですか？ ",
+  "login.sign_up": "サインアップ",
+  "login.your_email": "メールアドレス",
+  "login.type_your_password": "パスワードを入力",
+  "login.login": "ログイン",
+  "login.forgot_password": "パスワードをお忘れですか？",
+  "login.or": "または",
+  "login.login_with_google": "Googleでログイン",
 };

@@ -1,62 +1,122 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class Page2 extends StatelessWidget {
   Page2({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.sizeOf(context).height;
-    double width = MediaQuery.sizeOf(context).width;
+    final size = MediaQuery.of(context).size;
 
     return Container(
-        height: height,
-        color: const Color.fromARGB(255, 201, 238, 238),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: width / 10),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+      padding: EdgeInsets.symmetric(
+        horizontal: 30,
+        vertical: size.height * 0.1,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Üst boşluk
+
+          // Ana görsel
+          Container(
+            height: size.height * 0.3,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.9),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.05),
+                  blurRadius: 20,
+                  spreadRadius: 5,
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.all(30),
+            child: SvgPicture.asset('assets/svg/int2.svg', fit: BoxFit.contain),
+          ),
+
+          SizedBox(height: 50),
+
+          Text(
+            "introduction.page2.title".tr,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: size.height * 0.03,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              letterSpacing: 0.5,
+              shadows: [
+                Shadow(
+                  color: Colors.black.withOpacity(0.15),
+                  offset: const Offset(0, 2),
+                  blurRadius: 4,
+                ),
+              ],
+            ),
+          ),
+
+          SizedBox(height: size.height * 0.025),
+
+          // Açıklama
+          Text(
+            "introduction.page2.description".tr,
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              fontSize: size.height * 0.016,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+              height: 1.5,
+            ),
+          ),
+
+          SizedBox(height: size.height * 0.05),
+          // İpucu bilgisi
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.25),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Row(
               children: [
-                SvgPicture.asset(
-                  'assets/svg/target.svg',
-                  height: height / 2,
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.05),
+                        blurRadius: 5,
+                      ),
+                    ],
+                  ),
+                  child: const Icon(
+                    Icons.lightbulb_outline,
+                    color: Color(0xFF42C2C2),
+                    size: 24,
+                  ),
                 ),
-                SizedBox(height: height / 50),
-                SizedBox(
-                  width: double.infinity,
+                SizedBox(width: 10),
+                Expanded(
                   child: Text(
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                          fontSize: height / 50,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.bold,
-                          fontStyle: FontStyle.italic),
-                      "First Step\n You need to set a target for spending control. Once you have a target, you can record your spending. "),
+                    "introduction.page2.tip".tr,
+                    style: TextStyle(
+                      fontSize: size.height * 0.016,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
-                SizedBox(height: height / 15),
-                SizedBox(
-                  width: double.infinity,
-                  child: Text(
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                          fontSize: height / 80,
-                          fontFamily: 'Poppins',
-                          fontStyle: FontStyle.italic),
-                      "If you set goals and go after them with all the determination you can muster, your gifts will take you places that will amaze you."),
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  child: Text(
-                      textAlign: TextAlign.right,
-                      style: TextStyle(
-                          fontSize: height / 80,
-                          fontFamily: 'Poppins',
-                          fontStyle: FontStyle.italic),
-                      "- Les Brown"),
-                ),
-                SizedBox(height: height / 5),
-              ]),
-        ));
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

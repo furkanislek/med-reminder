@@ -77,7 +77,6 @@ class _BlogDetailPageState extends State<BlogDetailPage>
     final currentLocaleTag = Get.locale?.toString() ?? 'en_US';
     final articleContent = widget.blog?.getArticle(currentLocaleTag) ?? '';
     final htmlContents = parseHtmlContent(articleContent);
-    final blogTitle = widget.blog?.getTitle(currentLocaleTag) ?? 'Blog Detayı';
 
     return Scaffold(
       backgroundColor: const Color(0xFFDCF0E9),

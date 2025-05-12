@@ -193,4 +193,61 @@ const Map<String, String> enUS = {
   'pills': 'Pills',
   'health': 'Health',
   'lifeStyle': 'Life Style',
+
+  // Introduction Page
+  "introduction.page1.title":
+      "Take Your Medicine on Time, Keep Your Health Safe",
+  "introduction.page1.description":
+      "It's easy to forget medication times in the hustle of life. With our app, you won't miss any doses anymore. Set your medicine, time, and duration – we'll remind you on time.",
+  "introduction.page1.tip": "Health begins with a dose of care taken on time.",
+
+  "introduction.page2.title": "Track Your Health, Stay Informed",
+  "introduction.page2.description":
+      "We not only remind you but also provide useful information about your health. Strengthen your daily health habits with expert-supported blog posts.",
+  "introduction.page2.tip":
+      "A small piece of information can make a big difference.",
+
+  "introduction.page3.title": "Open to the World, Personalized for You",
+  "introduction.page3.description":
+      "Our app is accessible to everyone with support for 16 languages. With its easy-to-use interface, add your medicine with just a few taps and make your life easier.",
+  "introduction.page3.tip": "Health is universal, and so are we.",
+
+  "introduction.back": "Back",
+  "introduction.start": "Start",
+
+  // Register Page
+  "register.register_to_medreminder_app": "Register to Medreminder app",
+  "register.already_have_an_account": "Already have an account? ",
+  "register.sign_in": "Sign in",
+  "register.full_name": "Your full name",
+  "register.surname": "Your surname",
+  "register.your_email": "Your email",
+  "register.type_your_password": "Type your password",
+  "register.re_type_your_password": "Re-type your password",
+  "register.register": "Register",
+  "register.fill_all_fields": "Please fill all fields",
+  "register.password_not_match": "Passwords don't match",
+  "register.error_occurred": "An error occurred",
+
+  // Login Page
+  "login.invalid_email": "Invalid email address",
+  "login.user_disabled": "User has been disabled",
+  "login.email_already_in_use": "This email address is already in use",
+  "login.wrong_password": "The information you entered is incorrect",
+  "login.email_not_verified": "Please verify your email address first",
+  "login.operation_not_allowed": "This operation is not allowed",
+  "login.error_occurred": "An error occurred",
+  "login.error_occured_google":
+      "An error occurred while signing in with Google",
+  "login.please_enter_your_email": "Please enter your email address",
+  "login.password_reset_email_sent": "Password reset email sent",
+  "login.login_into_your_account": "Login into your account",
+  "login.dont_have_an_account": "Don't have an account? ",
+  "login.sign_up": "Sign up",
+  "login.your_email": "Your email",
+  "login.type_your_password": "Type your password",
+  "login.login": "Login",
+  "login.forgot_password": "Forgot your password?",
+  "login.or": "or",
+  "login.login_with_google": "Login with Google",
 };

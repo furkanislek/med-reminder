@@ -197,4 +197,66 @@ const Map<String, String> frFR = {
   // Privacy Policy
   'privacy_policy_content':
       '<h3>Rappel de Médicaments - Politique de Confidentialité</h3><br><p><b>Utilisation des Informations Personnelles:</b><br>Notre application s\'engage à protéger la vie privée de nos utilisateurs. Dans notre application de rappel de médicaments, nous collectons les informations nécessaires (e-mail, informations de profil et plans de médication) pour le suivi des médicaments et les rappels. Ces informations sont utilisées pour fournir et améliorer notre service et ne sont pas partagées avec des tiers.</p><br><p><b>Stockage et Sécurité des Données:</b><br>Vos données utilisateur sont stockées sur des serveurs sécurisés au format crypté. Vos informations sur les médicaments et vos données personnelles sont protégées par des mesures de sécurité strictes. Seul le personnel nécessaire peut accéder à vos données.</p><br><p><b>Droits des Utilisateurs:</b><br>Les utilisateurs ont le droit de consulter, de modifier ou de supprimer leurs comptes et leurs données à tout moment. Lorsque vous supprimez votre compte, toutes vos données sont définitivement supprimées de notre système.</p><br><p><b>Cookies et Suivi:</b><br>Notre application peut utiliser des cookies pour améliorer l\'expérience utilisateur. Ces cookies stockent les préférences des utilisateurs et les données d\'utilisation de l\'application. Vous pouvez désactiver les cookies dans les paramètres de votre navigateur si vous le souhaitez.</p><br><p><b>Notifications:</b><br>Notre application n\'envoie des notifications que pour les rappels de médicaments approuvés par l\'utilisateur. Vous ne recevrez pas de notifications indésirables et vous pouvez désactiver les notifications dans la section des paramètres.</p><br><p><b>Modifications:</b><br>Notre politique de confidentialité peut être mise à jour de temps à autre. Les utilisateurs seront informés lorsqu\'il y aura des changements importants. En utilisant notre application, vous acceptez ces conditions.</p><br><p><b>Contact:</b><br>Veuillez nous contacter pour toute question concernant notre politique de confidentialité.</p>',
+
+  // Introduction Page
+  "introduction.page1.title":
+      "Prenez Vos Médicaments à Temps, Préservez Votre Santé",
+  "introduction.page1.description":
+      "Il est facile d'oublier les heures de prise de médicaments dans l'agitation de la vie. Avec notre application, vous ne manquerez plus aucune dose. Configurez votre médicament, l'heure et la durée – nous vous le rappellerons à temps.",
+  "introduction.page1.tip":
+      "La santé commence par une dose de soin prise à temps.",
+
+  "introduction.page2.title": "Suivez Votre Santé, Restez Informé",
+  "introduction.page2.description":
+      "Nous ne vous rappelons pas seulement, mais nous vous fournissons aussi des informations utiles sur votre santé. Renforcez vos habitudes de santé quotidiennes avec des articles de blog soutenus par des experts.",
+  "introduction.page2.tip":
+      "Une petite information peut faire une grande différence.",
+
+  "introduction.page3.title": "Ouvert au Monde, Personnalisé pour Vous",
+  "introduction.page3.description":
+      "Notre application est accessible à tous avec un support pour 16 langues. Avec son interface facile à utiliser, ajoutez votre médicament en quelques touches et simplifiez votre vie.",
+  "introduction.page3.tip":
+      "La santé est universelle, et nous le sommes aussi.",
+
+  "introduction.back": "Retour",
+  "introduction.start": "Commencer",
+
+  // Register Page
+  "register.register_to_medreminder_app":
+      "Inscrivez-vous à l'application Medreminder",
+  "register.already_have_an_account": "Vous avez déjà un compte ? ",
+  "register.sign_in": "Se connecter",
+  "register.full_name": "Votre nom complet",
+  "register.surname": "Votre nom de famille",
+  "register.your_email": "Votre email",
+  "register.type_your_password": "Tapez votre mot de passe",
+  "register.re_type_your_password": "Retapez votre mot de passe",
+  "register.register": "S'inscrire",
+  "register.fill_all_fields": "Veuillez remplir tous les champs",
+  "register.password_not_match": "Les mots de passe ne correspondent pas",
+  "register.error_occurred": "Une erreur s'est produite",
+
+  // Login Page
+  "login.invalid_email": "Adresse email invalide",
+  "login.user_disabled": "L'utilisateur a été désactivé",
+  "login.email_already_in_use": "Cette adresse email est déjà utilisée",
+  "login.wrong_password":
+      "Les informations que vous avez entrées sont incorrectes",
+  "login.email_not_verified": "Veuillez d'abord vérifier votre adresse email",
+  "login.operation_not_allowed": "Cette opération n'est pas autorisée",
+  "login.error_occurred": "Une erreur s'est produite",
+  "login.error_occured_google":
+      "Une erreur s'est produite lors de la connexion avec Google",
+  "login.please_enter_your_email": "Veuillez entrer votre adresse email",
+  "login.password_reset_email_sent":
+      "Email de réinitialisation du mot de passe envoyé",
+  "login.login_into_your_account": "Connectez-vous à votre compte",
+  "login.dont_have_an_account": "Vous n'avez pas de compte ? ",
+  "login.sign_up": "S'inscrire",
+  "login.your_email": "Votre email",
+  "login.type_your_password": "Tapez votre mot de passe",
+  "login.login": "Se connecter",
+  "login.forgot_password": "Mot de passe oublié ?",
+  "login.or": "ou",
+  "login.login_with_google": "Se connecter avec Google",
 };
