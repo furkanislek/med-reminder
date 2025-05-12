@@ -247,4 +247,10 @@ const Map<String, String> arSA = {
   "login.forgot_password": "نسيت كلمة المرور؟",
   "login.or": "أو",
   "login.login_with_google": "تسجيل الدخول باستخدام جوجل",
+
+  // Menu Page
+  "menu.myMedicines": "أدويتي",
+  "menu.addMedicine": "إضافة دواء",
+  "menu.blogs": "المدونة",
+  "menu.profile": "الحساب",
 };

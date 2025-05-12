@@ -257,4 +257,10 @@ const Map<String, String> itIT = {
   "login.forgot_password": "Hai dimenticato la password?",
   "login.or": "oppure",
   "login.login_with_google": "Accedi con Google",
+
+  // Menu Page
+  "menu.myMedicines": "I miei farmaci",
+  "menu.addMedicine": "Aggiungi farmaco",
+  "menu.blogs": "Blog",
+  "menu.profile": "Profilo",
 };

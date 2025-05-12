@@ -243,4 +243,10 @@ const Map<String, String> zhCN = {
   "login.forgot_password": "忘记密码？",
   "login.or": "或",
   "login.login_with_google": "使用谷歌登录",
+
+  // Menu Page
+  "menu.myMedicines": "我的药物",
+  "menu.addMedicine": "添加药物",
+  "menu.blogs": "博客",
+  "menu.profile": "个人资料",
 };

@@ -243,4 +243,10 @@ const Map<String, String> koKR = {
   "login.forgot_password": "비밀번호를 잊으셨나요?",
   "login.or": "또는",
   "login.login_with_google": "Google로 로그인",
+
+  // Menu Page
+  "menu.myMedicines": "내 약",
+  "menu.addMedicine": "약 추가",
+  "menu.blogs": "블로그",
+  "menu.profile": "프로필",
 };

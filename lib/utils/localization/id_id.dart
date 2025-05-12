@@ -252,4 +252,10 @@ const Map<String, String> idID = {
   "login.forgot_password": "Lupa kata sandi?",
   "login.or": "atau",
   "login.login_with_google": "Masuk dengan Google",
+
+  // Menu Page
+  "menu.myMedicines": "Obat Saya",
+  "menu.addMedicine": "Tambah Obat",
+  "menu.blogs": "Blog",
+  "menu.profile": "Profil",
 };

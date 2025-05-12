@@ -128,7 +128,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 fillColor: Colors.grey[100],
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12.0),
-                  borderSide: BorderSide.none,
+                  borderSide: BorderSide(color: Colors.grey[300]!, width: 1.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                  borderSide: BorderSide(color: Colors.grey[300]!, width: 1.0),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                  borderSide: BorderSide(color: Colors.grey[300]!, width: 1.0),
                 ),
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 0,

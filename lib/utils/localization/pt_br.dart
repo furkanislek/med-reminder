@@ -252,4 +252,10 @@ const Map<String, String> ptBR = {
   "login.forgot_password": "Esqueceu sua senha?",
   "login.or": "ou",
   "login.login_with_google": "Entrar com o Google",
+
+  // Menu Page
+  "menu.myMedicines": "Meus Medicamentos",
+  "menu.addMedicine": "Adicionar Medicamento",
+  "menu.blogs": "Blog",
+  "menu.profile": "Perfil",
 };

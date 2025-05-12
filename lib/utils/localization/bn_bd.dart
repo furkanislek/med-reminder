@@ -247,4 +247,10 @@ const Map<String, String> bnBD = {
   "login.forgot_password": "পাসওয়ার্ড ভুলে গেছেন?",
   "login.or": "অথবা",
   "login.login_with_google": "Google দিয়ে লগইন করুন",
+
+  // Menu Page
+  "menu.myMedicines": "আমার ঔষধ",
+  "menu.addMedicine": "ঔষধ যোগ করুন",
+  "menu.blogs": "ব্লগ",
+  "menu.profile": "প্রোফাইল",
 };

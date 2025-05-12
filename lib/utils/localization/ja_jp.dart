@@ -243,4 +243,10 @@ const Map<String, String> jaJP = {
   "login.forgot_password": "パスワードをお忘れですか？",
   "login.or": "または",
   "login.login_with_google": "Googleでログイン",
+
+  // Menu Page
+  "menu.myMedicines": "私の薬",
+  "menu.addMedicine": "新しい薬を追加",
+  "menu.blogs": "ブログ",
+  "menu.profile": "プロフィール",
 };

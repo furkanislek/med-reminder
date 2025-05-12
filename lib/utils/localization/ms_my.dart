@@ -254,4 +254,10 @@ const Map<String, String> msMY = {
   "login.forgot_password": "Lupa kata laluan?",
   "login.or": "atau",
   "login.login_with_google": "Log masuk dengan Google",
+
+  // Menu Page
+  "menu.myMedicines": "Ubat Saya",
+  "menu.addMedicine": "Tambah Ubat",
+  "menu.blogs": "Blog",
+  "menu.profile": "Profil",
 };

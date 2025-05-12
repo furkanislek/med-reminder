@@ -255,4 +255,10 @@ const Map<String, String> ruRU = {
   "login.forgot_password": "Забыли пароль?",
   "login.or": "или",
   "login.login_with_google": "Войти через Google",
+
+  // Menu Page
+  "menu.myMedicines": "Мои лекарства",
+  "menu.addMedicine": "Добавить лекарство",
+  "menu.blogs": "Блог",
+  "menu.profile": "Профиль",
 };

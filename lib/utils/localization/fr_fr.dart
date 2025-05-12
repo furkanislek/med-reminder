@@ -260,4 +260,10 @@ const Map<String, String> frFR = {
   "login.forgot_password": "Mot de passe oublié ?",
   "login.or": "ou",
   "login.login_with_google": "Se connecter avec Google",
+
+  // Menu Page
+  "menu.myMedicines": "Mes Médicaments",
+  "menu.addMedicine": "Ajouter un Médicament",
+  "menu.blogs": "Blog",
+  "menu.profile": "Profil",
 };

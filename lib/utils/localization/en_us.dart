@@ -251,4 +251,10 @@ const Map<String, String> enUS = {
   "login.forgot_password": "Forgot your password?",
   "login.or": "or",
   "login.login_with_google": "Login with Google",
+
+  // Menu Page
+  "menu.myMedicines": "My Medicines",
+  "menu.addMedicine": "Add Medicine",
+  "menu.blogs": "Blogs",
+  "menu.profile": "Profile",
 };

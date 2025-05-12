@@ -253,4 +253,10 @@ const Map<String, String> hiIN = {
   "login.forgot_password": "अपना पासवर्ड भूल गए?",
   "login.or": "या",
   "login.login_with_google": "Google के साथ लॉगिन करें",
+
+  // Menu Page
+  "menu.myMedicines": "मेरे दवाएँ",
+  "menu.addMedicine": "दवा जोड़ें",
+  "menu.blogs": "ब्लॉग",
+  "menu.profile": "प्रोफ़ाइल",
 };

@@ -118,7 +118,6 @@ const Map<String, String> trTR = {
   "medicine.deleteMedicineSuccessMessage": "İlaç başarıyla silindi.",
   "medicine.saveMedicineSuccessMessage": "İlaç başarıyla kaydedildi.",
 
-
   // Settings Page
   "settings.title": "Ayarlar",
   "settings.language": "Dil",
@@ -240,4 +239,10 @@ const Map<String, String> trTR = {
   "login.forgot_password": "Şifrenizi mi unuttunuz?",
   "login.or": "ya da",
   "login.login_with_google": "Google ile Giriş Yap",
+
+  // Menu Page
+  "menu.myMedicines": "İlaçlarım",
+  "menu.addMedicine": "İlaç Ekle",
+  "menu.blogs": "Blog",
+  "menu.profile": "Profil",
 };

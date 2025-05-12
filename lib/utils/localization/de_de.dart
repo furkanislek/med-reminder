@@ -260,4 +260,10 @@ const Map<String, String> deDE = {
   "login.forgot_password": "Passwort vergessen?",
   "login.or": "oder",
   "login.login_with_google": "Mit Google anmelden",
+
+  // Menu Page
+  "menu.myMedicines": "Meine Medikamente",
+  "menu.addMedicine": "Medikament hinzufügen",
+  "menu.blogs": "Blog",
+  "menu.profile": "Profil",
 };

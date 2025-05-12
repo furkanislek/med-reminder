@@ -262,4 +262,10 @@ const Map<String, String> esES = {
   "login.forgot_password": "¿Olvidaste tu contraseña?",
   "login.or": "o",
   "login.login_with_google": "Iniciar sesión con Google",
+
+  // Menu Page
+  "menu.myMedicines": "Mis Medicamentos",
+  "menu.addMedicine": "Añadir Medicamento",
+  "menu.blogs": "Blog",
+  "menu.profile": "Perfil",
 };

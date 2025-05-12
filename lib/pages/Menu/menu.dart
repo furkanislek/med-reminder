@@ -21,10 +21,10 @@ class Menu extends StatelessWidget {
   ];
 
   final List<String> titles = [
-    'myMedicines.title'.tr,
-    'addMedicine.title'.tr,
-    'blogs.title'.tr,
-    'profile.title'.tr,
+    'menu.myMedicines'.tr,
+    'menu.addMedicine'.tr,
+    'menu.blogs'.tr,
+    'menu.profile'.tr,
   ];
 
   @override
