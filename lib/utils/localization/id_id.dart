@@ -167,7 +167,7 @@ const Map<String, String> idID = {
   'about_app': 'Tentang Aplikasi',
   'app_version': 'Versi Aplikasi',
   'privacy_policy': 'Kebijakan Privasi',
-  'developer': 'Pengembang: Furkan Akif İŞLEK',
+  'developer': 'Pengembang: Furkan Akif ISLEK',
   'noEmail': 'Email tidak ditemukan',
   'version.number': '1.0.0',
   'profile.deleteAccountImportant': 'Hapus Akun',
@@ -181,4 +181,17 @@ const Map<String, String> idID = {
   // Profile Page
   'logout': 'Keluar',
   'account': 'Akun',
+
+  // Blog Page
+  'Blog': 'Blog',
+  'Bir hata oluştu.': 'Terjadi kesalahan.',
+  'Blog yazısı bulunamadı.': 'Tidak ditemukan postingan blog.',
+  'Şuan blog yok': 'Tidak ada blog yang tersedia',
+  'pills': 'Pil',
+  'health': 'Kesehatan',
+  'lifeStyle': 'Gaya Hidup',
+
+  // Privacy Policy
+  'privacy_policy_content':
+      '<h3>Pengingat Obat - Kebijakan Privasi</h3><br><p><b>Penggunaan Informasi Pribadi:</b><br>Aplikasi kami berkomitmen untuk melindungi privasi pengguna kami. Dalam aplikasi pengingat obat kami, kami mengumpulkan informasi yang diperlukan (email, informasi profil, dan rencana pengobatan) untuk pelacakan obat dan pengingat. Informasi ini digunakan untuk menyediakan dan meningkatkan layanan kami dan tidak dibagikan kepada pihak ketiga.</p><br><p><b>Penyimpanan dan Keamanan Data:</b><br>Data pengguna Anda disimpan di server yang aman dalam format terenkripsi. Informasi obat dan data pribadi Anda dilindungi di bawah langkah-langkah keamanan yang kuat. Hanya personel yang diperlukan yang dapat mengakses data Anda.</p><br><p><b>Hak Pengguna:</b><br>Pengguna memiliki hak untuk melihat, mengedit, atau menghapus akun dan data mereka kapan saja. Ketika Anda menghapus akun Anda, semua data Anda secara permanen dihapus dari sistem kami.</p><br><p><b>Cookie dan Pelacakan:</b><br>Aplikasi kami mungkin menggunakan cookie untuk meningkatkan pengalaman pengguna. Cookie ini menyimpan preferensi pengguna dan data penggunaan aplikasi. Anda dapat menonaktifkan cookie dari pengaturan browser Anda jika Anda mau.</p><br><p><b>Notifikasi:</b><br>Aplikasi kami hanya mengirimkan notifikasi untuk pengingat obat yang disetujui oleh pengguna. Anda tidak akan menerima notifikasi yang tidak diinginkan dan dapat menonaktifkan notifikasi dari bagian pengaturan.</p><br><p><b>Perubahan:</b><br>Kebijakan privasi kami dapat diperbarui dari waktu ke waktu. Pengguna akan diberitahu ketika ada perubahan signifikan. Dengan menggunakan aplikasi kami, Anda menyetujui persyaratan ini.</p><br><p><b>Kontak:</b><br>Silakan hubungi kami dengan pertanyaan apa pun tentang kebijakan privasi kami.</p>',
 };

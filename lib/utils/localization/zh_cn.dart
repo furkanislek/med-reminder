@@ -162,7 +162,7 @@ const Map<String, String> zhCN = {
   'about_app': '关于应用',
   'app_version': '应用版本',
   'privacy_policy': '隐私政策',
-  'developer': '开发者：Furkan Akif İŞLEK',
+  'developer': '开发者：福坎·阿基夫·伊斯莱克',
   'noEmail': '未找到电子邮箱',
   'version.number': '1.0.0',
   'profile.deleteAccountImportant': '删除账户',
@@ -175,4 +175,17 @@ const Map<String, String> zhCN = {
   // Profile Page
   'logout': '退出登录',
   'account': '账户',
+
+  // Blog Page
+  'Blog': '博客',
+  'Bir hata oluştu.': '发生错误。',
+  'Blog yazısı bulunamadı.': '未找到博客文章。',
+  'Şuan blog yok': '没有可用的博客',
+  'pills': '药丸',
+  'health': '健康',
+  'lifeStyle': '生活方式',
+
+  // Privacy Policy
+  'privacy_policy_content':
+      '<h3>药物提醒 - 隐私政策</h3><br><p><b>个人信息使用：</b><br>我们的应用程序致力于保护用户的隐私。在我们的药物提醒应用程序中，我们收集药物跟踪和提醒所需的必要信息（电子邮件、个人资料信息和药物计划）。这些信息用于提供和改进我们的服务，不会与第三方共享。</p><br><p><b>数据存储和安全：</b><br>您的用户数据以加密格式存储在安全服务器上。您的药物信息和个人数据受到强大的安全措施保护。只有必要的人员才能访问您的数据。</p><br><p><b>用户权利：</b><br>用户有权随时查看、编辑或删除他们的账户和数据。当您删除账户时，您的所有数据将从我们的系统中永久删除。</p><br><p><b>Cookie和跟踪：</b><br>我们的应用程序可能使用Cookie来改善用户体验。这些Cookie存储用户偏好和应用程序使用数据。如果您愿意，可以从浏览器设置中禁用Cookie。</p><br><p><b>通知：</b><br>我们的应用程序仅发送用户批准的药物提醒通知。您不会收到不需要的通知，并且可以从设置部分禁用通知。</p><br><p><b>变更：</b><br>我们的隐私政策可能会不时更新。当有重大变化时，用户将会收到通知。使用我们的应用程序即表示您同意这些条款。</p><br><p><b>联系：</b><br>如有关于我们隐私政策的任何问题，请联系我们。</p>',
 };

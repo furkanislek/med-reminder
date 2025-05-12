@@ -173,7 +173,15 @@ const Map<String, String> trTR = {
   "addMedicine.durationPickerItemText": "{count} gün",
 
   // Blog Page
+  "Blog": "Blog",
+  "Bir hata oluştu.": "Bir hata oluştu.",
+  "Blog yazısı bulunamadı.": "Blog yazısı bulunamadı.",
+  "Şuan blog yok": "Şuan blog yok",
   "pills": "İlaçlar",
   "health": "Sağlık",
   "lifeStyle": "Yaşam Tarzı",
+
+  // Privacy Policy
+  "privacy_policy_content":
+      "<h3>İlaç Hatırlatıcı - Gizlilik Politikası</h3><br><p><b>Kişisel Verilerinizin Kullanımı:</b><br>Uygulamamamız, kullanıcılarımızın gizliliğini korumayı taahhüt eder. İlaç hatırlatıcı uygulamamızda, kullanıcıların ilaç takibi ve hatırlatmalar için gerekli bilgileri (e-posta, profil bilgileri ve ilaç planları) toplanmaktadır. Bu bilgiler, hizmetimizi sağlamak ve geliştirmek için kullanılır ve üçüncü taraflarla paylaşılmaz.</p><br><p><b>Veri Saklama ve Güvenlik:</b><br>Kullanıcı verileriniz güvenli sunucularda ve şifrelenmiş formatta saklanır. İlaç bilgileriniz ve kişisel verileriniz, güçlü güvenlik önlemleri altında korunur. Verilerinize yalnızca gerekli personel erişebilir.</p><br><p><b>Kullanıcı Hakları:</b><br>Kullanıcılar, hesaplarını ve verilerini dilediği zaman görüntüleme, düzenleme veya silme hakkına sahiptir. Hesabınızı sildiğinizde, tüm verileriniz kalıcı olarak sistemimizden kaldırılır.</p><br><p><b>Çerezler ve Takip:</b><br>Uygulamamız, kullanıcı deneyimini geliştirmek için çerezler kullanabilir. Bu çerezler, kullanıcı tercihlerini ve uygulama kullanım verilerini saklar. İsterseniz tarayıcı ayarlarınızdan çerezleri devre dışı bırakabilirsiniz.</p><br><p><b>Bildirimler:</b><br>Uygulamamamız, yalnızca kullanıcının onayladığı ilaç hatırlatmaları için bildirimler gönderir. İstenmeyen bildirimler alınmaz ve bildirimleri ayarlar bölümünden devre dışı bırakabilirsiniz.</p><br><p><b>Değişiklikler:</b><br>Gizlilik politikamız zaman zaman güncellenebilir. Önemli değişiklikler olduğunda kullanıcılarımıza bildirim yapılacaktır. Uygulamamamızı kullanarak, bu şartları kabul etmiş olursunuz.</p><br><p><b>İletişim:</b><br>Gizlilik politikamızla ilgili sorularınız için lütfen bize ulaşın.</p>",
 };

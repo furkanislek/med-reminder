@@ -13,9 +13,43 @@ class BlogDetailPage extends StatefulWidget {
   State<BlogDetailPage> createState() => _BlogDetailPageState();
 }
 
-class _BlogDetailPageState extends State<BlogDetailPage> {
+class _BlogDetailPageState extends State<BlogDetailPage>
+    with SingleTickerProviderStateMixin {
   final PageController controller = PageController();
   int currentIndex = 0;
+  late AnimationController _animationController;
+  late Animation<double> _opacityAnimation;
+  late Animation<Offset> _slideAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 800),
+    );
+
+    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0, 0.3),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeOutQuad),
+    );
+
+    // İlk sayfa için animasyonu başlat
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    controller.dispose();
+    super.dispose();
+  }
 
   List<String> parseHtmlContent(String htmlContent) {
     final RegExp h2StartRegex = RegExp(r'<h2>', caseSensitive: false);
@@ -63,6 +97,9 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
           setState(() {
             currentIndex = index % htmlContents.length;
           });
+          // Yeni sayfa görüntülendiğinde animasyonu sıfırla ve başlat
+          _animationController.reset();
+          _animationController.forward();
         },
         itemCount: htmlContents.length,
         itemBuilder: (context, index) {
@@ -88,52 +125,72 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      width: 60,
-                      height: 60,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFF2D6654),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: Text(
-                          "${index + 1}",
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    AnimatedBuilder(
+                      animation: _animationController,
+                      builder: (context, child) {
+                        return FadeTransition(
+                          opacity: _opacityAnimation,
 
+                          child: Container(
+                            width: 60,
+                            height: 60,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFF2D6654),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Center(
+                              child: Text(
+                                "${index + 1}",
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                     const SizedBox(height: 20),
 
                     Expanded(
-                      child: SingleChildScrollView(
-                        child: Html(
-                          data: htmlContents[index],
-                          style: {
-                            "h2": Style(
-                              fontSize: FontSize(28.0),
-                              fontWeight: FontWeight.bold,
-                              color: const Color(0xFF2D6654),
-                              margin: Margins.only(bottom: 20.0),
+                      child: AnimatedBuilder(
+                        animation: _animationController,
+                        builder: (context, child) {
+                          return FadeTransition(
+                            opacity: _opacityAnimation,
+                            child: SlideTransition(
+                              position: _slideAnimation,
+                              child: child,
                             ),
-                            "p": Style(
-                              fontSize: FontSize(16.0),
-                              lineHeight: LineHeight.em(1.5),
-                              color: const Color(0xFF2D6654),
-                              margin: Margins.only(bottom: 16.0),
-                            ),
-                            "ul": Style(margin: Margins.only(left: 0.0)),
-                            "li": Style(
-                              fontSize: FontSize(16.0),
-                              lineHeight: LineHeight.em(1.5),
-                              color: const Color(0xFF2D6654),
-                              margin: Margins.only(bottom: 8.0),
-                            ),
-                          },
+                          );
+                        },
+                        child: SingleChildScrollView(
+                          child: Html(
+                            data: htmlContents[index],
+                            style: {
+                              "h2": Style(
+                                fontSize: FontSize(28.0),
+                                fontWeight: FontWeight.bold,
+                                color: const Color(0xFF2D6654),
+                                margin: Margins.only(bottom: 20.0),
+                              ),
+                              "p": Style(
+                                fontSize: FontSize(16.0),
+                                lineHeight: LineHeight.em(1.5),
+                                color: const Color(0xFF2D6654),
+                                margin: Margins.only(bottom: 16.0),
+                              ),
+                              "ul": Style(margin: Margins.only(left: 0.0)),
+                              "li": Style(
+                                fontSize: FontSize(16.0),
+                                lineHeight: LineHeight.em(1.5),
+                                color: const Color(0xFF2D6654),
+                                margin: Margins.only(bottom: 8.0),
+                              ),
+                            },
+                          ),
                         ),
                       ),
                     ),
@@ -146,9 +203,12 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
                 bottom: 10,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.asset("assets/svg/detail.svg", height: 200, width: 50),
+                  child: SvgPicture.asset(
+                    "assets/svg/detail.svg",
+                    height: 200,
+                    width: 50,
+                  ),
                 ),
-                
               ),
             ],
           );

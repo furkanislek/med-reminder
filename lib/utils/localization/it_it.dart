@@ -168,7 +168,7 @@ const Map<String, String> itIT = {
   'about_app': 'Info applicazione',
   'app_version': 'Versione app',
   'privacy_policy': 'Informativa privacy',
-  'developer': 'Sviluppatore: Furkan Akif İŞLEK',
+  'developer': 'Sviluppatore: Furkan Akif ISLEK',
   'noEmail': 'Nessuna email trovata',
   'version.number': '1.0.0',
   'profile.deleteAccountImportant': 'Elimina account',
@@ -180,6 +180,19 @@ const Map<String, String> itIT = {
   'profile.deleteAccountButton': 'Elimina account',
 
   // Profile Page
-  'logout': 'Esci',
+  'logout': 'Disconnetti',
   'account': 'Account',
+
+  // Blog Page
+  'Blog': 'Blog',
+  'Bir hata oluştu.': 'Si è verificato un errore.',
+  'Blog yazısı bulunamadı.': 'Nessun post del blog trovato.',
+  'Şuan blog yok': 'Nessun blog disponibile',
+  'pills': 'Pillole',
+  'health': 'Salute',
+  'lifeStyle': 'Stile di Vita',
+
+  // Privacy Policy
+  'privacy_policy_content':
+      '<h3>Promemoria Medicinali - Politica sulla Privacy</h3><br><p><b>Utilizzo delle Informazioni Personali:</b><br>La nostra applicazione si impegna a proteggere la privacy dei nostri utenti. Nella nostra app di promemoria medicinali, raccogliamo le informazioni necessarie (email, informazioni del profilo e piani di medicazione) per il monitoraggio dei farmaci e i promemoria. Queste informazioni vengono utilizzate per fornire e migliorare il nostro servizio e non vengono condivise con terze parti.</p><br><p><b>Archiviazione e Sicurezza dei Dati:</b><br>I tuoi dati utente sono memorizzati su server sicuri in formato criptato. Le tue informazioni sui medicinali e i tuoi dati personali sono protetti da forti misure di sicurezza. Solo il personale necessario può accedere ai tuoi dati.</p><br><p><b>Diritti dell\'Utente:</b><br>Gli utenti hanno il diritto di visualizzare, modificare o eliminare i propri account e dati in qualsiasi momento. Quando elimini il tuo account, tutti i tuoi dati vengono rimossi permanentemente dal nostro sistema.</p><br><p><b>Cookie e Tracciamento:</b><br>La nostra applicazione potrebbe utilizzare cookie per migliorare l\'esperienza utente. Questi cookie memorizzano le preferenze degli utenti e i dati di utilizzo dell\'applicazione. Puoi disabilitare i cookie dalle impostazioni del tuo browser se lo desideri.</p><br><p><b>Notifiche:</b><br>La nostra applicazione invia notifiche solo per i promemoria di medicinali approvati dall\'utente. Non riceverai notifiche indesiderate e puoi disabilitare le notifiche dalla sezione impostazioni.</p><br><p><b>Modifiche:</b><br>La nostra politica sulla privacy potrebbe essere aggiornata di tanto in tanto. Gli utenti saranno informati quando ci saranno cambiamenti significativi. Utilizzando la nostra applicazione, accetti questi termini.</p><br><p><b>Contatto:</b><br>Contattaci per qualsiasi domanda sulla nostra politica sulla privacy.</p>',
 };

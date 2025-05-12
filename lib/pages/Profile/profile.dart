@@ -4,6 +4,7 @@ import 'package:mr/services/locale_service.dart';
 import 'dart:convert';
 import '../../services/services.dart';
 import 'package:get/get.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -248,6 +249,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("profileImageBase64: $profileImageBase64");
+    //Auth().currentUser?.providerData[0].email
+    print(
+      "Auth().currentUser?.providerData[0].email: ${Auth().currentUser?.providerData[0].email}",
+    );
+    print("Auth().currentUser?.email: ${Auth().currentUser?.email}");
+    print("Auth().currentUser?: ${Auth().currentUser?.providerData[0].email}");
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -327,9 +335,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           const SizedBox(height: 16),
                           _buildInfoRow(
                             Icons.email,
-                            Auth().currentUser?.email ??
-                                Auth().currentUser?.providerData[0].email ??
-                                'profile.noEmail'.tr,
+                            Auth().currentUser?.email != null &&
+                                    Auth().currentUser!.email!.isNotEmpty
+                                ? Auth().currentUser!.email!
+                                : Auth().currentUser?.providerData[0].email ??
+                                    'profile.noEmail'.tr,
                           ),
                         ],
                       ),
@@ -450,13 +460,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               style: TextStyle(color: Colors.grey),
                             ),
                           ),
-                          _buildSettingItem(
-                            'privacy_policy'.tr,
-                            const Icon(Icons.privacy_tip, color: Colors.orange),
-                            trailing: const Icon(
-                              Icons.arrow_forward_ios,
-                              size: 16,
-                              color: Colors.grey,
+                          InkWell(
+                            onTap: () {
+                              _showPrivacyPolicyDialog();
+                            },
+                            child: _buildSettingItem(
+                              'privacy_policy'.tr,
+                              const Icon(
+                                Icons.privacy_tip,
+                                color: Colors.orange,
+                              ),
+                              trailing: const Icon(
+                                Icons.arrow_forward_ios,
+                                size: 16,
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
                         ],
@@ -579,6 +597,113 @@ class _ProfileScreenState extends State<ProfileScreen> {
           if (trailing != null) trailing,
         ],
       ),
+    );
+  }
+
+  void _showPrivacyPolicyDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          child: Container(
+            padding: const EdgeInsets.only(
+              top: 20,
+              left: 20,
+              right: 20,
+              bottom: 16,
+            ),
+            margin: const EdgeInsets.only(top: 20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 10.0,
+                  offset: Offset(0.0, 10.0),
+                ),
+              ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.privacy_tip,
+                      color: Colors.orange,
+                      size: 28,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        'privacy_policy'.tr,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                Flexible(
+                  child: SingleChildScrollView(
+                    child: Html(
+                      data: 'privacy_policy_content'.tr,
+                      style: {
+                        "body": Style(
+                          fontSize: FontSize(12),
+                          lineHeight: LineHeight(1.5),
+                        ),
+                        "h3": Style(
+                          fontSize: FontSize(16),
+                          fontWeight: FontWeight.bold,
+                        ),
+                        "b": Style(fontWeight: FontWeight.bold),
+                        "p": Style(
+                          fontSize: FontSize(12),
+                          lineHeight: LineHeight(1.5),
+                        ),
+                      },
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 10,
+                      ),
+                    ),
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text(
+                      'general.done'.tr,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 

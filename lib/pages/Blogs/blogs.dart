@@ -16,25 +16,25 @@ class _BlogsScreenState extends State<BlogsScreen> {
   final BlogService _blogService = BlogService();
 
   // Kategoriler
-  final List<String> categories = ["pills", "health", "Yaşam Tarzı"];
+  final List<String> categories = ["pills", "health", "lifeStyle"];
 
   // Kategori renkleri
   final Map<String, Color> categoryColors = {
     "pills": const Color(0xFFA9C7BB), // Açık yeşil
     "health": const Color(0xFFE7ABAA), // Açık pembe
-    "Yaşam Tarzı": const Color(0xFF96B9DF), // Açık mavi
+    "lifeStyle": const Color(0xFF96B9DF), // Açık mavi
   };
 
   final Map<String, Color> secondaryCategoryColors = {
     "pills": const Color(0xFFD3F1E5), // Açık yeşil
     "health": const Color(0xFFFCE8E7), // Açık pembe
-    "Yaşam Tarzı": const Color(0xFFAFCCEB), // Açık mavi
+    "lifeStyle": const Color(0xFFAFCCEB), // Açık mavi
   };
 
   final Map<String, Color> textCategoryColors = {
     "pills": const Color(0xFF3B5B52), // Siyah
     "health": const Color(0xFF844140), // Siyah
-    "Yaşam Tarzı": const Color(0xFF3B5B52), // Siyah
+    "lifeStyle": const Color(0xFF3B5B52), // Siyah
   };
 
   @override
@@ -45,13 +45,6 @@ class _BlogsScreenState extends State<BlogsScreen> {
   @override
   void dispose() {
     super.dispose();
-  }
-
-  String _getLocalized(String tr, String en) {
-    if (Get.locale?.languageCode == 'tr') {
-      return tr;
-    }
-    return en;
   }
 
   void _navigateToDetail(Blog blog) {
@@ -67,7 +60,7 @@ class _BlogsScreenState extends State<BlogsScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text(
-          _getLocalized("Blog", "Blog"),
+          "Blog".tr,
           style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
@@ -85,22 +78,11 @@ class _BlogsScreenState extends State<BlogsScreen> {
             }
 
             if (snapshot.hasError) {
-              return Center(
-                child: Text(
-                  _getLocalized('Bir hata oluştu.', 'An error occurred.'),
-                ),
-              );
+              return Center(child: Text('Bir hata oluştu.'.tr));
             }
 
             if (!snapshot.hasData || snapshot.data!.isEmpty) {
-              return Center(
-                child: Text(
-                  _getLocalized(
-                    'Blog yazısı bulunamadı.',
-                    'No blog posts found.',
-                  ),
-                ),
-              );
+              return Center(child: Text('Blog yazısı bulunamadı.'.tr));
             }
 
             List<Blog> allBlogs = snapshot.data!;
@@ -168,7 +150,7 @@ class _BlogsScreenState extends State<BlogsScreen> {
               vertical: 8.0,
             ),
             child: Text(
-              _getLocalized('Şuan blog yok', 'No blogs available'),
+              'Şuan blog yok'.tr,
               style: TextStyle(color: Colors.grey[600]),
             ),
           )

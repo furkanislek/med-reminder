@@ -170,7 +170,7 @@ const Map<String, String> frFR = {
   'about_app': 'À Propos de l\'Application',
   'app_version': 'Version de l\'Application',
   'privacy_policy': 'Politique de Confidentialité',
-  'developer': 'Développeur: Furkan Akif İŞLEK',
+  'developer': 'Développeur: Furkan Akif ISLEK',
   'noEmail': 'Aucun e-mail trouvé',
   'version.number': '1.0.0',
   'profile.deleteAccountImportant': 'Supprimer le Compte',
@@ -184,4 +184,17 @@ const Map<String, String> frFR = {
   // Profile Page
   'logout': 'Déconnexion',
   'account': 'Compte',
+
+  // Blog Page
+  'Blog': 'Blog',
+  'Bir hata oluştu.': 'Une erreur est survenue.',
+  'Blog yazısı bulunamadı.': 'Aucun article de blog trouvé.',
+  'Şuan blog yok': 'Aucun blog disponible',
+  'pills': 'Pilules',
+  'health': 'Santé',
+  'lifeStyle': 'Style de vie',
+
+  // Privacy Policy
+  'privacy_policy_content':
+      '<h3>Rappel de Médicaments - Politique de Confidentialité</h3><br><p><b>Utilisation des Informations Personnelles:</b><br>Notre application s\'engage à protéger la vie privée de nos utilisateurs. Dans notre application de rappel de médicaments, nous collectons les informations nécessaires (e-mail, informations de profil et plans de médication) pour le suivi des médicaments et les rappels. Ces informations sont utilisées pour fournir et améliorer notre service et ne sont pas partagées avec des tiers.</p><br><p><b>Stockage et Sécurité des Données:</b><br>Vos données utilisateur sont stockées sur des serveurs sécurisés au format crypté. Vos informations sur les médicaments et vos données personnelles sont protégées par des mesures de sécurité strictes. Seul le personnel nécessaire peut accéder à vos données.</p><br><p><b>Droits des Utilisateurs:</b><br>Les utilisateurs ont le droit de consulter, de modifier ou de supprimer leurs comptes et leurs données à tout moment. Lorsque vous supprimez votre compte, toutes vos données sont définitivement supprimées de notre système.</p><br><p><b>Cookies et Suivi:</b><br>Notre application peut utiliser des cookies pour améliorer l\'expérience utilisateur. Ces cookies stockent les préférences des utilisateurs et les données d\'utilisation de l\'application. Vous pouvez désactiver les cookies dans les paramètres de votre navigateur si vous le souhaitez.</p><br><p><b>Notifications:</b><br>Notre application n\'envoie des notifications que pour les rappels de médicaments approuvés par l\'utilisateur. Vous ne recevrez pas de notifications indésirables et vous pouvez désactiver les notifications dans la section des paramètres.</p><br><p><b>Modifications:</b><br>Notre politique de confidentialité peut être mise à jour de temps à autre. Les utilisateurs seront informés lorsqu\'il y aura des changements importants. En utilisant notre application, vous acceptez ces conditions.</p><br><p><b>Contact:</b><br>Veuillez nous contacter pour toute question concernant notre politique de confidentialité.</p>',
 };

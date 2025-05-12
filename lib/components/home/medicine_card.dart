@@ -35,12 +35,18 @@ class MedicineListView extends StatelessWidget {
         } else {
           message = 'home.noMedicines'.tr;
         }
-        return Center(
-          child: Text(
-            message,
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.grey[600], fontSize: 16),
-          ),
+        return ListView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          children: [
+            SizedBox(height: MediaQuery.of(context).size.height * 0.3),
+            Center(
+              child: Text(
+                message,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.grey[600], fontSize: 16),
+              ),
+            ),
+          ],
         );
       }
       // Display the filtered list

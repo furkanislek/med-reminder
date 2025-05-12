@@ -171,7 +171,7 @@ const Map<String, String> deDE = {
   'about_app': 'Über die App',
   'app_version': 'App-Version',
   'privacy_policy': 'Datenschutzrichtlinie',
-  'developer': 'Entwickler: Furkan Akif İŞLEK',
+  'developer': 'Entwickler: Furkan Akif ISLEK',
   'noEmail': 'Keine E-Mail gefunden',
   'version.number': '1.0.0',
   'profile.deleteAccountImportant': 'Konto löschen',
@@ -185,4 +185,17 @@ const Map<String, String> deDE = {
   // Profile Page
   'logout': 'Abmelden',
   'account': 'Konto',
+
+  // Blog Page
+  'Blog': 'Blog',
+  'Bir hata oluştu.': 'Ein Fehler ist aufgetreten.',
+  'Blog yazısı bulunamadı.': 'Keine Blogbeiträge gefunden.',
+  'Şuan blog yok': 'Keine Blogs verfügbar',
+  'pills': 'Pillen',
+  'health': 'Gesundheit',
+  'lifeStyle': 'Lebensstil',
+
+  // Privacy Policy
+  'privacy_policy_content':
+      '<h3>Medikamentenerinnerung - Datenschutzrichtlinie</h3><br><p><b>Verwendung personenbezogener Daten:</b><br>Unsere Anwendung verpflichtet sich, die Privatsphäre unserer Benutzer zu schützen. In unserer Medikamentenerinnerungs-App sammeln wir notwendige Informationen (E-Mail, Profilinformationen und Medikamentenpläne) für die Medikamentenverfolgung und Erinnerungen. Diese Informationen werden verwendet, um unseren Service bereitzustellen und zu verbessern und werden nicht an Dritte weitergegeben.</p><br><p><b>Datenspeicherung und Sicherheit:</b><br>Ihre Benutzerdaten werden auf sicheren Servern in verschlüsseltem Format gespeichert. Ihre Medikamenteninformationen und persönlichen Daten sind durch starke Sicherheitsmaßnahmen geschützt. Nur das notwendige Personal kann auf Ihre Daten zugreifen.</p><br><p><b>Benutzerrechte:</b><br>Benutzer haben das Recht, ihre Konten und Daten jederzeit einzusehen, zu bearbeiten oder zu löschen. Wenn Sie Ihr Konto löschen, werden alle Ihre Daten dauerhaft aus unserem System entfernt.</p><br><p><b>Cookies und Tracking:</b><br>Unsere Anwendung kann Cookies verwenden, um die Benutzererfahrung zu verbessern. Diese Cookies speichern Benutzereinstellungen und Anwendungsnutzungsdaten. Sie können Cookies in Ihren Browsereinstellungen deaktivieren, wenn Sie möchten.</p><br><p><b>Benachrichtigungen:</b><br>Unsere Anwendung sendet nur Benachrichtigungen für Medikamentenerinnerungen, die vom Benutzer genehmigt wurden. Sie erhalten keine unerwünschten Benachrichtigungen und können Benachrichtigungen im Einstellungsbereich deaktivieren.</p><br><p><b>Änderungen:</b><br>Unsere Datenschutzrichtlinie kann von Zeit zu Zeit aktualisiert werden. Benutzer werden benachrichtigt, wenn es wesentliche Änderungen gibt. Durch die Nutzung unserer Anwendung stimmen Sie diesen Bedingungen zu.</p><br><p><b>Kontakt:</b><br>Bitte kontaktieren Sie uns bei Fragen zu unserer Datenschutzrichtlinie.</p>',
 };

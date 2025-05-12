@@ -166,7 +166,7 @@ const Map<String, String> enUS = {
   'about_app': 'About App',
   'app_version': 'App Version',
   'privacy_policy': 'Privacy Policy',
-  'developer': 'Developer: Furkan Akif İŞLEK',
+  'developer': 'Developer: Furkan Akif ISLEK',
   'noEmail': 'No email found',
   'version.number': '1.0.0',
   'profile.deleteAccountImportant': 'Delete Account',
@@ -177,7 +177,20 @@ const Map<String, String> enUS = {
   'profile.errorDeletingAccount': 'Error deleting account',
   'profile.deleteAccountButton': 'Delete Account',
 
+  // Privacy Policy
+  'privacy_policy_content':
+      '<h3>Medicine Reminder - Privacy Policy</h3><br><p><b>Use of Personal Information:</b><br>Our application is committed to protecting the privacy of our users. In our medicine reminder app, we collect necessary information (email, profile information, and medication plans) for medication tracking and reminders. This information is used to provide and improve our service and is not shared with third parties.</p><br><p><b>Data Storage and Security:</b><br>Your user data is stored on secure servers in encrypted format. Your medication information and personal data are protected under strong security measures. Only necessary personnel can access your data.</p><br><p><b>User Rights:</b><br>Users have the right to view, edit, or delete their accounts and data at any time. When you delete your account, all your data is permanently removed from our system.</p><br><p><b>Cookies and Tracking:</b><br>Our application may use cookies to improve the user experience. These cookies store user preferences and application usage data. You can disable cookies from your browser settings if you wish.</p><br><p><b>Notifications:</b><br>Our application only sends notifications for medication reminders approved by the user. You will not receive unwanted notifications and can disable notifications from the settings section.</p><br><p><b>Changes:</b><br>Our privacy policy may be updated from time to time. Users will be notified when there are significant changes. By using our application, you agree to these terms.</p><br><p><b>Contact:</b><br>Please contact us with any questions about our privacy policy.</p>',
+
   // Profile Page
   'logout': 'Logout',
   'account': 'Account',
+
+  // Blog Page
+  'Blog': 'Blog',
+  'Bir hata oluştu.': 'An error occurred.',
+  'Blog yazısı bulunamadı.': 'No blog posts found.',
+  'Şuan blog yok': 'No blogs available',
+  'pills': 'Pills',
+  'health': 'Health',
+  'lifeStyle': 'Life Style',
 };

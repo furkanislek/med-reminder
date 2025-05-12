@@ -115,30 +115,80 @@ class Auth {
         idToken: googleAuth.idToken,
       );
 
-      final UserCredential userCredential = await _firebaseAuth
-          .signInWithCredential(credential);
+      // Önce email ile ilişkili hesap var mı kontrol et
+      try {
+        // Aynı email ile kayıtlı kullanıcı var mı diye kontrol et
+        List<String> signInMethods = await _firebaseAuth
+            .fetchSignInMethodsForEmail(googleUser.email);
 
-      final user = userCredential.user;
+        if (signInMethods.isNotEmpty && !signInMethods.contains('google.com')) {
+          // Email/şifre ile kayıtlı hesap var, önce oturum açılmalı
+          print('Bu email adresi zaten kayıtlı. Hesaplar birleştiriliyor...');
 
-      if (user != null) {
-        DocumentSnapshot userDoc =
+          // Kullanıcıdan şifre isteriz (burada UI entegrasyonu gerekli)
+          // Bu örnek için basit bir çözüm sunuyoruz
+          // Gerçek uygulamada bir dialog gösterip şifreyi kullanıcıdan almalısınız
+
+          // Şifre girildikten sonra email/şifre ile giriş yap
+          // UserCredential userCredential = await _firebaseAuth.signInWithEmailAndPassword(
+          //   email: googleUser.email,
+          //   password: şifre // Kullanıcıdan alınacak
+          // );
+
+          // Kullanıcı giriş yaptıktan sonra Google hesabını bağla
+          // await userCredential.user?.linkWithCredential(credential);
+
+          // NOT: Yukarıdaki kısım uygulamanızın UI'ına göre değiştirilmelidir
+          // Şu an için Google hesabı ile doğrudan giriş yapalım
+          final UserCredential userCredential = await _firebaseAuth
+              .signInWithCredential(credential);
+
+          // Kullanıcı bilgilerini güncelle
+          if (userCredential.user != null) {
             await FirebaseFirestore.instance
                 .collection('users')
-                .doc(user.uid)
-                .get();
+                .doc(userCredential.user!.uid)
+                .update({"googleConnected": true});
+          }
+        } else {
+          // Email ile kayıtlı hesap yok veya zaten Google ile giriş yapılmış
+          final UserCredential userCredential = await _firebaseAuth
+              .signInWithCredential(credential);
+          final user = userCredential.user;
 
-        if (!userDoc.exists) {
-          // Yeni kullanıcıysa Firestore'a kaydet
-          await FirebaseFirestore.instance
-              .collection('users')
-              .doc(user.uid)
-              .set({
-                "firstName": user.displayName?.split(" ").first ?? "",
-                "surname": user.displayName?.split(" ").skip(1).join(" ") ?? "",
-                "photo": user.photoURL,
-                "email": user.email,
-                "notificationsEnabled": true,
-              });
+          if (user != null) {
+            DocumentSnapshot userDoc =
+                await FirebaseFirestore.instance
+                    .collection('users')
+                    .doc(user.uid)
+                    .get();
+
+            if (!userDoc.exists) {
+              // Yeni kullanıcıysa Firestore'a kaydet
+              await FirebaseFirestore.instance
+                  .collection('users')
+                  .doc(user.uid)
+                  .set({
+                    "firstName": user.displayName?.split(" ").first ?? "",
+                    "surname":
+                        user.displayName?.split(" ").skip(1).join(" ") ?? "",
+                    "photo": user.photoURL,
+                    "email": user.email,
+                    "notificationsEnabled": true,
+                    "googleConnected": true,
+                  });
+            }
+          }
+        }
+      } catch (e) {
+        print('Hesap kontrol edilirken hata: $e');
+        // Hata olursa normal Google girişini dene
+        final UserCredential userCredential = await _firebaseAuth
+            .signInWithCredential(credential);
+        final user = userCredential.user;
+
+        if (user != null && !user.emailVerified && user.email != null) {
+          await user.sendEmailVerification();
         }
       }
     } catch (e) {

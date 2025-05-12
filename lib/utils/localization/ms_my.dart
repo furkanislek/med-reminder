@@ -122,9 +122,9 @@ const Map<String, String> msMY = {
   'filter.uncategorized': 'Tidak Dikategorikan',
   'filter.searchHint': 'Cari Ubat...',
   'filter.noResultsForSearchAndType':
-      'Tiada hasil untuk \"{query}\" dalam {type}',
-  'filter.noResultsForSearch': 'Tiada hasil untuk \"{query}\"',
-  'filter.noResultsForType': 'Tiada hasil untuk jenis \"{type}\"',
+      'Tiada hasil untuk "{query}" dalam {type}',
+  'filter.noResultsForSearch': 'Tiada hasil untuk "{query}"',
+  'filter.noResultsForType': 'Tiada hasil untuk jenis "{type}"',
 
   // Medicine Card
   'card.treatmentCompleted': 'Rawatan Selesai',
@@ -167,8 +167,8 @@ const Map<String, String> msMY = {
   'about_app': 'Tentang Aplikasi',
   'app_version': 'Versi Aplikasi',
   'privacy_policy': 'Dasar Privasi',
-  'developer': 'Pembangun: Furkan Akif İŞLEK',
-  'noEmail': 'Tiada e-mel ditemui',
+  'developer': 'Pembangun: Furkan Akif ISLEK',
+  'noEmail': 'Tiada e-mel dijumpai',
   'version.number': '1.0.0',
   'profile.deleteAccountImportant': 'Padam Akaun',
   'profile.deleteAccountImportantText':
@@ -181,4 +181,17 @@ const Map<String, String> msMY = {
   // Profile Page
   'logout': 'Log Keluar',
   'account': 'Akaun',
+
+  // Blog Page
+  'Blog': 'Blog',
+  'Bir hata oluştu.': 'Ralat telah berlaku.',
+  'Blog yazısı bulunamadı.': 'Tiada catatan blog ditemui.',
+  'Şuan blog yok': 'Tiada blog tersedia',
+  'pills': 'Pil',
+  'health': 'Kesihatan',
+  'lifeStyle': 'Gaya Hidup',
+
+  // Privacy Policy
+  'privacy_policy_content':
+      '<h3>Peringatan Ubat - Dasar Privasi</h3><br><p><b>Penggunaan Maklumat Peribadi:</b><br>Aplikasi kami komited untuk melindungi privasi pengguna kami. Dalam aplikasi peringatan ubat kami, kami mengumpulkan maklumat yang diperlukan (e-mel, maklumat profil, dan pelan pengambilan ubat) untuk penjejakan ubat dan peringatan. Maklumat ini digunakan untuk menyediakan dan meningkatkan perkhidmatan kami dan tidak dikongsi dengan pihak ketiga.</p><br><p><b>Penyimpanan Data dan Keselamatan:</b><br>Data pengguna anda disimpan di pelayan yang selamat dalam format yang terenkripsi. Maklumat ubat dan data peribadi anda dilindungi di bawah langkah-langkah keselamatan yang kuat. Hanya kakitangan yang diperlukan sahaja yang boleh mengakses data anda.</p><br><p><b>Hak Pengguna:</b><br>Pengguna mempunyai hak untuk melihat, mengedit, atau menghapus akaun dan data mereka pada bila-bila masa. Apabila anda menghapus akaun anda, semua data anda akan dibuang secara kekal dari sistem kami.</p><br><p><b>Kuki dan Penjejakan:</b><br>Aplikasi kami mungkin menggunakan kuki untuk meningkatkan pengalaman pengguna. Kuki ini menyimpan pilihan pengguna dan data penggunaan aplikasi. Anda boleh menyahaktifkan kuki daripada tetapan pelayar anda jika anda mahu.</p><br><p><b>Pemberitahuan:</b><br>Aplikasi kami hanya menghantar pemberitahuan untuk peringatan ubat yang diluluskan oleh pengguna. Anda tidak akan menerima pemberitahuan yang tidak diingini dan boleh menyahaktifkan pemberitahuan dari bahagian tetapan.</p><br><p><b>Perubahan:</b><br>Dasar privasi kami mungkin dikemas kini dari semasa ke semasa. Pengguna akan dimaklumkan apabila terdapat perubahan yang ketara. Dengan menggunakan aplikasi kami, anda bersetuju dengan syarat-syarat ini.</p><br><p><b>Hubungi:</b><br>Sila hubungi kami dengan sebarang pertanyaan mengenai dasar privasi kami.</p>',
 };

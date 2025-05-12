@@ -165,7 +165,7 @@ const Map<String, String> ptBR = {
   'about_app': 'Sobre o Aplicativo',
   'app_version': 'Versão do Aplicativo',
   'privacy_policy': 'Política de Privacidade',
-  'developer': 'Desenvolvedor: Furkan Akif İŞLEK',
+  'developer': 'Desenvolvedor: Furkan Akif ISLEK',
   'noEmail': 'Nenhum e-mail encontrado',
   'version.number': '1.0.0',
   'profile.deleteAccountImportant': 'Excluir Conta',
@@ -179,4 +179,17 @@ const Map<String, String> ptBR = {
   // Profile Page
   'logout': 'Sair',
   'account': 'Conta',
+
+  // Blog Page
+  'Blog': 'Blog',
+  'Bir hata oluştu.': 'Ocorreu um erro.',
+  'Blog yazısı bulunamadı.': 'Nenhuma postagem de blog encontrada.',
+  'Şuan blog yok': 'Nenhum blog disponível',
+  'pills': 'Pílulas',
+  'health': 'Saúde',
+  'lifeStyle': 'Estilo de Vida',
+
+  // Privacy Policy
+  'privacy_policy_content':
+      '<h3>Lembrete de Medicamentos - Política de Privacidade</h3><br><p><b>Uso de Informações Pessoais:</b><br>Nosso aplicativo está comprometido em proteger a privacidade de nossos usuários. Em nosso aplicativo de lembrete de medicamentos, coletamos informações necessárias (e-mail, informações de perfil e planos de medicação) para o acompanhamento de medicamentos e lembretes. Essas informações são usadas para fornecer e melhorar nosso serviço e não são compartilhadas com terceiros.</p><br><p><b>Armazenamento e Segurança de Dados:</b><br>Seus dados de usuário são armazenados em servidores seguros em formato criptografado. Suas informações de medicamentos e dados pessoais são protegidos por fortes medidas de segurança. Apenas o pessoal necessário pode acessar seus dados.</p><br><p><b>Direitos do Usuário:</b><br>Os usuários têm o direito de visualizar, editar ou excluir suas contas e dados a qualquer momento. Quando você exclui sua conta, todos os seus dados são removidos permanentemente de nosso sistema.</p><br><p><b>Cookies e Rastreamento:</b><br>Nosso aplicativo pode usar cookies para melhorar a experiência do usuário. Esses cookies armazenam preferências do usuário e dados de uso do aplicativo. Você pode desativar os cookies nas configurações do seu navegador, se desejar.</p><br><p><b>Notificações:</b><br>Nosso aplicativo envia notificações apenas para lembretes de medicamentos aprovados pelo usuário. Você não receberá notificações indesejadas e pode desativar as notificações na seção de configurações.</p><br><p><b>Alterações:</b><br>Nossa política de privacidade pode ser atualizada de tempos em tempos. Os usuários serão notificados quando houver alterações significativas. Ao usar nosso aplicativo, você concorda com estes termos.</p><br><p><b>Contato:</b><br>Entre em contato conosco com qualquer dúvida sobre nossa política de privacidade.</p>',
 };

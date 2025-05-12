@@ -125,9 +125,9 @@ const Map<String, String> esES = {
   'filter.uncategorized': 'Sin Categoría',
   'filter.searchHint': 'Buscar Medicamentos...',
   'filter.noResultsForSearchAndType':
-      'No hay resultados para \"{query}\" en {type}',
-  'filter.noResultsForSearch': 'No hay resultados para \"{query}\"',
-  'filter.noResultsForType': 'No hay resultados para el tipo \"{type}\"',
+      'No hay resultados para "{query}" en {type}',
+  'filter.noResultsForSearch': 'No hay resultados para "{query}"',
+  'filter.noResultsForType': 'No hay resultados para el tipo "{type}"',
 
   // Medicine Card
   'card.treatmentCompleted': 'Tratamiento Completado',
@@ -170,7 +170,7 @@ const Map<String, String> esES = {
   'about_app': 'Acerca de la Aplicación',
   'app_version': 'Versión de la Aplicación',
   'privacy_policy': 'Política de Privacidad',
-  'developer': 'Desarrollador: Furkan Akif İŞLEK',
+  'developer': 'Desarrollador: Furkan Akif ISLEK',
   'noEmail': 'No se encontró correo electrónico',
   'version.number': '1.0.0',
   'profile.deleteAccountImportant': 'Eliminar Cuenta',
@@ -182,6 +182,19 @@ const Map<String, String> esES = {
   'profile.deleteAccountButton': 'Eliminar Cuenta',
 
   // Profile Page
-  'logout': 'Cerrar Sesión',
+  'logout': 'Cerrar sesión',
   'account': 'Cuenta',
+
+  // Blog Page
+  'Blog': 'Blog',
+  'Bir hata oluştu.': 'Ha ocurrido un error.',
+  'Blog yazısı bulunamadı.': 'No se encontraron publicaciones de blog.',
+  'Şuan blog yok': 'No hay blogs disponibles',
+  'pills': 'Píldoras',
+  'health': 'Salud',
+  'lifeStyle': 'Estilo de vida',
+
+  // Privacy Policy
+  'privacy_policy_content':
+      '<h3>Recordatorio de Medicamentos - Política de Privacidad</h3><br><p><b>Uso de Información Personal:</b><br>Nuestra aplicación se compromete a proteger la privacidad de nuestros usuarios. En nuestra aplicación de recordatorio de medicamentos, recopilamos información necesaria (correo electrónico, información de perfil y planes de medicación) para el seguimiento de medicamentos y recordatorios. Esta información se utiliza para proporcionar y mejorar nuestro servicio y no se comparte con terceros.</p><br><p><b>Almacenamiento y Seguridad de Datos:</b><br>Sus datos de usuario se almacenan en servidores seguros en formato encriptado. Su información de medicamentos y datos personales están protegidos bajo fuertes medidas de seguridad. Solo el personal necesario puede acceder a sus datos.</p><br><p><b>Derechos del Usuario:</b><br>Los usuarios tienen derecho a ver, editar o eliminar sus cuentas y datos en cualquier momento. Cuando elimina su cuenta, todos sus datos se eliminan permanentemente de nuestro sistema.</p><br><p><b>Cookies y Seguimiento:</b><br>Nuestra aplicación puede usar cookies para mejorar la experiencia del usuario. Estas cookies almacenan preferencias de usuario y datos de uso de la aplicación. Puede desactivar las cookies desde la configuración de su navegador si lo desea.</p><br><p><b>Notificaciones:</b><br>Nuestra aplicación solo envía notificaciones para recordatorios de medicamentos aprobados por el usuario. No recibirá notificaciones no deseadas y puede desactivar las notificaciones desde la sección de configuración.</p><br><p><b>Cambios:</b><br>Nuestra política de privacidad puede actualizarse de vez en cuando. Los usuarios serán notificados cuando haya cambios significativos. Al usar nuestra aplicación, acepta estos términos.</p><br><p><b>Contacto:</b><br>Por favor, contáctenos con cualquier pregunta sobre nuestra política de privacidad.</p>',
 };

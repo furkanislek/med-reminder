@@ -110,7 +110,7 @@ class AddPillScreen extends StatelessWidget {
                     child: _buildTextField(
                       hint: "addMedicine.dosageUnit".tr,
                       onChanged: (value) => controller.dosageUnit.value = value,
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.number,
                     ),
                   ),
                 ],
