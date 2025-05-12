@@ -85,6 +85,7 @@ const Map<String, String> koKR = {
   'addMedicine.receiveNotification': '각 복용 5분 전에 알림 받기',
   'addMedicine.doseTimesPickerTitle': '복용 시간 선택',
   'addMedicine.done': '완료',
+  'addMedicine.deleteMedicine': '약 삭제',
 
   // Medicine Controller Messages
   'medicine.addSuccess': '약이 성공적으로 추가되었습니다.',

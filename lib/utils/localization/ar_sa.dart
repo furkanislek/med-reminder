@@ -155,6 +155,7 @@ const Map<String, String> arSA = {
   'addMedicine.notificationsLabel': 'الإشعارات',
   'addMedicine.enableDoseReminders': 'تفعيل تذكير الجرعات',
   'addMedicine.remindersSubtext': 'استلام إشعار قبل 5 دقائق من كل جرعة',
+  'addMedicine.deleteMedicine': 'حذف الدواء',
 
   // Profile Page
   'personal_info': 'المعلومات الشخصية',

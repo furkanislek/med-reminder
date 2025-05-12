@@ -85,6 +85,7 @@ const Map<String, String> zhCN = {
   'addMedicine.receiveNotification': '在每次服药前5分钟收到通知',
   'addMedicine.doseTimesPickerTitle': '选择剂量时间',
   'addMedicine.done': '完成',
+  'addMedicine.deleteMedicine': '删除药物',
 
   // Medicine Controller Messages
   'medicine.addSuccess': '药物添加成功。',

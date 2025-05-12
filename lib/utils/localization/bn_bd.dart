@@ -155,6 +155,7 @@ const Map<String, String> bnBD = {
   'addMedicine.notificationsLabel': 'বিজ্ঞপ্তি',
   'addMedicine.enableDoseReminders': 'ডোজ রিমাইন্ডার সক্রিয় করুন',
   'addMedicine.remindersSubtext': 'প্রতিটি ডোজের 5 মিনিট আগে বিজ্ঞপ্তি পান',
+  'addMedicine.deleteMedicine': 'ঔষধ মুছুন',
 
   // Profile Page
   'personal_info': 'ব্যক্তিগত তথ্য',

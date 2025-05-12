@@ -87,6 +87,7 @@ const Map<String, String> msMY = {
       'Terima notifikasi 5 minit sebelum setiap dos',
   'addMedicine.doseTimesPickerTitle': 'Pilih Masa Dos',
   'addMedicine.done': 'Selesai',
+  'addMedicine.deleteMedicine': 'Padam Ubat',
 
   // Medicine Controller Messages
   'medicine.addSuccess': 'Ubat berjaya ditambahkan.',

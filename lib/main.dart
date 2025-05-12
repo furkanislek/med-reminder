@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:mr/Introduction/introduction_screens.dart';
 import 'package:mr/controller/auth/auth_controller.dart';
 import 'package:mr/controller/data/data_service_controller.dart';
 import 'package:mr/controller/home/home_controller.dart';

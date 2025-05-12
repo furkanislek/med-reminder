@@ -21,11 +21,10 @@ class Menu extends StatelessWidget {
   ];
 
   final List<String> titles = [
-    'İlaçlarım',
-    'Planlarım',
-    'Yeni Plan',
-    'Blog',
-    'İstatistikler',
+    'myMedicines.title'.tr,
+    'addMedicine.title'.tr,
+    'blogs.title'.tr,
+    'profile.title'.tr,
   ];
 
   @override
@@ -40,19 +39,19 @@ class Menu extends StatelessWidget {
           unselectedItemColor: Colors.black54,
           selectedItemColor: Colors.black,
           onTap: controller.changeTabIndex,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: titles[0]),
             BottomNavigationBarItem(
               icon: Icon(Icons.medication_outlined),
-              label: '',
+              label: titles[1],
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.my_library_books),
-              label: '',
+              label: titles[2],
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person_2_outlined),
-              label: '',
+              label: titles[3],
             ),
           ],
         ),

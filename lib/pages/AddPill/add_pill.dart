@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart'; // Import for formatting time
 import 'package:mr/controller/data/data_service_controller.dart';
 import 'package:mr/pages/Menu/menu.dart';
+import 'package:mr/controller/home/home_controller.dart';
 
 class AddPillScreen extends StatelessWidget {
   AddPillScreen({super.key});
@@ -43,11 +44,18 @@ class AddPillScreen extends StatelessWidget {
             await controller.saveMedicineData();
             if (!Get.isSnackbarOpen) {
               controller.resetForm();
+
+              final HomeController homeController = Get.find<HomeController>();
+              homeController.update();
+
+              await Future.delayed(const Duration(milliseconds: 500));
+
+              await Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => Menu()),
+                (route) => false,
+              );
             }
-            await Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => Menu()),
-            );
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF0996C7),
@@ -437,6 +445,7 @@ class AddPillScreen extends StatelessWidget {
   }
 
   void _showDoseTimesPicker(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     Get.bottomSheet(
       Container(
         height: 350,
@@ -503,11 +512,16 @@ class AddPillScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                child: Text("addMedicine.done".tr),
-                onPressed: () => Get.back(),
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 45),
+
+              child: Container(
+                width: width * 0.75,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                  child: Text(
+                    "addMedicine.done".tr,
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () => Get.back(),
                 ),
               ),
             ),
@@ -519,6 +533,7 @@ class AddPillScreen extends StatelessWidget {
   }
 
   void _showDurationPicker(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     int tempDuration = controller.duration.value;
     if (tempDuration == 0) tempDuration = 1;
 
@@ -563,23 +578,29 @@ class AddPillScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF0996C7),
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 12.0,
-                    horizontal: 24.0,
+              child: Container(
+                width: width * 0.75,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12.0,
+                      horizontal: 24.0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    minimumSize: const Size(double.infinity, 45),
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                  child: Text(
+                    "addMedicine.done".tr,
+                    style: TextStyle(color: Colors.white),
                   ),
-                  minimumSize: const Size(double.infinity, 45),
+                  onPressed: () {
+                    controller.duration.value = tempDuration;
+                    Get.back();
+                  },
                 ),
-                child: Text("addMedicine.done".tr),
-                onPressed: () {
-                  controller.duration.value = tempDuration;
-                  Get.back();
-                },
               ),
             ),
           ],

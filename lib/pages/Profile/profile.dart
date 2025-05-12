@@ -210,16 +210,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
               padding: const EdgeInsets.all(12.0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                  backgroundColor: Colors.blue,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                 ),
                 child: SizedBox(
-                  width: 250,
+                  width: 200,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: Text(
@@ -227,8 +227,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        backgroundColor: Colors.white,
-                        color: Colors.black,
+                        backgroundColor: Colors.blue,
+                        color: Colors.white,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -249,16 +249,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("profileImageBase64: $profileImageBase64");
-    //Auth().currentUser?.providerData[0].email
-    print(
-      "Auth().currentUser?.providerData[0].email: ${Auth().currentUser?.providerData[0].email}",
-    );
-    print("Auth().currentUser?.email: ${Auth().currentUser?.email}");
-    print("Auth().currentUser?: ${Auth().currentUser?.providerData[0].email}");
     return Scaffold(
       backgroundColor: Colors.white,
-
       body:
           isLoading
               ? const Center(child: CircularProgressIndicator())

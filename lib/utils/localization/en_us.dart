@@ -159,6 +159,7 @@ const Map<String, String> enUS = {
   'addMedicine.enableDoseReminders': 'Enable Dose Reminders',
   'addMedicine.remindersSubtext':
       'Receive a notification 5 minutes before each dose',
+  'addMedicine.deleteMedicine': 'Delete Medicine',
 
   // Profile Page
   'personal_info': 'Personal Information',

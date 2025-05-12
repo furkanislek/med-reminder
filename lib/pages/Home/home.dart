@@ -4,8 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mr/components/home/medicine_card.dart';
 import 'package:mr/controller/home/home_controller.dart';
+import 'package:mr/controller/menu/bottom_navigator.dart';
 import 'package:mr/pages/AddPill/add_pill.dart';
-import 'package:mr/pages/Profile/profile.dart';
 import 'package:mr/services/data_service.dart';
 import 'package:mr/services/services.dart';
 
@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     _fetchUserData();
+    _refreshMedicines();
   }
 
   Future<void> _fetchUserData() async {
@@ -64,12 +65,12 @@ class _HomeScreenState extends State<HomeScreen> {
   // Pull-to-refresh işlevi
   Future<void> _refreshMedicines() async {
     // İlaç listesini yenile
-    dataService.getMedicinesStream();
+    await dataService.getMedicinesStream().first;
+    controller.update();
   }
 
   @override
   Widget build(BuildContext context) {
-    dataService.getMedicinesStream();
     return Scaffold(
       appBar: AppBar(
         title: Text('home.title'.tr),
@@ -80,7 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.only(right: 16.0),
             child: GestureDetector(
               onTap: () {
-                Get.to(() => ProfileScreen());
+                final BottomNavigationController bottomController =
+                    Get.find<BottomNavigationController>();
+                bottomController.changeTabIndex(3);
               },
               child: CircleAvatar(
                 radius: 16,
@@ -141,10 +144,13 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: const Icon(Icons.add, color: Colors.white),
               label: Text(
                 'home.addMedicine'.tr,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.redAccent,
+                backgroundColor: Colors.blue,
                 minimumSize: const Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.0),

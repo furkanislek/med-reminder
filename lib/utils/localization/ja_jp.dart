@@ -85,6 +85,7 @@ const Map<String, String> jaJP = {
   'addMedicine.receiveNotification': '各服用の5分前に通知を受け取る',
   'addMedicine.doseTimesPickerTitle': '服用時間を選択',
   'addMedicine.done': '完了',
+  'addMedicine.deleteMedicine': '薬を削除',
 
   // Medicine Controller Messages
   'medicine.addSuccess': '薬が正常に追加されました。',

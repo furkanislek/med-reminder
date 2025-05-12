@@ -86,6 +86,7 @@ const Map<String, String> ruRU = {
       'Получать уведомление за 5 минут до каждой дозы',
   'addMedicine.doseTimesPickerTitle': 'Выбрать время дозы',
   'addMedicine.done': 'Готово',
+  'addMedicine.deleteMedicine': 'Удалить лекарство',
 
   // Medicine Controller Messages
   'medicine.addSuccess': 'Лекарство успешно добавлено.',

@@ -164,6 +164,7 @@ const Map<String, String> deDE = {
   'addMedicine.enableDoseReminders': 'Dosiserinnerungen aktivieren',
   'addMedicine.remindersSubtext':
       'Erhalten Sie 5 Minuten vor jeder Dosis eine Benachrichtigung',
+  'addMedicine.deleteMedicine': 'Medikament löschen',
 
   // Profile Page
   'personal_info': 'Persönliche Informationen',

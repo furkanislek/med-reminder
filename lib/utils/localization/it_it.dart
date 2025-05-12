@@ -86,6 +86,7 @@ const Map<String, String> itIT = {
       'Ricevi una notifica 5 minuti prima di ogni dose',
   'addMedicine.doseTimesPickerTitle': 'Seleziona orari dose',
   'addMedicine.done': 'Fatto',
+  'addMedicine.deleteMedicine': 'Elimina farmaco',
 
   // Medicine Controller Messages
   'medicine.addSuccess': 'Farmaco aggiunto con successo.',

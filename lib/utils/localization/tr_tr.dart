@@ -98,6 +98,7 @@ const Map<String, String> trTR = {
   'addMedicine.whenToTakeLabelText': 'Alınma Zamanı',
   'addMedicine.doseTimesPickerTitle': 'Saat Seç',
   'addMedicine.done': 'Tamam',
+  'addMedicine.deleteMedicine': 'İlacı Sil',
 
   // Medicine Controller Messages
   "medicine.addSuccess": "İlaç başarıyla eklendi.",
@@ -116,6 +117,7 @@ const Map<String, String> trTR = {
   "medicine.withFood": "Yemekle Beraber",
   "medicine.deleteMedicineSuccessMessage": "İlaç başarıyla silindi.",
   "medicine.saveMedicineSuccessMessage": "İlaç başarıyla kaydedildi.",
+
 
   // Settings Page
   "settings.title": "Ayarlar",

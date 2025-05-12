@@ -88,6 +88,7 @@ const Map<String, String> hiIN = {
       'प्रत्येक खुराक से 5 मिनट पहले एक सूचना प्राप्त करें',
   'addMedicine.doseTimesPickerTitle': 'खुराक समय चुनें',
   'addMedicine.done': 'पूर्ण',
+  'addMedicine.deleteMedicine': 'दवा हटाएं',
 
   // Medicine Controller Messages
   'medicine.addSuccess': 'दवा सफलतापूर्वक जोड़ी गई।',

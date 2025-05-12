@@ -87,6 +87,7 @@ const Map<String, String> idID = {
       'Terima notifikasi 5 menit sebelum setiap dosis',
   'addMedicine.doseTimesPickerTitle': 'Pilih Waktu Dosis',
   'addMedicine.done': 'Selesai',
+  'addMedicine.deleteMedicine': 'Hapus Obat',
 
   // Medicine Controller Messages
   'medicine.addSuccess': 'Obat berhasil ditambahkan.',

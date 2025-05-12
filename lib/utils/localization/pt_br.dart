@@ -85,6 +85,7 @@ const Map<String, String> ptBR = {
       'Receba uma notificação 5 minutos antes de cada dose',
   'addMedicine.doseTimesPickerTitle': 'Selecionar Horários de Dose',
   'addMedicine.done': 'Concluído',
+  'addMedicine.deleteMedicine': 'Deletar Medicamento',
 
   // Medicine Controller Messages
   'medicine.addSuccess': 'Medicamento adicionado com sucesso.',
