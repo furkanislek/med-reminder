@@ -6,8 +6,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class BlogDetailPage extends StatefulWidget {
   final Blog? blog;
+  final Color? categoryColor;
+  final Color? secondaryCategoryColor;
+  final Color? textCategoryColor;
 
-  const BlogDetailPage({super.key, this.blog});
+  const BlogDetailPage({
+    super.key,
+    this.blog,
+    this.categoryColor,
+    this.secondaryCategoryColor,
+    this.textCategoryColor,
+  });
 
   @override
   State<BlogDetailPage> createState() => _BlogDetailPageState();
@@ -40,7 +49,6 @@ class _BlogDetailPageState extends State<BlogDetailPage>
       CurvedAnimation(parent: _animationController, curve: Curves.easeOutQuad),
     );
 
-    // İlk sayfa için animasyonu başlat
     _animationController.forward();
   }
 
@@ -79,13 +87,16 @@ class _BlogDetailPageState extends State<BlogDetailPage>
     final htmlContents = parseHtmlContent(articleContent);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFDCF0E9),
+      backgroundColor: widget.categoryColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
 
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF2D6654)),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: widget.secondaryCategoryColor,
+          ),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -133,15 +144,15 @@ class _BlogDetailPageState extends State<BlogDetailPage>
                           child: Container(
                             width: 60,
                             height: 60,
-                            decoration: const BoxDecoration(
-                              color: Color(0xFF2D6654),
+                            decoration: BoxDecoration(
+                              color: widget.secondaryCategoryColor,
                               shape: BoxShape.circle,
                             ),
                             child: Center(
                               child: Text(
                                 "${index + 1}",
-                                style: const TextStyle(
-                                  color: Colors.white,
+                                style: TextStyle(
+                                  color: widget.textCategoryColor,
                                   fontSize: 28,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -172,20 +183,20 @@ class _BlogDetailPageState extends State<BlogDetailPage>
                               "h2": Style(
                                 fontSize: FontSize(28.0),
                                 fontWeight: FontWeight.bold,
-                                color: const Color(0xFF2D6654),
+                                color: widget.textCategoryColor,
                                 margin: Margins.only(bottom: 20.0),
                               ),
                               "p": Style(
                                 fontSize: FontSize(16.0),
                                 lineHeight: LineHeight.em(1.5),
-                                color: const Color(0xFF2D6654),
+                                color: widget.textCategoryColor,
                                 margin: Margins.only(bottom: 16.0),
                               ),
                               "ul": Style(margin: Margins.only(left: 0.0)),
                               "li": Style(
                                 fontSize: FontSize(16.0),
                                 lineHeight: LineHeight.em(1.5),
-                                color: const Color(0xFF2D6654),
+                                color: widget.textCategoryColor,
                                 margin: Margins.only(bottom: 8.0),
                               ),
                             },
@@ -227,9 +238,9 @@ class _BlogDetailPageState extends State<BlogDetailPage>
       decoration: BoxDecoration(
         color:
             isActive
-                ? const Color(0xFF2D6654)
+                ? widget.textCategoryColor
                 : isPast
-                ? const Color(0xFF2D6654).withOpacity(0.6)
+                ? widget.textCategoryColor!.withOpacity(0.6)
                 : Colors.grey.withOpacity(0.3),
         borderRadius: BorderRadius.circular(2),
       ),

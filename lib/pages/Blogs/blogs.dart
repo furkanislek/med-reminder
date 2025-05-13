@@ -48,7 +48,14 @@ class _BlogsScreenState extends State<BlogsScreen> {
   }
 
   void _navigateToDetail(Blog blog) {
-    Get.to(() => BlogDetailPage(blog: blog));
+    Get.to(
+      () => BlogDetailPage(
+        blog: blog,
+        categoryColor: categoryColors[blog.category],
+        secondaryCategoryColor: secondaryCategoryColors[blog.category],
+        textCategoryColor: textCategoryColors[blog.category],
+      ),
+    );
   }
 
   @override
