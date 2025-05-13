@@ -211,13 +211,25 @@ class _BlogDetailPageState extends State<BlogDetailPage>
               Positioned(
                 right: 10,
                 bottom: 10,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.asset(
-                    "assets/svg/detail.svg",
-                    height: 200,
-                    width: 50,
-                  ),
+                child: AnimatedBuilder(
+                  animation: _animationController,
+                  builder: (context, child) {
+                    return FadeTransition(
+                      opacity: _opacityAnimation,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SvgPicture.asset(
+                          widget.blog?.category == "pills"
+                              ? "assets/svg/pillBlog.svg"
+                              : widget.blog?.category == "health"
+                              ? "assets/svg/healthBlog.svg"
+                              : "assets/svg/lifestyleBlog.svg",
+                          height: 250,
+                          width: 50,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
