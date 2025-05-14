@@ -7,6 +7,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -106,43 +107,38 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
-    double height = MediaQuery.sizeOf(context).height;
-
     return Scaffold(
       backgroundColor: const Color(0xFFF2F2F2),
       body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: width / 12,
-          vertical: height / 18,
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 50.h),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: height / 20),
-              SvgPicture.asset('assets/svg/login.svg', height: height / 3.75),
-              SizedBox(height: height / 120),
+              SizedBox(height: 40.h),
+              SvgPicture.asset('assets/svg/login.svg', height: 200.h),
+              SizedBox(height: 8.h),
               Text(
                 "login.login_into_your_account".tr,
                 style: TextStyle(
-                  fontSize: height / 30,
+                  fontSize: 26.sp,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87,
                 ),
               ),
-              SizedBox(height: height / 80),
+              SizedBox(height: 10.h),
               RichText(
                 text: TextSpan(
                   text: "login.dont_have_an_account".tr,
-                  style: TextStyle(color: Colors.grey[700]),
+                  style: TextStyle(color: Colors.grey[700], fontSize: 14.sp),
                   children: [
                     TextSpan(
                       text: "login.sign_up".tr,
                       style: TextStyle(
                         color: const Color(0xFF8256DF),
                         fontWeight: FontWeight.bold,
+                        fontSize: 14.sp,
                       ),
                       recognizer:
                           TapGestureRecognizer()
@@ -158,49 +154,49 @@ class _LoginState extends State<Login> {
                   ],
                 ),
               ),
-              SizedBox(height: height / 20),
+              SizedBox(height: 40.h),
               TextField(
                 controller: emailController,
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   labelText: "login.your_email".tr,
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: Icon(Icons.email, size: 20.sp),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
                 ),
               ),
-              SizedBox(height: height / 30),
+              SizedBox(height: 25.h),
               TextField(
                 controller: passwordController,
                 obscureText: !isPasswordVisible,
                 textInputAction: TextInputAction.done,
                 decoration: InputDecoration(
                   labelText: "login.type_your_password".tr,
-                  prefixIcon: const Icon(Icons.lock),
+                  prefixIcon: Icon(Icons.lock, size: 20.sp),
                   suffixIcon: IconButton(
                     onPressed: () {
                       setState(() {
                         isPasswordVisible = !isPasswordVisible;
                       });
                     },
-                    icon: const Icon(Icons.visibility),
+                    icon: Icon(Icons.visibility, size: 20.sp),
                   ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
                 ),
               ),
               if (errorMessage != null)
                 Padding(
-                  padding: EdgeInsets.only(top: height / 50),
+                  padding: EdgeInsets.only(top: 16.h),
                   child: Text(
                     errorMessage!,
-                    style: const TextStyle(color: Colors.red),
+                    style: TextStyle(color: Colors.red, fontSize: 14.sp),
                   ),
                 ),
-              SizedBox(height: height / 30),
+              SizedBox(height: 25.h),
               Container(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -208,24 +204,24 @@ class _LoginState extends State<Login> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF8256DF),
                     padding: EdgeInsets.symmetric(
-                      vertical: height / 56.33,
-                      horizontal: width / 4,
+                      vertical: 14.h,
+                      horizontal: 100.w,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
                   ),
                   child: Text(
                     "login.login".tr,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: height / 50,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: height / 40),
+              SizedBox(height: 20.h),
               GestureDetector(
                 onTap: () {
                   Navigator.pushReplacement(
@@ -240,26 +236,26 @@ class _LoginState extends State<Login> {
                   style: TextStyle(
                     color: const Color(0xFF8256DF),
                     fontWeight: FontWeight.bold,
-                    fontSize: height / 55,
+                    fontSize: 14.sp,
                   ),
                 ),
               ),
 
-              SizedBox(height: height / 90),
+              SizedBox(height: 8.h),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: width / 20),
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Row(
                   children: [
                     Expanded(
                       child: Divider(thickness: 1, color: Colors.grey[400]),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      padding: EdgeInsets.symmetric(horizontal: 10.w),
                       child: Text(
                         "login.or".tr,
                         style: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: height / 60,
+                          fontSize: 12.sp,
                         ),
                       ),
                     ),
@@ -269,28 +265,25 @@ class _LoginState extends State<Login> {
                   ],
                 ),
               ),
-              SizedBox(height: height / 40),
+              SizedBox(height: 20.h),
               Container(
                 width: double.infinity,
                 child: ElevatedButton.icon(
                   onPressed: signInWithGoogle,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    padding: EdgeInsets.symmetric(vertical: height / 56.33),
+                    padding: EdgeInsets.symmetric(vertical: 14.h),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                       side: BorderSide(color: Colors.grey[300]!),
                     ),
                   ),
-                  icon: SvgPicture.asset(
-                    'assets/svg/google.svg',
-                    height: height / 40,
-                  ),
+                  icon: SvgPicture.asset('assets/svg/google.svg', height: 20.h),
                   label: Text(
                     "login.login_with_google".tr,
                     style: TextStyle(
                       color: Colors.black87,
-                      fontSize: height / 55,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),

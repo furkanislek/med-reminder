@@ -8,6 +8,7 @@ import 'package:mr/controller/menu/bottom_navigator.dart';
 import 'package:mr/pages/AddPill/add_pill.dart';
 import 'package:mr/services/data_service.dart';
 import 'package:mr/services/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -77,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.only(right: 16.w),
             child: GestureDetector(
               onTap: () {
                 final BottomNavigationController bottomController =
@@ -85,12 +86,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 bottomController.changeTabIndex(3);
               },
               child: CircleAvatar(
-                radius: 16,
+                radius: 16.r,
                 backgroundColor: Colors.white,
                 child:
                     isLoading
                         ? CircularProgressIndicator(
-                          strokeWidth: 2,
+                          strokeWidth: 2.w,
                           valueColor: AlwaysStoppedAnimation<Color>(
                             Colors.blueAccent,
                           ),
@@ -98,12 +99,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         : profileImageBase64 != null &&
                             profileImageBase64!.isNotEmpty
                         ? CircleAvatar(
-                          radius: 60,
+                          radius: 60.r,
                           backgroundImage: _getProfileImage(),
                         )
                         : photoUrl != null
                         ? CircleAvatar(
-                          radius: 60,
+                          radius: 60.r,
                           backgroundImage: NetworkImage(photoUrl!),
                         )
                         : SvgPicture.asset('assets/svg/pill.svg'),
@@ -114,53 +115,54 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
           children: [
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
 
             TextField(
               decoration: InputDecoration(
                 hintText: 'filter.searchHint'.tr,
-                prefixIcon: const Icon(Icons.search, color: Colors.grey),
+                prefixIcon: Icon(Icons.search, color: Colors.grey, size: 20.sp),
                 filled: true,
                 fillColor: Colors.grey[100],
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12.0),
-                  borderSide: BorderSide(color: Colors.grey[300]!, width: 1.0),
+                  borderRadius: BorderRadius.circular(12.r),
+                  borderSide: BorderSide(color: Colors.grey[300]!, width: 1.w),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12.0),
-                  borderSide: BorderSide(color: Colors.grey[300]!, width: 1.0),
+                  borderRadius: BorderRadius.circular(12.r),
+                  borderSide: BorderSide(color: Colors.grey[300]!, width: 1.w),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12.0),
-                  borderSide: BorderSide(color: Colors.grey[300]!, width: 1.0),
+                  borderRadius: BorderRadius.circular(12.r),
+                  borderSide: BorderSide(color: Colors.grey[300]!, width: 1.w),
                 ),
-                contentPadding: const EdgeInsets.symmetric(
+                contentPadding: EdgeInsets.symmetric(
                   vertical: 0,
-                  horizontal: 16,
+                  horizontal: 16.w,
                 ),
               ),
               onChanged: (value) {
                 controller.updateSearchQuery(value);
               },
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20.h),
             ElevatedButton.icon(
-              icon: const Icon(Icons.add, color: Colors.white),
+              icon: Icon(Icons.add, color: Colors.white, size: 20.sp),
               label: Text(
                 'home.addMedicine'.tr,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w800,
+                  fontSize: 14.sp,
                 ),
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
-                minimumSize: const Size(double.infinity, 50),
+                minimumSize: Size(double.infinity, 50.h),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0),
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
                 elevation: 2,
               ),
@@ -168,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Get.to(() => AddPillScreen());
               },
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20.h),
             Expanded(
               child: RefreshIndicator(
                 onRefresh: _refreshMedicines,

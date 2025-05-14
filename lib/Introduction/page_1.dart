@@ -1,28 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Page1 extends StatelessWidget {
   Page1({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 30,
-        vertical: size.height * 0.1,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 100.h),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Üst boşluk
-
           // Ana görsel
           Container(
-            height: size.height * 0.3,
+            height: 300.h,
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.9),
               shape: BoxShape.circle,
@@ -34,18 +28,18 @@ class Page1 extends StatelessWidget {
                 ),
               ],
             ),
-            padding: const EdgeInsets.all(30),
+            padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
             child: SvgPicture.asset('assets/svg/int1.svg', fit: BoxFit.contain),
           ),
 
-          SizedBox(height: 10),
+          SizedBox(height: 10.h),
 
           // Başlık
           Text(
             "introduction.page1.title".tr,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: size.height * 0.03,
+              fontSize: 30.sp,
               fontWeight: FontWeight.bold,
               color: Colors.white,
               letterSpacing: 0.5,
@@ -59,33 +53,33 @@ class Page1 extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: size.height * 0.025),
+          SizedBox(height: 25.h),
 
           // Açıklama
           Text(
             "introduction.page1.description".tr,
             textAlign: TextAlign.justify,
             style: TextStyle(
-              fontSize: size.height * 0.016,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
               color: Colors.white,
               height: 1.5,
             ),
           ),
 
-          SizedBox(height: size.height * 0.05),
+          SizedBox(height: 50.h),
           // İpucu bilgisi
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.25),
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(15.r),
             ),
             child: Row(
               children: [
                 Container(
-                  width: 40,
-                  height: 40,
+                  width: 40.w,
+                  height: 40.h,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
@@ -96,18 +90,18 @@ class Page1 extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.lightbulb_outline,
                     color: Color(0xFF42C2C2),
-                    size: 24,
+                    size: 24.sp,
                   ),
                 ),
-                SizedBox(width: 10),
+                SizedBox(width: 10.w),
                 Expanded(
                   child: Text(
                     "introduction.page1.tip".tr,
                     style: TextStyle(
-                      fontSize: size.height * 0.016,
+                      fontSize: 16.sp,
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
                     ),

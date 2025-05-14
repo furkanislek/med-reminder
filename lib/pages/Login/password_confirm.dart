@@ -2,22 +2,20 @@ import 'package:mr/pages/Login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Confirm extends StatelessWidget {
   Confirm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
-    double height = MediaQuery.sizeOf(context).height;
-
     return Scaffold(
       backgroundColor: const Color(0xFFF2F2F2),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 0),
           child: Container(
-            height: height,
+            height: 1.sh,
             alignment: Alignment.center,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -25,30 +23,27 @@ class Confirm extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   'assets/svg/confirm.svg',
-                  height: height / 5,
+                  height: 180.h,
                   width: double.infinity,
                 ),
-                SizedBox(height: height / 30),
+                SizedBox(height: 30.h),
                 Text(
                   "Check your e-mail",
                   style: TextStyle(
-                    fontSize: height / 25,
+                    fontSize: 32.sp,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF0E254D),
                   ),
                 ),
-                SizedBox(height: height / 30),
+                SizedBox(height: 30.h),
                 Text(
                   "We have sent you informations\n to reset your password",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: height / 70,
-                    color: Colors.black87,
-                  ),
+                  style: TextStyle(fontSize: 14.sp, color: Colors.black87),
                 ),
-                SizedBox(height: height / 20),
+                SizedBox(height: 40.h),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: width / 9),
+                  padding: EdgeInsets.symmetric(horizontal: 50.w),
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
@@ -57,18 +52,18 @@ class Confirm extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF8256DF),
                       padding: EdgeInsets.symmetric(
-                        vertical: height / 56.33,
-                        horizontal: width / 4,
+                        vertical: 15.h,
+                        horizontal: 100.w,
                       ),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                       ),
                     ),
                     child: Text(
                       "Confirm",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: height / 50,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

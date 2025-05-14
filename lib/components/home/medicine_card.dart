@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:mr/controller/home/home_controller.dart';
 import 'package:mr/models/medicine_model.dart';
 import 'package:mr/pages/MedicineDetail/medicine_detail_page.dart'; // Import the detail page
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MedicineListView extends StatelessWidget {
   final HomeController controller;
@@ -38,12 +39,12 @@ class MedicineListView extends StatelessWidget {
         return ListView(
           physics: const AlwaysScrollableScrollPhysics(),
           children: [
-            SizedBox(height: MediaQuery.of(context).size.height * 0.3),
+            SizedBox(height: 0.3.sh),
             Center(
               child: Text(
                 message,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey[600], fontSize: 16),
+                style: TextStyle(color: Colors.grey[600], fontSize: 16.sp),
               ),
             ),
           ],
@@ -123,17 +124,17 @@ class MedicineCard extends StatelessWidget {
 
     return Card(
       color: const Color.fromARGB(255, 250, 250, 255),
-      margin: const EdgeInsets.only(bottom: 16.0),
+      margin: EdgeInsets.only(bottom: 16.h),
       elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       child: InkWell(
         // Added InkWell for tap functionality
         onTap: () {
           Get.to(() => MedicineDetailPage(medicine: medicine));
         },
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(12.r),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           child: Row(
             children: [
               Expanded(
@@ -142,21 +143,24 @@ class MedicineCard extends StatelessWidget {
                   children: [
                     Text(
                       medicine.name,
-                      style: const TextStyle(
-                        fontSize: 16,
+                      style: TextStyle(
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    SizedBox(height: 4.h),
                     Text(
                       dosageInfo,
-                      style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        color: Colors.grey[600],
+                      ),
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8.h),
                     Text(
                       nextDoseText,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         color:
                             medicine.isCompleted
                                 ? Colors.green
@@ -170,13 +174,13 @@ class MedicineCard extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(width: 16),
+              SizedBox(width: 16.w),
               ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(8.r),
                 child: SvgPicture.asset(
                   'assets/svg/${medicine.type.toLowerCase().replaceAll(' ', '_')}.svg',
-                  width: 50,
-                  height: 50,
+                  width: 50.w,
+                  height: 50.h,
                   fit: BoxFit.cover,
                   colorBlendMode:
                       medicine.isCompleted
@@ -184,27 +188,27 @@ class MedicineCard extends StatelessWidget {
                           : BlendMode.dst,
                   placeholderBuilder:
                       (BuildContext context) => Container(
-                        width: 50,
-                        height: 50,
+                        width: 50.w,
+                        height: 50.h,
                         color: Colors.grey[200],
                         child: Icon(
                           Icons.medication_outlined,
                           color: Colors.grey[400],
-                          size: 30,
+                          size: 30.sp,
                         ),
                       ),
                   errorBuilder:
                       (context, error, stackTrace) => Container(
-                        width: 50,
-                        height: 50,
+                        width: 50.w,
+                        height: 50.h,
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8.r),
                         ),
                         child: Icon(
                           Icons.medication_liquid,
                           color: Colors.grey[400],
-                          size: 30,
+                          size: 30.sp,
                         ),
                       ),
                 ),

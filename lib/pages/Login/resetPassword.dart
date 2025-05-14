@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({super.key});
@@ -38,9 +39,6 @@ class _ResetPasswordState extends State<ResetPassword> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
-    double height = MediaQuery.sizeOf(context).height;
-
     return Scaffold(
       backgroundColor: const Color(0xFFF2F2F2),
       appBar: AppBar(
@@ -52,77 +50,71 @@ class _ResetPasswordState extends State<ResetPassword> {
               MaterialPageRoute(builder: (context) => const Login()),
             );
           },
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back, size: 24.sp),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: width / 12,
-          vertical: height / 18,
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 50.h),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SvgPicture.asset('assets/svg/reset.svg', height: height / 3.75),
-              SizedBox(height: height / 20),
+              SvgPicture.asset('assets/svg/reset.svg', height: 200.h),
+              SizedBox(height: 40.h),
               Text(
                 "Reset password",
                 style: TextStyle(
-                  fontSize: height / 30,
+                  fontSize: 26.sp,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87,
                 ),
               ),
-              SizedBox(height: height / 80),
+              SizedBox(height: 10.h),
               Text(
                 "Enter your e-mail address and we will send you further instructions on how to reset the password.",
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.grey[700],
-                  fontSize: height / 70,
-                ),
+                style: TextStyle(color: Colors.grey[700], fontSize: 12.sp),
               ),
-              SizedBox(height: height / 20),
+              SizedBox(height: 40.h),
               TextField(
                 controller: emailController,
                 textInputAction: TextInputAction.done,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   labelText: "Your e-mail",
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: Icon(Icons.email, size: 20.sp),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
                 ),
               ),
               if (errorMessage != null)
                 Padding(
-                  padding: EdgeInsets.only(top: height / 50),
+                  padding: EdgeInsets.only(top: 16.h),
                   child: Text(
                     errorMessage!,
-                    style: const TextStyle(color: Colors.red),
+                    style: TextStyle(color: Colors.red, fontSize: 14.sp),
                   ),
                 ),
-              SizedBox(height: height / 30),
+              SizedBox(height: 25.h),
               ElevatedButton(
                 onPressed: resetPassword,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF8256DF),
                   padding: EdgeInsets.symmetric(
-                    vertical: height / 56.33,
-                    horizontal: width / 4,
+                    vertical: 14.h,
+                    horizontal: 100.w,
                   ),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
                 ),
                 child: Text(
                   "Register",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: height / 50,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

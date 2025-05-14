@@ -4,6 +4,7 @@ import 'package:mr/services/blog_service.dart';
 import 'package:get/get.dart';
 import 'package:mr/pages/Blogs/blog_detail_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BlogsScreen extends StatefulWidget {
   const BlogsScreen({super.key});
@@ -68,10 +69,10 @@ class _BlogsScreenState extends State<BlogsScreen> {
         elevation: 0,
         title: Text(
           "Blog".tr,
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
-            fontSize: 24,
+            fontSize: 24.sp,
           ),
         ),
       ),
@@ -134,16 +135,16 @@ class _BlogsScreenState extends State<BlogsScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
-            top: 16.0,
-            bottom: 8.0,
+          padding: EdgeInsets.only(
+            left: 16.w,
+            right: 16.w,
+            top: 16.h,
+            bottom: 8.h,
           ),
           child: Text(
             category.tr,
-            style: const TextStyle(
-              fontSize: 16,
+            style: TextStyle(
+              fontSize: 16.sp,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
@@ -152,10 +153,7 @@ class _BlogsScreenState extends State<BlogsScreen> {
 
         if (categoryBlogs.isEmpty)
           Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 8.0,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
             child: Text(
               'Şuan blog yok'.tr,
               style: TextStyle(color: Colors.grey[600]),
@@ -163,9 +161,9 @@ class _BlogsScreenState extends State<BlogsScreen> {
           )
         else
           SizedBox(
-            height: 280,
+            height: 280.h,
             child: ListView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
               scrollDirection: Axis.horizontal,
               itemCount: categoryBlogs.length,
               itemBuilder: (context, index) {
@@ -212,11 +210,11 @@ class CategoryBlogCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 180,
-        margin: const EdgeInsets.all(8.0),
+        width: 180.w,
+        margin: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -224,28 +222,28 @@ class CategoryBlogCard extends StatelessWidget {
             Expanded(
               flex: 3,
               child: Container(
-                padding: const EdgeInsets.all(1),
+                padding: EdgeInsets.symmetric(horizontal: 1.w, vertical: 1.h),
                 width: double.infinity,
                 child:
                     blog.imgSrc.isNotEmpty
                         ? Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
+                          padding: EdgeInsets.only(bottom: 8.h),
                           child: Container(
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: NetworkImage(blog.imgSrc),
                                 fit: BoxFit.cover,
                               ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20.r),
+                                topRight: Radius.circular(20.r),
                               ),
                             ),
                           ),
                         )
                         : Icon(
                           Icons.image_not_supported,
-                          size: 60,
+                          size: 60.sp,
                           color: Colors.grey[400],
                         ),
               ),
@@ -255,25 +253,22 @@ class CategoryBlogCard extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 15,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 15.h),
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: secondaryColor,
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20.r),
+                    bottomRight: Radius.circular(20.r),
+                    topLeft: Radius.circular(20.r),
+                    topRight: Radius.circular(20.r),
                   ),
                 ),
                 child: Text(
                   title,
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.bold,
                     color: textColor,
                   ),
@@ -308,47 +303,50 @@ class SearchResultCard extends StatelessWidget {
 
     return Card(
       elevation: 2.0,
-      margin: const EdgeInsets.only(bottom: 16.0),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
+      margin: EdgeInsets.only(bottom: 16.h),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       child: InkWell(
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(12.w),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Blog görseli
               if (blog.imgSrc.isNotEmpty || blog.svg.isNotEmpty)
                 Container(
-                  width: 80,
-                  height: 80,
+                  width: 80.w,
+                  height: 80.h,
                   decoration: BoxDecoration(
                     color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.r),
                   ),
                   child:
                       blog.svg.isNotEmpty
                           ? Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 8.w,
+                              vertical: 8.h,
+                            ),
                             child: SvgPicture.asset(
                               "assets/svg/${blog.svg}",
                               fit: BoxFit.contain,
                             ),
                           )
                           : ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.r),
                             child: Image.network(
                               blog.imgSrc,
                               fit: BoxFit.cover,
                               errorBuilder:
-                                  (context, error, stackTrace) => const Icon(
+                                  (context, error, stackTrace) => Icon(
                                     Icons.image_not_supported,
-                                    size: 40,
+                                    size: 40.sp,
                                   ),
                             ),
                           ),
                 ),
-              const SizedBox(width: 12),
+              SizedBox(width: 12.w),
               // Blog başlık ve özeti
               Expanded(
                 child: Column(
@@ -356,17 +354,20 @@ class SearchResultCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
-                        fontSize: 16,
+                      style: TextStyle(
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 4),
+                    SizedBox(height: 4.h),
                     Text(
                       summary,
-                      style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        color: Colors.grey[700],
+                      ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),

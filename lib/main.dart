@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mr/controller/auth/auth_controller.dart';
 import 'package:mr/controller/data/data_service_controller.dart';
 import 'package:mr/controller/home/home_controller.dart';
@@ -76,13 +77,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      translations: AppTranslations(),
-      locale: initialLocale,
-      fallbackLocale: const Locale('en', 'US'),
-      home: Obx(() {
+    return ScreenUtilInit(
+      designSize: const Size(448, 997),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return Builder(
+          builder: (context) {
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+              child: GetMaterialApp(
+                title: 'Flutter Demo',
+                debugShowCheckedModeBanner: false,
+                translations: AppTranslations(),
+                locale: initialLocale,
+                fallbackLocale: const Locale('en', 'US'),
+                home: child,
+              ),
+            );
+          },
+        );
+      },
+      child: Obx(() {
         final authController = Get.find<AuthController>();
         return authController.user.value == null ? const Login() : Menu();
       }),

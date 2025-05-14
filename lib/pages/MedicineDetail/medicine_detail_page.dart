@@ -6,6 +6,7 @@ import 'package:mr/controller/data/data_service_controller.dart';
 import 'package:mr/pages/Menu/menu.dart';
 import 'package:mr/services/notification_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MedicineDetailPage extends StatefulWidget {
   final MedicineModel medicine;
@@ -128,7 +129,7 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back, color: Colors.black, size: 24.sp),
           onPressed: () {
             _dataServiceController.resetForm();
             Get.back();
@@ -136,9 +137,10 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
         ),
         title: Text(
           'addMedicine.titleEdit'.tr,
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
+            fontSize: 16.sp,
           ),
         ),
         centerTitle: true,
@@ -147,22 +149,22 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
       bottomNavigationBar: Container(
         // Delete Button
         color: Colors.white,
-        padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 20),
+        padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 20.w),
         child: ElevatedButton(
           onPressed: _updateMedicine,
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF0996C7),
-            padding: const EdgeInsets.symmetric(vertical: 15.0),
+            padding: EdgeInsets.symmetric(vertical: 15.h),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(20.r),
             ),
-            minimumSize: const Size(double.infinity, 50),
+            minimumSize: Size(double.infinity, 50.h),
           ),
           child: Text(
             'general.save'.tr,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -171,32 +173,26 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'addMedicine.nameLabel'.tr,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               _buildTextField(
                 controller: _nameController,
                 hint: "Medicine Name (e.g., Paracetamol)",
                 keyboardType: TextInputType.text,
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25.h),
               Text(
                 'addMedicine.dosageLabel'.tr,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Row(
                 children: [
                   Expanded(
@@ -207,7 +203,7 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                       keyboardType: TextInputType.number,
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: 10.w),
                   Expanded(
                     flex: 1,
                     child: _buildTextField(
@@ -218,27 +214,24 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25.h),
               Text(
                 'addMedicine.typeLabel'.tr,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
               SizedBox(
-                height: 100,
+                height: 100.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: _categories.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         left: 0,
-                        right: 15.0,
-                        top: 20,
-                        bottom: 20,
+                        right: 15.w,
+                        top: 20.h,
+                        bottom: 20.h,
                       ),
                       child: Obx(() {
                         final selected =
@@ -250,13 +243,16 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                                   _dataServiceController.types.value =
                                       _categories[index][1],
                           child: Container(
-                            padding: const EdgeInsets.all(8),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 8.w,
+                              vertical: 8.h,
+                            ),
                             decoration: BoxDecoration(
                               color:
                                   selected
                                       ? const Color.fromARGB(255, 219, 219, 219)
                                       : Colors.white,
-                              borderRadius: BorderRadius.circular(15.0),
+                              borderRadius: BorderRadius.circular(15.r),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.1),
@@ -267,14 +263,14 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                               ],
                             ),
                             child: SizedBox(
-                              width: 45,
-                              height: 45,
+                              width: 45.w,
+                              height: 45.h,
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.r),
                                 child: SvgPicture.asset(
                                   _categories[index][0],
-                                  width: 40,
-                                  height: 40,
+                                  width: 40.w,
+                                  height: 40.h,
                                   colorFilter: const ColorFilter.mode(
                                     Colors.blue,
                                     BlendMode.srcIn,
@@ -289,15 +285,12 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                   },
                 ),
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25.h),
               Text(
                 'addMedicine.frequencyDurationLabel'.tr,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Row(
                 children: [
                   Expanded(
@@ -315,13 +308,14 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                                   _dataServiceController.notifications.isEmpty
                                       ? Colors.grey
                                       : Colors.black,
+                              fontSize: 14.sp,
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: 10.w),
                   Expanded(
                     child: GestureDetector(
                       onTap: () => _showDurationPicker(context),
@@ -337,6 +331,7 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                                   _dataServiceController.duration.value == 0
                                       ? Colors.grey
                                       : Colors.black,
+                              fontSize: 14.sp,
                             ),
                           ),
                         ),
@@ -346,15 +341,12 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                 ],
               ),
 
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Text(
                 'addMedicine.whenToTakeLabel'.tr,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Row(
                 children: [
                   _buildWhenToTakeOption(
@@ -363,7 +355,7 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                     value: 'Before Food',
                     iconAsset: 'assets/svg/beforedinner.svg',
                   ),
-                  const SizedBox(width: 12),
+                  SizedBox(width: 12.w),
                   _buildWhenToTakeOption(
                     context,
                     label: 'addMedicine.afterFood'.tr,
@@ -372,23 +364,17 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25.h),
               Text(
                 'addMedicine.notificationsLabel'.tr,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 4,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(15.0),
+                  borderRadius: BorderRadius.circular(15.r),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.1),
@@ -400,8 +386,14 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                 ),
                 child: Obx(
                   () => SwitchListTile(
-                    title: Text('addMedicine.enableDoseReminders'.tr),
-                    subtitle: Text('addMedicine.remindersSubtext'.tr),
+                    title: Text(
+                      'addMedicine.enableDoseReminders'.tr,
+                      style: TextStyle(fontSize: 14.sp),
+                    ),
+                    subtitle: Text(
+                      'addMedicine.remindersSubtext'.tr,
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
                     value: _dataServiceController.notificationsEnabled.value,
                     onChanged:
                         (bool value) =>
@@ -414,11 +406,12 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                           _dataServiceController.notificationsEnabled.value
                               ? Colors.green
                               : Colors.grey,
+                      size: 24.sp,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               ElevatedButton(
                 onPressed: () async {
                   await _dataServiceController.deleteMedicineData(
@@ -431,17 +424,17 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  padding: EdgeInsets.symmetric(vertical: 15.h),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
-                  minimumSize: const Size(double.infinity, 50),
+                  minimumSize: Size(double.infinity, 50.h),
                 ),
                 child: Text(
                   'addMedicine.deleteMedicine'.tr,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -460,10 +453,10 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
     int maxLength = 50,
   }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(15.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -478,8 +471,10 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
         textInputAction: TextInputAction.next,
         keyboardType: keyboardType,
         maxLength: maxLength,
+        style: TextStyle(fontSize: 14.sp),
         decoration: InputDecoration(
           hintText: hint,
+          hintStyle: TextStyle(fontSize: 14.sp),
           border: InputBorder.none,
           counterText: '',
         ),
@@ -492,10 +487,10 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
     required Widget child,
   }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 16.h),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(15.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -509,14 +504,14 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
         children: [
           SvgPicture.asset(
             iconAsset,
-            width: 18,
-            height: 18,
+            width: 18.w,
+            height: 18.h,
             colorFilter: const ColorFilter.mode(Colors.blue, BlendMode.srcIn),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8.w),
           Expanded(child: child),
-          const SizedBox(width: 8),
-          const Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+          SizedBox(width: 8.w),
+          Icon(Icons.keyboard_arrow_down, color: Colors.grey, size: 20.sp),
         ],
       ),
     );
@@ -534,10 +529,10 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
         child: Obx(() {
           final isSelected = _dataServiceController.withFood.value == value;
           return Container(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.all(12.r),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               border: Border.all(
                 color: isSelected ? Colors.green : Colors.grey.shade300,
               ),
@@ -552,23 +547,23 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
             ),
             child: Column(
               children: [
-                SvgPicture.asset(iconAsset, height: 50),
-                const SizedBox(height: 8),
+                SvgPicture.asset(iconAsset, height: 50.h),
+                SizedBox(height: 8.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       label,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 12),
+                      style: TextStyle(fontSize: 12.sp),
                     ),
-                    const SizedBox(width: 5),
+                    SizedBox(width: 5.w),
                     Icon(
                       isSelected
                           ? Icons.check_circle
                           : Icons.radio_button_unchecked,
                       color: isSelected ? Colors.green : Colors.grey,
-                      size: 18,
+                      size: 18.sp,
                     ),
                   ],
                 ),
@@ -584,18 +579,15 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
     List<TimeOfDay> tempTimes = List.from(_dataServiceController.notifications);
     Get.bottomSheet(
       Container(
-        height: 350,
+        height: 350.h,
         color: Colors.white,
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.r),
               child: Text(
                 'addMedicine.selectDoseTimes'.tr,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
               ),
             ),
             Expanded(
@@ -603,9 +595,16 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                 itemCount: tempTimes.length,
                 itemBuilder: (ctx, index) {
                   return ListTile(
-                    title: Text(tempTimes[index].format(context)),
+                    title: Text(
+                      tempTimes[index].format(context),
+                      style: TextStyle(fontSize: 14.sp),
+                    ),
                     trailing: IconButton(
-                      icon: const Icon(Icons.delete_outline, color: Colors.red),
+                      icon: Icon(
+                        Icons.delete_outline,
+                        color: Colors.red,
+                        size: 20.sp,
+                      ),
                       onPressed: () async {
                         tempTimes.removeAt(index);
 
@@ -652,8 +651,15 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
               ),
             ),
             TextButton.icon(
-              icon: const Icon(Icons.add_alarm),
-              label: Text('addMedicine.addTime'.tr),
+              icon: Icon(Icons.add_alarm, size: 20.sp),
+              label: Text(
+                'addMedicine.addTime'.tr,
+                style: TextStyle(fontSize: 14.sp),
+              ),
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.blue,
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+              ),
               onPressed: () async {
                 final TimeOfDay? picked = await showTimePicker(
                   context: context,
@@ -671,9 +677,23 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
               },
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.r),
               child: ElevatedButton(
-                child: Text('general.done'.tr),
+                child: Text(
+                  'general.done'.tr,
+                  style: TextStyle(fontSize: 14.sp),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30.w,
+                    vertical: 10.h,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.r),
+                  ),
+                ),
                 onPressed: () {
                   tempTimes.sort(
                     (a, b) => (a.hour * 60 + a.minute).compareTo(
@@ -696,23 +716,20 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
     int tempDuration = _dataServiceController.duration.value;
     Get.bottomSheet(
       Container(
-        height: 300,
+        height: 300.h,
         color: Colors.white,
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.r),
               child: Text(
                 'addMedicine.selectDuration'.tr,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
               ),
             ),
             Expanded(
               child: ListWheelScrollView.useDelegate(
-                itemExtent: 50,
+                itemExtent: 50.h,
                 perspective: 0.005,
                 diameterRatio: 1.2,
                 physics: const FixedExtentScrollPhysics(),
@@ -721,7 +738,10 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
                   children: List<Widget>.generate(
                     90,
                     (index) => Center(
-                      child: Text('${index + 1} ${'addMedicine.days'.tr}'),
+                      child: Text(
+                        '${index + 1} ${'addMedicine.days'.tr}',
+                        style: TextStyle(fontSize: 14.sp),
+                      ),
                     ),
                   ),
                 ),
@@ -731,9 +751,23 @@ class _MedicineDetailPageState extends State<MedicineDetailPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.r),
               child: ElevatedButton(
-                child: Text('general.done'.tr),
+                child: Text(
+                  'general.done'.tr,
+                  style: TextStyle(fontSize: 14.sp),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30.w,
+                    vertical: 10.h,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.r),
+                  ),
+                ),
                 onPressed: () {
                   _dataServiceController.duration.value = tempDuration;
                   Get.back();

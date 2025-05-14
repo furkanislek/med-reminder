@@ -5,6 +5,7 @@ import 'package:mr/Introduction/page_2.dart';
 import 'package:mr/Introduction/page_3.dart';
 import 'package:mr/pages/Menu/menu.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IntroductionScreens extends StatefulWidget {
   const IntroductionScreens({super.key});
@@ -19,8 +20,6 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -36,7 +35,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
             children: [
               // Üst kısımdaki logo alanı
               Positioned(
-                top: 20,
+                top: 20.h,
                 left: 0,
                 right: 0,
                 child: Container(
@@ -45,7 +44,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                     "PocketPath",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: size.height * 0.038,
+                      fontSize: 38.sp,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.5,
                       shadows: [
@@ -73,11 +72,11 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
 
               // Alt kısımdaki kontroller
               Positioned(
-                bottom: size.height * 0.02,
+                bottom: 20.h,
                 left: 0,
                 right: 0,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding: EdgeInsets.symmetric(horizontal: 30.w),
                   child: Column(
                     children: [
                       // Sayfa indikatörü
@@ -87,14 +86,14 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                         effect: ExpandingDotsEffect(
                           activeDotColor: Colors.white,
                           dotColor: Colors.white.withOpacity(0.4),
-                          dotHeight: 9,
-                          dotWidth: 9,
-                          spacing: 10,
+                          dotHeight: 9.h,
+                          dotWidth: 9.w,
+                          spacing: 10.w,
                           expansionFactor: 3,
                         ),
                       ),
 
-                      const SizedBox(height: 30),
+                      SizedBox(height: 30.h),
 
                       // Butonlar
                       Row(
@@ -112,15 +111,17 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                             },
                             style: TextButton.styleFrom(
                               foregroundColor: Colors.white,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
-                                vertical: 10,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 15.w,
+                                vertical: 10.h,
                               ),
                             ),
                             child: Text(
-                              isLastPage ? "introduction.back".tr : "introduction.skip".tr,
-                              style: const TextStyle(
-                                fontSize: 16,
+                              isLastPage
+                                  ? "introduction.back".tr
+                                  : "introduction.skip".tr,
+                              style: TextStyle(
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -134,7 +135,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                               ),
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(30.r),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.1),
@@ -155,18 +156,20 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                                     );
                               },
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius: BorderRadius.circular(30.r),
                               ),
                               elevation: 0,
                               highlightElevation: 0,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 30,
-                                vertical: 15,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 30.w,
+                                vertical: 15.h,
                               ),
                               child: Text(
-                                isLastPage ? "introduction.start".tr : "introduction.next".tr,
+                                isLastPage
+                                    ? "introduction.start".tr
+                                    : "introduction.next".tr,
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   fontWeight: FontWeight.bold,
                                   color: const Color(0xFF42C2C2),
                                 ),

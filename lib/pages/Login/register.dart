@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterController extends GetxController {
   final TextEditingController emailController = TextEditingController();
@@ -72,102 +73,92 @@ class Register extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final RegisterController controller = Get.put(RegisterController());
-    double width = MediaQuery.sizeOf(context).width;
-    double height = MediaQuery.sizeOf(context).height;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF2F2F2),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: width / 13,
-            vertical: height / 25,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 40.h),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
                 'assets/svg/register.svg',
-                height: height / 6,
+                height: 150.h,
                 width: double.infinity,
               ),
               Text(
                 "register.register_to_medreminder_app".tr,
                 style: TextStyle(
-                  fontSize: height / 50,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87,
                 ),
               ),
-              SizedBox(height: height / 50),
+              SizedBox(height: 16.h),
               GestureDetector(
                 onTap: () => Get.to(() => const Login()),
                 child: RichText(
                   text: TextSpan(
                     text: "register.already_have_an_account".tr,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: height / 60,
-                    ),
+                    style: TextStyle(color: Colors.black, fontSize: 14.sp),
                     children: [
                       TextSpan(
                         text: "register.sign_in".tr,
-                        style: TextStyle(color: const Color(0xFF0996C7)),
+                        style: TextStyle(
+                          color: const Color(0xFF0996C7),
+                          fontSize: 14.sp,
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: height / 30),
+              SizedBox(height: 25.h),
               _buildTextField(
                 controller.nameController,
                 "register.full_name".tr,
                 Icons.person,
-                width,
-                height,
               ),
-              SizedBox(height: height / 60),
+              SizedBox(height: 15.h),
               _buildTextField(
                 controller.surnameController,
                 "register.surname".tr,
                 Icons.person,
-                width,
-                height,
               ),
-              SizedBox(height: height / 60),
+              SizedBox(height: 15.h),
               _buildTextField(
                 controller.emailController,
                 "register.your_email".tr,
                 Icons.email,
-                width,
-                height,
               ),
-              SizedBox(height: height / 60),
+              SizedBox(height: 15.h),
 
               _buildPasswordField(
                 controller.passwordController,
                 "register.type_your_password".tr,
                 controller.isPasswordVisible,
                 controller.togglePasswordVisibility,
-                height,
               ),
-              SizedBox(height: height / 60),
+              SizedBox(height: 15.h),
               _buildPasswordField(
                 controller.confirmPasswordController,
                 "register.re_type_your_password".tr,
                 controller.isConfirmPasswordVisible,
                 controller.toggleConfirmPasswordVisibility,
-                height,
               ),
-              SizedBox(height: height / 60),
+              SizedBox(height: 15.h),
               Obx(
                 () =>
                     controller.errorMessage.isNotEmpty
                         ? Padding(
-                          padding: EdgeInsets.only(top: height / 50),
+                          padding: EdgeInsets.only(top: 16.h),
                           child: Text(
                             controller.errorMessage.value,
-                            style: const TextStyle(color: Colors.red),
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 14.sp,
+                            ),
                           ),
                         )
                         : const SizedBox.shrink(),
@@ -179,16 +170,16 @@ class Register extends StatelessWidget {
                       controller.selectedImage.value != null
                           ? Image.file(
                             controller.selectedImage.value!,
-                            height: height / 6,
+                            height: 150.h,
                           )
                           : Icon(
                             Icons.add_a_photo,
-                            size: height / 6,
+                            size: 150.h,
                             color: Colors.grey,
                           ),
                 ),
               ),
-              SizedBox(height: height / 30),
+              SizedBox(height: 25.h),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -196,18 +187,18 @@ class Register extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF0996C7),
                     padding: EdgeInsets.symmetric(
-                      vertical: height / 56,
-                      horizontal: width / 4,
+                      vertical: 14.h,
+                      horizontal: 100.w,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
                   ),
                   child: Text(
                     "register.register".tr,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: height / 50,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -224,14 +215,12 @@ class Register extends StatelessWidget {
     TextEditingController controller,
     String hintText,
     IconData icon,
-    double width,
-    double height,
   ) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: height / 150, horizontal: 1),
+      padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 1.w),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(25.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -243,7 +232,7 @@ class Register extends StatelessWidget {
       child: TextField(
         controller: controller,
         decoration: InputDecoration(
-          prefixIcon: Icon(icon, color: Colors.grey),
+          prefixIcon: Icon(icon, color: Colors.grey, size: 20.sp),
           hintText: hintText,
           border: InputBorder.none,
         ),
@@ -256,13 +245,12 @@ class Register extends StatelessWidget {
     String hintText,
     RxBool isVisible,
     Function toggleVisibility,
-    double height,
   ) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: height / 150, horizontal: 1.0),
+      padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 1.w),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(25.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -276,16 +264,17 @@ class Register extends StatelessWidget {
           controller: controller,
           obscureText: !isVisible.value,
           decoration: InputDecoration(
+            prefixIcon: Icon(Icons.lock, color: Colors.grey, size: 20.sp),
+            suffixIcon: IconButton(
+              onPressed: () => toggleVisibility(),
+              icon: Icon(
+                isVisible.value ? Icons.visibility_off : Icons.visibility,
+                color: Colors.grey,
+                size: 20.sp,
+              ),
+            ),
             hintText: hintText,
             border: InputBorder.none,
-            prefixIcon: const Icon(Icons.lock, color: Colors.grey),
-            suffixIcon: IconButton(
-              icon: Icon(
-                isVisible.value ? Icons.visibility : Icons.visibility_off,
-                color: Colors.grey,
-              ),
-              onPressed: () => toggleVisibility(),
-            ),
           ),
         ),
       ),

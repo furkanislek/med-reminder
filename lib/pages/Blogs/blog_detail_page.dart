@@ -3,6 +3,7 @@ import 'package:flutter_html/flutter_html.dart'; // Placeholder, will add to pub
 import 'package:mr/models/blog_model.dart';
 import 'package:get/get.dart'; // For localization
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart'; // Import for ScreenUtil
 
 class BlogDetailPage extends StatefulWidget {
   final Blog? blog;
@@ -116,7 +117,7 @@ class _BlogDetailPageState extends State<BlogDetailPage>
           return Stack(
             children: [
               Positioned(
-                left: 20,
+                left: 20.w,
                 top: 0,
                 bottom: 0,
                 child: Center(
@@ -131,7 +132,7 @@ class _BlogDetailPageState extends State<BlogDetailPage>
               ),
 
               Padding(
-                padding: const EdgeInsets.only(left: 60, right: 20, top: 100),
+                padding: EdgeInsets.only(left: 60.w, right: 20.w, top: 100.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -142,8 +143,8 @@ class _BlogDetailPageState extends State<BlogDetailPage>
                           opacity: _opacityAnimation,
 
                           child: Container(
-                            width: 60,
-                            height: 60,
+                            width: 60.w,
+                            height: 60.h,
                             decoration: BoxDecoration(
                               color: widget.secondaryCategoryColor,
                               shape: BoxShape.circle,
@@ -153,7 +154,7 @@ class _BlogDetailPageState extends State<BlogDetailPage>
                                 "${index + 1}",
                                 style: TextStyle(
                                   color: widget.textCategoryColor,
-                                  fontSize: 28,
+                                  fontSize: 28.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -162,7 +163,7 @@ class _BlogDetailPageState extends State<BlogDetailPage>
                         );
                       },
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
 
                     Expanded(
                       child: AnimatedBuilder(
@@ -181,23 +182,23 @@ class _BlogDetailPageState extends State<BlogDetailPage>
                             data: htmlContents[index],
                             style: {
                               "h2": Style(
-                                fontSize: FontSize(28.0),
+                                fontSize: FontSize(28.sp),
                                 fontWeight: FontWeight.bold,
                                 color: widget.textCategoryColor,
-                                margin: Margins.only(bottom: 20.0),
+                                margin: Margins.only(bottom: 20.h),
                               ),
                               "p": Style(
-                                fontSize: FontSize(16.0),
+                                fontSize: FontSize(16.sp),
                                 lineHeight: LineHeight.em(1.5),
                                 color: widget.textCategoryColor,
-                                margin: Margins.only(bottom: 16.0),
+                                margin: Margins.only(bottom: 16.h),
                               ),
-                              "ul": Style(margin: Margins.only(left: 0.0)),
+                              "ul": Style(margin: Margins.only(left: 0.w)),
                               "li": Style(
-                                fontSize: FontSize(16.0),
+                                fontSize: FontSize(16.sp),
                                 lineHeight: LineHeight.em(1.5),
                                 color: widget.textCategoryColor,
-                                margin: Margins.only(bottom: 8.0),
+                                margin: Margins.only(bottom: 8.h),
                               ),
                             },
                           ),
@@ -209,23 +210,26 @@ class _BlogDetailPageState extends State<BlogDetailPage>
               ),
 
               Positioned(
-                right: 10,
-                bottom: 10,
+                right: 10.w,
+                bottom: 10.h,
                 child: AnimatedBuilder(
                   animation: _animationController,
                   builder: (context, child) {
                     return FadeTransition(
                       opacity: _opacityAnimation,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 8.w,
+                          vertical: 8.h,
+                        ),
                         child: SvgPicture.asset(
                           widget.blog?.category == "pills"
                               ? "assets/svg/pillBlog.svg"
                               : widget.blog?.category == "health"
                               ? "assets/svg/healthBlog.svg"
                               : "assets/svg/lifestyleBlog.svg",
-                          height: 250,
-                          width: 50,
+                          height: 250.h,
+                          width: 50.w,
                         ),
                       ),
                     );
@@ -244,9 +248,9 @@ class _BlogDetailPageState extends State<BlogDetailPage>
     final bool isPast = index < currentIndex;
 
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 4),
-      width: 5,
-      height: 15,
+      margin: EdgeInsets.symmetric(vertical: 4.h),
+      width: 5.w,
+      height: 15.h,
       decoration: BoxDecoration(
         color:
             isActive
@@ -254,7 +258,7 @@ class _BlogDetailPageState extends State<BlogDetailPage>
                 : isPast
                 ? widget.textCategoryColor!.withOpacity(0.6)
                 : Colors.grey.withOpacity(0.3),
-        borderRadius: BorderRadius.circular(2),
+        borderRadius: BorderRadius.circular(2.r),
       ),
     );
   }

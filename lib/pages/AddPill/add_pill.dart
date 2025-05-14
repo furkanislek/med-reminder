@@ -6,6 +6,7 @@ import 'package:mr/controller/data/data_service_controller.dart';
 import 'package:mr/pages/Menu/menu.dart';
 import 'package:mr/controller/home/home_controller.dart';
 import 'package:mr/services/data_service.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart'; // Import for ScreenUtil
 
 class AddPillScreen extends StatelessWidget {
   AddPillScreen({super.key});
@@ -50,7 +51,7 @@ class AddPillScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Container(
         color: Colors.white,
-        padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 10),
+        padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 10.w),
         child: ElevatedButton(
           onPressed: () async {
             await controller.saveMedicineData();
@@ -66,17 +67,17 @@ class AddPillScreen extends StatelessWidget {
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF0996C7),
-            padding: const EdgeInsets.symmetric(vertical: 15.0),
+            padding: EdgeInsets.symmetric(vertical: 15.h),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(20.r),
             ),
-            minimumSize: Size(double.infinity, 50),
+            minimumSize: Size(double.infinity, 50.h),
           ),
           child: Text(
             'addMedicine.save'.tr,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -85,27 +86,28 @@ class AddPillScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'addMedicine.name'.tr,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               _buildTextField(
                 hint: "addMedicine.addMedicineHint".tr,
                 onChanged: (value) => controller.name.value = value,
                 keyboardType: TextInputType.text,
+                context: context,
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25.h),
 
               Text(
                 'addMedicine.dosage'.tr,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Row(
                 children: [
                   Expanded(
@@ -117,38 +119,39 @@ class AddPillScreen extends StatelessWidget {
                               controller.dosageQuantity.value =
                                   int.tryParse(value) ?? 0,
                       keyboardType: TextInputType.number,
+                      context: context,
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: 10.w),
                   Expanded(
                     flex: 2,
                     child: _buildTextField(
                       hint: "addMedicine.dosageUnit".tr,
                       onChanged: (value) => controller.dosageUnit.value = value,
                       keyboardType: TextInputType.text,
+                      context: context,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25.h),
 
               Text(
                 'addMedicine.category'.tr,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(height: 10),
               SizedBox(
-                height: 100,
+                height: 100.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: _categories.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         left: 0,
-                        right: 15.0,
-                        top: 20,
-                        bottom: 20,
+                        right: 15.w,
+                        top: 20.h,
+                        bottom: 20.h,
                       ),
                       child: Obx(() {
                         final selected =
@@ -159,31 +162,37 @@ class AddPillScreen extends StatelessWidget {
                                   controller.types.value =
                                       _categories[index][1],
                           child: Container(
-                            padding: const EdgeInsets.all(8),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 8.w,
+                              vertical: 8.h,
+                            ),
                             decoration: BoxDecoration(
                               color:
                                   selected
                                       ? const Color.fromARGB(255, 219, 219, 219)
                                       : Colors.white,
-                              borderRadius: BorderRadius.circular(15.0),
+                              borderRadius: BorderRadius.circular(15.r),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.1),
-                                  spreadRadius: 2,
-                                  blurRadius: 5,
-                                  offset: const Offset(3, 3),
+                                  spreadRadius: 2.w,
+                                  blurRadius: 5.w,
+                                  offset: Offset(3.w, 3.h),
                                 ),
                               ],
                             ),
                             child: SizedBox(
-                              width: 45,
-                              height: 45,
+                              width: 45.w,
+                              height: 45.h,
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 8.h,
+                                  horizontal: 8.w,
+                                ),
                                 child: SvgPicture.asset(
                                   _categories[index][0],
-                                  width: 40,
-                                  height: 40,
+                                  width: 40.w,
+                                  height: 40.h,
                                   colorFilter: const ColorFilter.mode(
                                     Colors.blue,
                                     BlendMode.srcIn,
@@ -198,13 +207,13 @@ class AddPillScreen extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25.h),
 
               Text(
                 'addMedicine.frequency'.tr,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Row(
                 children: [
                   Expanded(
@@ -225,10 +234,11 @@ class AddPillScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                        context: context,
                       ),
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: 10.w),
                   Expanded(
                     child: GestureDetector(
                       onTap: () => _showDurationPicker(context),
@@ -247,18 +257,19 @@ class AddPillScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                        context: context,
                       ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               Text(
                 'addMedicine.whenToTake'.tr,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Row(
                 children: [
                   _buildWhenToTakeOption(
@@ -267,7 +278,7 @@ class AddPillScreen extends StatelessWidget {
                     value: 'Before Food',
                     iconAsset: 'assets/svg/beforedinner.svg',
                   ),
-                  const SizedBox(width: 12),
+                  SizedBox(width: 12.w),
                   _buildWhenToTakeOption(
                     context,
                     label: 'addMedicine.afterFood'.tr,
@@ -277,27 +288,24 @@ class AddPillScreen extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 25),
+              SizedBox(height: 25.h),
 
               Text(
                 'addMedicine.notifications'.tr,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 4,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(15.0),
+                  borderRadius: BorderRadius.circular(15.r),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.1),
-                      spreadRadius: 1,
-                      blurRadius: 3,
-                      offset: const Offset(0, 1),
+                      spreadRadius: 1.w,
+                      blurRadius: 3.w,
+                      offset: Offset(0, 1.h),
                     ),
                   ],
                 ),
@@ -320,7 +328,7 @@ class AddPillScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
             ],
           ),
         ),
@@ -331,20 +339,21 @@ class AddPillScreen extends StatelessWidget {
   Widget _buildTextField({
     required String hint,
     required Function(String) onChanged,
+    required BuildContext context,
     TextInputType keyboardType = TextInputType.text,
     int maxLength = 50,
   }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(15.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 3,
-            offset: const Offset(0, 1),
+            spreadRadius: 1.w,
+            blurRadius: 3.w,
+            offset: Offset(0, 1.h),
           ),
         ],
       ),
@@ -365,18 +374,19 @@ class AddPillScreen extends StatelessWidget {
   Widget _buildPickerContainer({
     required String iconAsset,
     required Widget child,
+    required BuildContext context,
   }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 16.h),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(15.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 3,
-            offset: const Offset(0, 1),
+            spreadRadius: 1.w,
+            blurRadius: 3.w,
+            offset: Offset(0, 1.h),
           ),
         ],
       ),
@@ -384,14 +394,14 @@ class AddPillScreen extends StatelessWidget {
         children: [
           SvgPicture.asset(
             iconAsset,
-            width: 18,
-            height: 18,
+            width: 18.w,
+            height: 18.h,
             colorFilter: const ColorFilter.mode(Colors.blue, BlendMode.srcIn),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8.w),
           Expanded(child: child),
-          const SizedBox(width: 8),
-          const Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+          SizedBox(width: 8.w),
+          Icon(Icons.keyboard_arrow_down, color: Colors.grey, size: 16.sp),
         ],
       ),
     );
@@ -409,10 +419,10 @@ class AddPillScreen extends StatelessWidget {
         child: Obx(() {
           final isSelected = controller.withFood.value == value;
           return Container(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               border: Border.all(
                 color: isSelected ? Colors.green : Colors.grey.shade300,
               ),
@@ -420,26 +430,26 @@ class AddPillScreen extends StatelessWidget {
                 if (isSelected)
                   BoxShadow(
                     color: Colors.green.withOpacity(0.2),
-                    blurRadius: 6,
-                    offset: const Offset(0, 2),
+                    blurRadius: 6.w,
+                    offset: Offset(0, 2.h),
                   ),
               ],
             ),
             child: Column(
               children: [
-                SvgPicture.asset(iconAsset, height: 50),
-                const SizedBox(height: 8),
+                SvgPicture.asset(iconAsset, height: 50.h),
+                SizedBox(height: 8.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(label, textAlign: TextAlign.center),
-                    SizedBox(width: 5),
+                    SizedBox(width: 5.w),
                     Icon(
                       isSelected
                           ? Icons.check_circle
                           : Icons.radio_button_unchecked,
                       color: isSelected ? Colors.green : Colors.grey,
-                      size: 18,
+                      size: 18.sp,
                     ),
                   ],
                 ),
@@ -452,18 +462,17 @@ class AddPillScreen extends StatelessWidget {
   }
 
   void _showDoseTimesPicker(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     Get.bottomSheet(
       Container(
-        height: 350,
+        height: 350.h,
         color: Colors.white,
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
               child: Text(
                 "addMedicine.doseTimesPickerTitle".tr,
-                style: Get.textTheme.titleLarge,
+                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
               ),
             ),
             Expanded(
@@ -473,7 +482,7 @@ class AddPillScreen extends StatelessWidget {
                   itemBuilder: (ctx, index) {
                     if (index == controller.notifications.length) {
                       return ListTile(
-                        leading: Icon(Icons.add_alarm),
+                        leading: Icon(Icons.add_alarm, size: 16.sp),
                         title: Text("addMedicine.addTime".tr),
                         onTap: () async {
                           TimeOfDay? selectedTime = await showTimePicker(
@@ -508,6 +517,7 @@ class AddPillScreen extends StatelessWidget {
                         icon: Icon(
                           Icons.remove_circle_outline,
                           color: Colors.red,
+                          size: 16.sp,
                         ),
                         onPressed:
                             () => controller.notifications.removeAt(index),
@@ -518,15 +528,14 @@ class AddPillScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(16.0),
-
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
               child: Container(
-                width: width * 0.75,
+                width: 336.w, // 75% of 448
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                   child: Text(
                     "addMedicine.done".tr,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 16.sp),
                   ),
                   onPressed: () => Get.back(),
                 ),
@@ -540,29 +549,25 @@ class AddPillScreen extends StatelessWidget {
   }
 
   void _showDurationPicker(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     int tempDuration = controller.duration.value;
     if (tempDuration == 0) tempDuration = 1;
 
     Get.bottomSheet(
       Container(
-        height: 300,
+        height: 300.h,
         color: Colors.white,
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
               child: Text(
                 "addMedicine.durationPickerTitle".tr,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
               ),
             ),
             Expanded(
               child: ListWheelScrollView.useDelegate(
-                itemExtent: 50,
+                itemExtent: 50.h,
                 perspective: 0.005,
                 diameterRatio: 1.2,
                 physics: const FixedExtentScrollPhysics(),
@@ -573,7 +578,7 @@ class AddPillScreen extends StatelessWidget {
                     (index) => Center(
                       child: Text(
                         '${index + 1} ${'addMedicine.days'.tr}',
-                        style: const TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 18.sp),
                       ),
                     ),
                   ),
@@ -584,24 +589,24 @@ class AddPillScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
               child: Container(
-                width: width * 0.75,
+                width: 336.w, // 75% of 448
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12.0,
-                      horizontal: 24.0,
+                    padding: EdgeInsets.symmetric(
+                      vertical: 12.h,
+                      horizontal: 24.w,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
-                    minimumSize: const Size(double.infinity, 45),
+                    minimumSize: Size(double.infinity, 45.h),
                   ),
                   child: Text(
                     "addMedicine.done".tr,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 16.sp),
                   ),
                   onPressed: () {
                     controller.duration.value = tempDuration;
