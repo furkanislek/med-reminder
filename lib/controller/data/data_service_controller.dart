@@ -4,6 +4,7 @@ import 'package:intl/intl.dart'; // Import for formatting time
 import 'package:mr/models/medicine_model.dart';
 import 'package:mr/services/data_service.dart';
 import 'package:mr/services/notification_service.dart'; // Import NotificationService
+import 'package:mr/controller/home/home_controller.dart';
 
 class DataServiceController extends GetxController {
   var name = ''.obs;
@@ -88,12 +89,17 @@ class DataServiceController extends GetxController {
         withFood: withFood.value,
         notificationsEnabled: notificationsEnabled.value,
       );
+
+      if (Get.isRegistered<HomeController>()) {
+        final homeController = Get.find<HomeController>();
+        await homeController.refreshMedicines();
+      }
+
       Get.snackbar(
         'medicine.saveMedicineSuccess'.tr,
         'medicine.saveMedicineSuccessMessage'.tr,
-        snackPosition: SnackPosition.TOP,
+        snackPosition: SnackPosition.BOTTOM,
       );
-     
     } catch (e) {
       Get.snackbar(
         'medicine.saveMedicineError'.tr,

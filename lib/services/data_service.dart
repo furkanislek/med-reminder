@@ -104,10 +104,7 @@ class DataService {
         .collection('medicines')
         .orderBy('createdAt', descending: true)
         .snapshots()
-        .asyncMap((snapshot) async {
-          // Veri işlenmeden önce kısa bir gecikme ekle
-          await Future.delayed(const Duration(milliseconds: 300));
-
+        .map((snapshot) {
           return snapshot.docs
               .map((doc) {
                 try {

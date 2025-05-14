@@ -49,9 +49,48 @@ class HomeController extends GetxController {
     ever(
       selectedDrugType,
       (_) => _filterMedicines(),
-
     ); // React to drug type changes
-        ever(showOnlyActiveMedicines, (_) => _filterMedicines()); // Yeni durumu dinle
+    ever(
+      showOnlyActiveMedicines,
+      (_) => _filterMedicines(),
+    ); // Yeni durumu dinle
+  }
+
+  // Yeni eklenen metot - İlaç listesini yeniden yükler
+  Future<void> refreshMedicines() async {
+    try {
+      // Stream'den en son verileri almak için zorlama yapıyoruz
+      final medicines = await _dataService.getMedicinesStream().first;
+
+      // Alınan verileri işliyoruz
+      List<MedicineModel> processedList = [];
+      for (var med in medicines) {
+        MedicineModel processedMed = _calculateNextDose(med);
+        processedList.add(processedMed);
+        _notificationService.scheduleMedicineNotifications(processedMed);
+      }
+
+      // Sıralama işlemi yapıyoruz
+      processedList.sort((a, b) {
+        if (a.isCompleted && !b.isCompleted) return 1;
+        if (!a.isCompleted && b.isCompleted) return -1;
+        if (a.nextDoseTime == null && b.nextDoseTime != null) return 1;
+        if (a.nextDoseTime != null && b.nextDoseTime == null) return -1;
+        if (a.nextDoseTime == null && b.nextDoseTime == null) return 0;
+        return a.nextDoseTime!.compareTo(b.nextDoseTime!);
+      });
+
+      // _allMedicines listesini güncelliyoruz
+      _allMedicines.assignAll(processedList);
+
+      // UI'da gösterilecek listeyi filtreliyoruz
+      _filterMedicines();
+
+      // Controller'ı güncellemek için update çağrısı
+      update();
+    } catch (e) {
+      print("Error refreshing medicines: $e");
+    }
   }
 
   void updateSearchQuery(String query) {
@@ -166,10 +205,16 @@ class HomeController extends GetxController {
     return medicine;
   }
 
-  // Method to get unique drug types for the filter dropdown
   List<String> getUniqueDrugTypes() {
     final types = _allMedicines.map((m) => m.type).toSet().toList();
     types.sort((a, b) => a.toLowerCase().compareTo(b.toLowerCase()));
     return types;
+  }
+
+  void calculateNextDose() {
+    final updatedList =
+        _allMedicines.map((med) => _calculateNextDose(med)).toList();
+    _allMedicines.assignAll(updatedList);
+    update();
   }
 }

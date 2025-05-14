@@ -249,4 +249,7 @@ const Map<String, String> koKR = {
   "menu.addMedicine": "약 추가",
   "menu.blogs": "블로그",
   "menu.profile": "프로필",
+
+  'time_for_medicine': '약 복용 시간입니다!',
+  'take_medicine_now': '지금 {medicineName}의 {dosageInfo}을(를) 복용하세요.',
 };

@@ -115,7 +115,7 @@ class MedicineCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String dosageInfo =
-        "${medicine.dosageQuantity}${medicine.dosageUnit}, ${_getFrequencyText(medicine.dosesPerDay)}";
+        "${medicine.dosageQuantity} ${medicine.dosageUnit}, ${_getFrequencyText(medicine.dosesPerDay)}";
     String nextDoseText = _formatNextDose(
       medicine.nextDoseTime,
       medicine.isCompleted,

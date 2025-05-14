@@ -249,4 +249,7 @@ const Map<String, String> jaJP = {
   "menu.addMedicine": "新しい薬を追加",
   "menu.blogs": "ブログ",
   "menu.profile": "プロフィール",
+
+  'time_for_medicine': 'お薬の時間です！',
+  'take_medicine_now': '今すぐ{medicineName}の{dosageInfo}を服用してください。',
 };

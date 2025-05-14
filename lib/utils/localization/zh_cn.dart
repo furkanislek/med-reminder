@@ -248,5 +248,8 @@ const Map<String, String> zhCN = {
   "menu.myMedicines": "我的药物",
   "menu.addMedicine": "添加药物",
   "menu.blogs": "博客",
-  "menu.profile": "个人资料",
+  "menu.profile": "资料",
+
+  'time_for_medicine': '该吃药了！',
+  'take_medicine_now': '现在服用您的{dosageInfo}{medicineName}。',
 };

@@ -245,4 +245,7 @@ const Map<String, String> trTR = {
   "menu.addMedicine": "İlaç Ekle",
   "menu.blogs": "Blog",
   "menu.profile": "Profil",
+
+  'time_for_medicine': 'İlacınızı alma zamanı!',
+  'take_medicine_now': '{dosageInfo} {medicineName} ilacınızı şimdi alın.',
 };

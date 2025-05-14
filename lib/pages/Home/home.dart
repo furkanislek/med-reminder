@@ -62,11 +62,10 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  // Pull-to-refresh işlevi
   Future<void> _refreshMedicines() async {
-    // İlaç listesini yenile
     await dataService.getMedicinesStream().first;
     controller.update();
+    controller.calculateNextDose();
   }
 
   @override

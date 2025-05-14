@@ -5,11 +5,13 @@ import 'package:intl/intl.dart'; // Import for formatting time
 import 'package:mr/controller/data/data_service_controller.dart';
 import 'package:mr/pages/Menu/menu.dart';
 import 'package:mr/controller/home/home_controller.dart';
+import 'package:mr/services/data_service.dart';
 
 class AddPillScreen extends StatelessWidget {
   AddPillScreen({super.key});
-  final DataServiceController controller =
-      Get.find<DataServiceController>(); // Use Get.find if already put
+  final DataServiceController controller = Get.find<DataServiceController>();
+  final DataService dataService = Get.find<DataService>();
+  final HomeController homeController = Get.find<HomeController>();
 
   final List<List<String>> _categories = [
     ['assets/svg/needle.svg', 'needle'],
@@ -21,6 +23,11 @@ class AddPillScreen extends StatelessWidget {
     ['assets/svg/vitamin.svg', 'vitamin'],
   ];
 
+  Future<void> _refreshMedicines() async {
+    final homeController = Get.find<HomeController>();
+    await homeController.refreshMedicines();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +35,14 @@ class AddPillScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () {
+          onPressed: () async {
             controller.resetForm(); // Reset form on back press
-            Get.back();
+
+            // HomeController'ı aktif olarak güncelle
+            await _refreshMedicines();
+
+            await Future.delayed(const Duration(milliseconds: 200));
+            await Get.offAll(Menu());
           },
         ),
         title: Text('addMedicine.addMedicine'.tr),
@@ -45,16 +57,11 @@ class AddPillScreen extends StatelessWidget {
             if (!Get.isSnackbarOpen) {
               controller.resetForm();
 
-              final HomeController homeController = Get.find<HomeController>();
-              homeController.update();
+              // HomeController'ı aktif olarak güncelle
+              await _refreshMedicines();
 
-              await Future.delayed(const Duration(milliseconds: 500));
-
-              await Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => Menu()),
-                (route) => false,
-              );
+              await Future.delayed(const Duration(milliseconds: 200));
+              await Get.offAll(Menu());
             }
           },
           style: ElevatedButton.styleFrom(
@@ -118,7 +125,7 @@ class AddPillScreen extends StatelessWidget {
                     child: _buildTextField(
                       hint: "addMedicine.dosageUnit".tr,
                       onChanged: (value) => controller.dosageUnit.value = value,
-                      keyboardType: TextInputType.number,
+                      keyboardType: TextInputType.text,
                     ),
                   ),
                 ],

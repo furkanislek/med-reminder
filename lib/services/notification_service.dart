@@ -1,5 +1,6 @@
 import 'dart:io' show Platform;
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get/get.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:mr/models/medicine_model.dart';
@@ -45,11 +46,8 @@ class NotificationService {
     try {
       await flutterLocalNotificationsPlugin.initialize(
         initializationSettings,
-        onDidReceiveNotificationResponse: (
-          NotificationResponse notificationResponse,
-        ) async {
-          // Handle notification tap, e.g., navigate to a specific screen
-        },
+        onDidReceiveNotificationResponse:
+            (NotificationResponse notificationResponse) async {},
         onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
       );
     } catch (e) {}
@@ -72,7 +70,6 @@ class NotificationService {
                 AndroidFlutterLocalNotificationsPlugin
               >();
 
-      // Request notification permission (POST_NOTIFICATIONS for Android 13+)
       bool? notificationPermissionGranted;
       try {
         notificationPermissionGranted =
@@ -80,8 +77,6 @@ class NotificationService {
         if (notificationPermissionGranted == false) {}
       } catch (e) {}
 
-      // Request exact alarm permission (SCHEDULE_EXACT_ALARM / USE_EXACT_ALARM)
-      // This is crucial for reliable timed notifications, especially on Android 12+
       bool? exactAlarmPermissionGranted;
       try {
         exactAlarmPermissionGranted =
@@ -95,9 +90,7 @@ class NotificationService {
   }
 
   Future<void> scheduleMedicineNotifications(MedicineModel medicine) async {
-    await cancelMedicineNotifications(
-      medicine.id.toString(),
-    ); // Ensure medicine.id is string
+    await cancelMedicineNotifications(medicine.id.toString());
 
     if (!medicine.notificationsEnabled || medicine.isCompleted) {
       return;
@@ -158,8 +151,10 @@ class NotificationService {
             try {
               await flutterLocalNotificationsPlugin.zonedSchedule(
                 notificationIdCounter,
-                'Time for your medicine!',
-                'Take your $dosageInfo of $medicineName now. $endDateInLocalTz $notificationDateTimeInLocalTz',
+                'time_for_medicine'.tr,
+                'take_medicine_now'.tr
+                    .replaceAll('{dosageInfo}', dosageInfo)
+                    .replaceAll('{medicineName}', medicineName),
                 notificationDateTimeInLocalTz,
                 const NotificationDetails(
                   android: AndroidNotificationDetails(
@@ -191,8 +186,7 @@ class NotificationService {
   }
 
   Future<void> cancelMedicineNotifications(String medicineId) async {
-    String medIdStr =
-        medicineId; // Already ensured it's a string in scheduleMedicineNotifications
+    String medIdStr = medicineId;
     int baseId = (medIdStr.hashCode % 2000000000).abs();
     int maxNotificationsToCancel = 200;
     // ignore: unused_local_variable
@@ -211,7 +205,6 @@ class NotificationService {
     } catch (e) {}
   }
 
-  // Added method to address the build error
   Future<void> checkPendingNotifications() async {
     try {
       final List<PendingNotificationRequest> pendingRequests =

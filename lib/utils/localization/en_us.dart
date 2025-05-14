@@ -257,4 +257,7 @@ const Map<String, String> enUS = {
   "menu.addMedicine": "Add Medicine",
   "menu.blogs": "Blogs",
   "menu.profile": "Profile",
+
+  'time_for_medicine': 'Time for your medicine!',
+  'take_medicine_now': 'Take your {dosageInfo} of {medicineName} now.',
 };

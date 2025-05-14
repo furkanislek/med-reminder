@@ -258,5 +258,8 @@ const Map<String, String> hiIN = {
   "menu.myMedicines": "मेरे दवाएँ",
   "menu.addMedicine": "दवा जोड़ें",
   "menu.blogs": "ब्लॉग",
-  "menu.profile": "प्रोफ़ाइल",
+  "menu.profile": "प्रोफाइल",
+
+  'time_for_medicine': 'आपकी दवा का समय!',
+  'take_medicine_now': 'अभी अपनी {dosageInfo} {medicineName} लें।',
 };

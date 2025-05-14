@@ -22,13 +22,8 @@ void main() async {
 
   if (savedLocale != null) {
     initialAppLocale = savedLocale;
-    print(
-      'Kaydedilmiş dil bulundu ve kullanılıyor: ${initialAppLocale.toLanguageTag()}',
-    );
   } else {
     Locale? deviceLocale = Get.deviceLocale;
-    print('Kaydedilmiş dil yok. Cihaz dili: ${deviceLocale?.toLanguageTag()}');
-
     if (deviceLocale != null && deviceLocale.languageCode == 'tr') {
       initialAppLocale = const Locale('tr', 'TR');
     } else if (deviceLocale != null && deviceLocale.languageCode == 'de') {
@@ -62,9 +57,6 @@ void main() async {
     } else {
       initialAppLocale = const Locale('en', 'US');
     }
-    print(
-      'Varsayılan uygulama dili ${initialAppLocale.toLanguageTag()} olarak ayarlandı ve kaydediliyor.',
-    );
     await localeService.saveLocale(initialAppLocale);
   }
 

@@ -266,4 +266,7 @@ const Map<String, String> frFR = {
   "menu.addMedicine": "Ajouter un Médicament",
   "menu.blogs": "Blog",
   "menu.profile": "Profil",
+
+  'time_for_medicine': 'C\'est l\'heure de votre médicament !',
+  'take_medicine_now': 'Prenez {dosageInfo} de {medicineName} maintenant.',
 };

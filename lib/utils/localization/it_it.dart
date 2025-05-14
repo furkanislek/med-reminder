@@ -263,4 +263,7 @@ const Map<String, String> itIT = {
   "menu.addMedicine": "Aggiungi farmaco",
   "menu.blogs": "Blog",
   "menu.profile": "Profilo",
+
+  'time_for_medicine': 'È ora di prendere la medicina!',
+  'take_medicine_now': 'Prendi {dosageInfo} di {medicineName} adesso.',
 };

@@ -266,4 +266,7 @@ const Map<String, String> deDE = {
   "menu.addMedicine": "Medikament hinzufügen",
   "menu.blogs": "Blog",
   "menu.profile": "Profil",
+
+  'time_for_medicine': 'Zeit für Ihre Medizin!',
+  'take_medicine_now': 'Nehmen Sie jetzt {dosageInfo} {medicineName} ein.',
 };

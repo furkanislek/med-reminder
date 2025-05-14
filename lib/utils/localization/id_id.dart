@@ -258,4 +258,7 @@ const Map<String, String> idID = {
   "menu.addMedicine": "Tambah Obat",
   "menu.blogs": "Blog",
   "menu.profile": "Profil",
+
+  'time_for_medicine': 'Waktunya minum obat!',
+  'take_medicine_now': 'Minum {dosageInfo} {medicineName} Anda sekarang.',
 };

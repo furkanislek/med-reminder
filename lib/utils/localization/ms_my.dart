@@ -260,4 +260,7 @@ const Map<String, String> msMY = {
   "menu.addMedicine": "Tambah Ubat",
   "menu.blogs": "Blog",
   "menu.profile": "Profil",
+
+  'time_for_medicine': 'Masa untuk ubat anda!',
+  'take_medicine_now': 'Ambil {dosageInfo} {medicineName} anda sekarang.',
 };

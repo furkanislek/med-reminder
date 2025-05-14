@@ -258,4 +258,7 @@ const Map<String, String> ptBR = {
   "menu.addMedicine": "Adicionar Medicamento",
   "menu.blogs": "Blog",
   "menu.profile": "Perfil",
+
+  'time_for_medicine': 'Hora do seu remédio!',
+  'take_medicine_now': 'Tome {dosageInfo} de {medicineName} agora.',
 };

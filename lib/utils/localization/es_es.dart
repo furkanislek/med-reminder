@@ -268,4 +268,7 @@ const Map<String, String> esES = {
   "menu.addMedicine": "Añadir Medicamento",
   "menu.blogs": "Blog",
   "menu.profile": "Perfil",
+
+  'time_for_medicine': '¡Es hora de tu medicamento!',
+  'take_medicine_now': 'Toma {dosageInfo} de {medicineName} ahora.',
 };

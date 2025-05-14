@@ -251,6 +251,9 @@ const Map<String, String> arSA = {
   // Menu Page
   "menu.myMedicines": "أدويتي",
   "menu.addMedicine": "إضافة دواء",
-  "menu.blogs": "المدونة",
-  "menu.profile": "الحساب",
+  "menu.blogs": "مدونة",
+  "menu.profile": "الملف الشخصي",
+
+  'time_for_medicine': 'حان وقت دوائك!',
+  'take_medicine_now': 'تناول {dosageInfo} من {medicineName} الآن.',
 };

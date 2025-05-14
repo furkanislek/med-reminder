@@ -261,4 +261,7 @@ const Map<String, String> ruRU = {
   "menu.addMedicine": "Добавить лекарство",
   "menu.blogs": "Блог",
   "menu.profile": "Профиль",
+
+  'time_for_medicine': 'Время принять лекарство!',
+  'take_medicine_now': 'Примите {dosageInfo} {medicineName} сейчас.',
 };

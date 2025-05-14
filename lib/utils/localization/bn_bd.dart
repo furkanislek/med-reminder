@@ -253,4 +253,7 @@ const Map<String, String> bnBD = {
   "menu.addMedicine": "ঔষধ যোগ করুন",
   "menu.blogs": "ব্লগ",
   "menu.profile": "প্রোফাইল",
+
+  'time_for_medicine': 'আপনার ওষুধের সময়!',
+  'take_medicine_now': 'এখন আপনার {dosageInfo} {medicineName} নিন।',
 };
