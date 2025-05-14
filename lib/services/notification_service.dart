@@ -139,12 +139,24 @@ class NotificationService {
           );
 
           tz.TZDateTime notificationDateTimeInLocalTz = doseDateTimeInLocalTz
-              .subtract(const Duration(minutes: 5));
+              .subtract(const Duration(minutes: 3));
           tz.TZDateTime endDateInLocalTz = tz.TZDateTime.from(
             endDate,
             tz.local,
           );
           tz.TZDateTime nowInLocalTz = tz.TZDateTime.now(tz.local);
+
+          print('--- Notification Debug ---');
+          print('Medicine: $medicineName');
+          print('Start Date: $startDateFromModel');
+          print('Current Time: ${DateTime.now()}');
+          print('TZ Now: $nowInLocalTz');
+          print('Dose Time (Local TZ): $doseDateTimeInLocalTz');
+          print('Notification Time (Local TZ): $notificationDateTimeInLocalTz');
+          print('End Date: $endDate');
+          print(
+            'Notification will be scheduled: ${notificationDateTimeInLocalTz.isAfter(nowInLocalTz) && notificationDateTimeInLocalTz.isBefore(endDateInLocalTz)}',
+          );
 
           if (notificationDateTimeInLocalTz.isAfter(nowInLocalTz) &&
               notificationDateTimeInLocalTz.isBefore(endDateInLocalTz)) {

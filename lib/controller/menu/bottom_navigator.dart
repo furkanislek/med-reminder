@@ -6,6 +6,7 @@ class BottomNavigationController extends GetxController {
   final DataService dataService = Get.find<DataService>();
   final HomeController homeController = Get.find<HomeController>();
   var currentIndex = 0.obs;
+
   Future<void> _refreshMedicines() async {
     await dataService.getMedicinesStream().first;
     homeController.update();
