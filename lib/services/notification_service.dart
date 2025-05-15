@@ -1,7 +1,7 @@
 import 'dart:io' show Platform;
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
-import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:mr/utils/timezone_service.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:mr/models/medicine_model.dart';
 
@@ -22,7 +22,7 @@ class NotificationService {
       FlutterLocalNotificationsPlugin();
 
   Future<void> init() async {
-    tz.initializeTimeZones();
+    TimeZoneService.initializeTimeZone();
     try {} catch (e) {}
 
     const AndroidInitializationSettings initializationSettingsAndroid =

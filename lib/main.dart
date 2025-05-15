@@ -9,6 +9,7 @@ import 'package:mr/pages/Menu/menu.dart';
 import 'package:mr/services/data_service.dart';
 import 'package:mr/services/notification_service.dart';
 import 'package:mr/utils/localization/app_translations.dart';
+import 'package:mr/utils/timezone_service.dart';
 import 'firebase_options.dart';
 import 'package:get/get.dart';
 import 'package:mr/services/locale_service.dart';
@@ -16,6 +17,8 @@ import 'package:mr/services/locale_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await TimeZoneService.initializeTimeZone();
+  await NotificationService().init();
 
   final LocaleService localeService = LocaleService();
   Locale? savedLocale = await localeService.getLocale();
