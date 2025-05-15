@@ -50,6 +50,7 @@ dependencies:
   shared_preferences: ^2.5.3
   google_sign_in: ^6.3.0
   flutter_screenutil: ^5.9.3
+  rename_app: ^1.6.3
 
 dev_dependencies:
   flutter_test:
@@ -106,8 +107,7 @@ flutter:
         - asset: assets/fonts/Sansita-BoldItalic.ttf
           style: italic
           weight: 700
-          
-          
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
