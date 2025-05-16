@@ -228,7 +228,7 @@ const Map<String, String> ptBR = {
 
   // Register Page
   "register.register_to_medreminder_app":
-      "Registre-se no aplicativo Medreminder",
+      "Registre-se no aplicativo Amina Dose",
   "register.already_have_an_account": "Já tem uma conta? ",
   "register.sign_in": "Entrar",
   "register.full_name": "Seu nome completo",

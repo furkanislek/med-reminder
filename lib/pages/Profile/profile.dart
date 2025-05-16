@@ -252,330 +252,343 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body:
           isLoading
               ? const Center(child: CircularProgressIndicator())
-              : SingleChildScrollView(
-                padding: EdgeInsets.only(
-                  left: 16.w,
-                  right: 16.w,
-                  top: 50.h,
-                  bottom: 16.h,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    profileImageBase64 != null && profileImageBase64!.isNotEmpty
-                        ? CircleAvatar(
-                          radius: 60,
-                          backgroundImage: _getProfileImage(),
-                        )
-                        : photoUrl != null
-                        ? CircleAvatar(
-                          radius: 60,
-                          backgroundImage: NetworkImage(photoUrl!),
-                        )
-                        : CircleAvatar(
-                          radius: 60,
-                          backgroundColor: Colors.grey,
-                          child: Icon(
-                            Icons.person,
-                            size: 60,
-                            color: Colors.white,
-                          ),
-                        ),
-
-                    Text(
-                      "${firstName.toUpperCase()} ${surname.toUpperCase()}",
-                      style: TextStyle(
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Sansita',
-                      ),
-                    ),
-                    SizedBox(height: 32.h),
-
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.w,
-                        vertical: 12.h,
-                      ),
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 253, 253),
-                        borderRadius: BorderRadius.circular(12.r),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(
-                              255,
-                              0,
-                              0,
-                              0,
-                            ).withOpacity(0.1),
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'personal_info'.tr,
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 16.h),
-                          _buildInfoRow(
-                            Icons.email,
-                            Auth().currentUser?.email != null &&
-                                    Auth().currentUser!.email!.isNotEmpty
-                                ? Auth().currentUser!.email!
-                                : Auth().currentUser?.providerData[0].email ??
-                                    'profile.noEmail'.tr,
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    // Tercihler
-                    Container(
+              : Column(
+                children: [
+                  Expanded(
+                    child: SingleChildScrollView(
                       padding: EdgeInsets.only(
                         left: 16.w,
                         right: 16.w,
-                        top: 8.h,
-                        bottom: 0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 253, 253),
-                        borderRadius: BorderRadius.circular(12.r),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(
-                              255,
-                              0,
-                              0,
-                              0,
-                            ).withOpacity(0.1),
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                          ),
-                        ],
+                        top: 50.h,
+                        bottom: 16.h,
                       ),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          profileImageBase64 != null &&
+                                  profileImageBase64!.isNotEmpty
+                              ? CircleAvatar(
+                                radius: 60,
+                                backgroundImage: _getProfileImage(),
+                              )
+                              : photoUrl != null
+                              ? CircleAvatar(
+                                radius: 60,
+                                backgroundImage: NetworkImage(photoUrl!),
+                              )
+                              : CircleAvatar(
+                                radius: 60,
+                                backgroundColor: Colors.grey,
+                                child: Icon(
+                                  Icons.person,
+                                  size: 60,
+                                  color: Colors.white,
+                                ),
+                              ),
+
                           Text(
-                            'preferences'.tr,
+                            "${firstName.toUpperCase()} ${surname.toUpperCase()}",
                             style: TextStyle(
-                              fontSize: 18.sp,
+                              fontSize: 24.sp,
                               fontWeight: FontWeight.bold,
+                              fontFamily: 'Sansita',
+                            ),
+                          ),
+                          SizedBox(height: 32.h),
+
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 16.w,
+                              vertical: 12.h,
+                            ),
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 255, 253, 253),
+                              borderRadius: BorderRadius.circular(12.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    0,
+                                    0,
+                                    0,
+                                  ).withOpacity(0.1),
+                                  spreadRadius: 1,
+                                  blurRadius: 5,
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'personal_info'.tr,
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(height: 16.h),
+                                _buildInfoRow(
+                                  Icons.email,
+                                  Auth().currentUser?.email != null &&
+                                          Auth().currentUser!.email!.isNotEmpty
+                                      ? Auth().currentUser!.email!
+                                      : Auth()
+                                              .currentUser
+                                              ?.providerData[0]
+                                              .email ??
+                                          'profile.noEmail'.tr,
+                                ),
+                              ],
                             ),
                           ),
 
-                          _buildSettingItem(
-                            'settings.language'.tr,
-                            Icon(
-                              Icons.language,
-                              color: Colors.green,
-                              size: 20.sp,
+                          SizedBox(height: 24.h),
+
+                          // Tercihler
+                          Container(
+                            padding: EdgeInsets.only(
+                              left: 16.w,
+                              right: 16.w,
+                              top: 8.h,
+                              bottom: 0,
                             ),
-                            trailing: GestureDetector(
-                              onTap: () => _showLanguagePicker(context),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    languages.firstWhere(
-                                      (lang) =>
-                                          lang['code'] == selectedLanguage,
-                                      orElse: () => languages.first,
-                                    )['name']!,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 255, 253, 253),
+                              borderRadius: BorderRadius.circular(12.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    0,
+                                    0,
+                                    0,
+                                  ).withOpacity(0.1),
+                                  spreadRadius: 1,
+                                  blurRadius: 5,
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'preferences'.tr,
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+
+                                _buildSettingItem(
+                                  'settings.language'.tr,
+                                  Icon(
+                                    Icons.language,
+                                    color: Colors.green,
+                                    size: 20.sp,
+                                  ),
+                                  trailing: GestureDetector(
+                                    onTap: () => _showLanguagePicker(context),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          languages.firstWhere(
+                                            (lang) =>
+                                                lang['code'] ==
+                                                selectedLanguage,
+                                            orElse: () => languages.first,
+                                          )['name']!,
+                                          style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 14.sp,
+                                          ),
+                                        ),
+                                        SizedBox(width: 4.w),
+                                        Icon(
+                                          Icons.arrow_forward_ios,
+                                          size: 16.sp,
+                                          color: Colors.grey,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          SizedBox(height: 24.h),
+
+                          // Uygulama Hakkında
+                          Container(
+                            padding: EdgeInsets.only(
+                              left: 16.w,
+                              right: 16.w,
+                              top: 8.h,
+                              bottom: 0,
+                            ),
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 255, 253, 253),
+                              borderRadius: BorderRadius.circular(12.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    0,
+                                    0,
+                                    0,
+                                  ).withOpacity(0.1),
+                                  spreadRadius: 1,
+                                  blurRadius: 5,
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'about_app'.tr,
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(height: 16.h),
+                                _buildSettingItem(
+                                  'app_version'.tr,
+                                  Icon(
+                                    Icons.info_outline,
+                                    color: Colors.purple,
+                                    size: 20.sp,
+                                  ),
+                                  trailing: Text(
+                                    'version.number'.tr,
                                     style: TextStyle(
                                       color: Colors.grey,
                                       fontSize: 14.sp,
                                     ),
                                   ),
-                                  SizedBox(width: 4.w),
-                                  Icon(
-                                    Icons.arrow_forward_ios,
-                                    size: 16.sp,
-                                    color: Colors.grey,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    // Uygulama Hakkında
-                    Container(
-                      padding: EdgeInsets.only(
-                        left: 16.w,
-                        right: 16.w,
-                        top: 8.h,
-                        bottom: 0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 253, 253),
-                        borderRadius: BorderRadius.circular(12.r),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(
-                              255,
-                              0,
-                              0,
-                              0,
-                            ).withOpacity(0.1),
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'about_app'.tr,
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 16.h),
-                          _buildSettingItem(
-                            'app_version'.tr,
-                            Icon(
-                              Icons.info_outline,
-                              color: Colors.purple,
-                              size: 20.sp,
-                            ),
-                            trailing: Text(
-                              'version.number'.tr,
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 14.sp,
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              _showPrivacyPolicyDialog();
-                            },
-                            child: _buildSettingItem(
-                              'privacy_policy'.tr,
-                              Icon(
-                                Icons.privacy_tip,
-                                color: Colors.orange,
-                                size: 20.sp,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_forward_ios,
-                                size: 16.sp,
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    SizedBox(height: 20.h),
-
-                    // Çıkış Düğmesi
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.w,
-                        vertical: 16.h,
-                      ),
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 253, 253),
-                        borderRadius: BorderRadius.circular(12.r),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(
-                              255,
-                              0,
-                              0,
-                              0,
-                            ).withOpacity(0.1),
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'account'.tr,
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 16.h),
-                          InkWell(
-                            onTap: () async {
-                              await Auth().signOut();
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Login(),
                                 ),
-                              );
-                            },
-                            child: _buildSettingItem(
-                              'logout'.tr,
-                              Icon(
-                                Icons.logout,
-                                color: Colors.red,
-                                size: 20.sp,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_forward_ios,
-                                size: 16.sp,
-                                color: Colors.grey,
-                              ),
+                                InkWell(
+                                  onTap: () {
+                                    _showPrivacyPolicyDialog();
+                                  },
+                                  child: _buildSettingItem(
+                                    'privacy_policy'.tr,
+                                    Icon(
+                                      Icons.privacy_tip,
+                                      color: Colors.orange,
+                                      size: 20.sp,
+                                    ),
+                                    trailing: Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 16.sp,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(height: 16.h),
-                          InkWell(
-                            onTap: () {
-                              _showDeleteAccountConfirmation();
-                            },
-                            child: _buildSettingItem(
-                              'profile.deleteAccountButton'.tr,
-                              Icon(
-                                Icons.delete_forever,
-                                color: Colors.red,
-                                size: 20.sp,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_forward_ios,
-                                size: 16.sp,
-                                color: Colors.grey,
-                              ),
+
+                          SizedBox(height: 20.h),
+
+                          // Çıkış Düğmesi
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 16.w,
+                              vertical: 16.h,
+                            ),
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 255, 253, 253),
+                              borderRadius: BorderRadius.circular(12.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    0,
+                                    0,
+                                    0,
+                                  ).withOpacity(0.1),
+                                  spreadRadius: 1,
+                                  blurRadius: 5,
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'account'.tr,
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(height: 16.h),
+                                InkWell(
+                                  onTap: () async {
+                                    await Auth().signOut();
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Login(),
+                                      ),
+                                    );
+                                  },
+                                  child: _buildSettingItem(
+                                    'logout'.tr,
+                                    Icon(
+                                      Icons.logout,
+                                      color: Colors.red,
+                                      size: 20.sp,
+                                    ),
+                                    trailing: Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 16.sp,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 16.h),
+                                InkWell(
+                                  onTap: () {
+                                    _showDeleteAccountConfirmation();
+                                  },
+                                  child: _buildSettingItem(
+                                    'profile.deleteAccountButton'.tr,
+                                    Icon(
+                                      Icons.delete_forever,
+                                      color: Colors.red,
+                                      size: 20.sp,
+                                    ),
+                                    trailing: Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 16.sp,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
                     ),
-
-                    SizedBox(height: 20.h),
-
-                    // Geliştirici Bilgisi
-                    Text(
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 10.h),
+                    width: double.infinity,
+                    color: Colors.white,
+                    alignment: Alignment.center,
+                    child: Text(
                       'developer'.tr,
                       style: TextStyle(color: Colors.grey, fontSize: 13.sp),
                       textAlign: TextAlign.center,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
     );
   }

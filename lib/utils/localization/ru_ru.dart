@@ -230,8 +230,7 @@ const Map<String, String> ruRU = {
   "introduction.start": "Начать",
 
   // Register Page
-  "register.register_to_medreminder_app":
-      "Регистрация в приложении Medreminder",
+  "register.register_to_medreminder_app": "Регистрация в приложении Amina Dose",
   "register.already_have_an_account": "Уже есть аккаунт? ",
   "register.sign_in": "Войти",
   "register.full_name": "Ваше полное имя",

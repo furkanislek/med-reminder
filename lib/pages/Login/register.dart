@@ -89,6 +89,7 @@ class Register extends StatelessWidget {
               ),
               Text(
                 "register.register_to_medreminder_app".tr,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.bold,

@@ -224,7 +224,7 @@ const Map<String, String> bnBD = {
   "introduction.start": "শুরু করুন",
 
   // Register Page
-  "register.register_to_medreminder_app": "মেডরিমাইন্ডার অ্যাপে নিবন্ধন করুন",
+  "register.register_to_medreminder_app": "Amina Dose অ্যাপে নিবন্ধন করুন",
   "register.already_have_an_account": "ইতিমধ্যে একাউন্ট আছে? ",
   "register.sign_in": "সাইন ইন করুন",
   "register.full_name": "আপনার পুরো নাম",

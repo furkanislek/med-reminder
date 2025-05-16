@@ -219,7 +219,7 @@ const Map<String, String> koKR = {
   "introduction.start": "시작",
 
   // Register Page
-  "register.register_to_medreminder_app": "약 알림 앱에 등록하기",
+  "register.register_to_medreminder_app": "Amina Dose 앱에 등록하기",
   "register.already_have_an_account": "이미 계정이 있으신가요? ",
   "register.sign_in": "로그인",
   "register.full_name": "귀하의 전체 이름",

@@ -218,7 +218,7 @@ const Map<String, String> zhCN = {
   "introduction.start": "开始",
 
   // Register Page
-  "register.register_to_medreminder_app": "注册药物提醒应用",
+  "register.register_to_medreminder_app": "注册Amina Dose应用",
   "register.already_have_an_account": "已有账户？ ",
   "register.sign_in": "登录",
   "register.full_name": "您的全名",

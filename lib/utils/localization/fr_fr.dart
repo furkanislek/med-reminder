@@ -235,7 +235,7 @@ const Map<String, String> frFR = {
 
   // Register Page
   "register.register_to_medreminder_app":
-      "Inscrivez-vous à l'application Medreminder",
+      "Inscrivez-vous à l'application Amina Dose",
   "register.already_have_an_account": "Vous avez déjà un compte ? ",
   "register.sign_in": "Se connecter",
   "register.full_name": "Votre nom complet",

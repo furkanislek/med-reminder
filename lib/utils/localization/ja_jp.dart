@@ -219,7 +219,7 @@ const Map<String, String> jaJP = {
   "introduction.start": "開始",
 
   // Register Page
-  "register.register_to_medreminder_app": "薬リマインダーアプリに登録",
+  "register.register_to_medreminder_app": "Amina Doseアプリに登録",
   "register.already_have_an_account": "すでにアカウントをお持ちですか？ ",
   "register.sign_in": "サインイン",
   "register.full_name": "氏名",

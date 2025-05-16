@@ -216,10 +216,10 @@ const Map<String, String> trTR = {
   "introduction.next": "İleri",
 
   // Register Page
-  "register.register_to_medreminder_app": "Medreminder uygulamasına kayıt olun",
+  "register.register_to_medreminder_app": "Amina Dose uygulamasına kayıt olun",
   "register.already_have_an_account": "Hesabınız var mı? ",
   "register.sign_in": "Giriş yapın",
-  "register.full_name": "Tam adınız",
+  "register.full_name": "Adınız",
   "register.surname": "Soyadınız",
   "register.your_email": "E-posta adresiniz",
   "register.type_your_password": "Şifrenizi yazın",

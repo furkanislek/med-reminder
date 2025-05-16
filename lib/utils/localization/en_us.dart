@@ -228,7 +228,7 @@ const Map<String, String> enUS = {
   "introduction.start": "Start",
 
   // Register Page
-  "register.register_to_medreminder_app": "Register to Medreminder app",
+  "register.register_to_medreminder_app": "Register to Amina Dose app",
   "register.already_have_an_account": "Already have an account? ",
   "register.sign_in": "Sign in",
   "register.full_name": "Your full name",

@@ -231,7 +231,7 @@ const Map<String, String> itIT = {
   "introduction.start": "Inizia",
 
   // Register Page
-  "register.register_to_medreminder_app": "Registrati all'app Medreminder",
+  "register.register_to_medreminder_app": "Registrati all'app Amina Dose",
   "register.already_have_an_account": "Hai già un account? ",
   "register.sign_in": "Accedi",
   "register.full_name": "Il tuo nome completo",

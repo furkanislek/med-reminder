@@ -231,7 +231,7 @@ const Map<String, String> msMY = {
   "introduction.start": "Mula",
 
   // Register Page
-  "register.register_to_medreminder_app": "Daftar ke aplikasi Medreminder",
+  "register.register_to_medreminder_app": "Daftar ke aplikasi Amina Dose",
   "register.already_have_an_account": "Sudah mempunyai akaun? ",
   "register.sign_in": "Log masuk",
   "register.full_name": "Nama penuh anda",

@@ -236,7 +236,7 @@ const Map<String, String> deDE = {
 
   // Register Page
   "register.register_to_medreminder_app":
-      "Registrieren Sie sich bei der Medreminder-App",
+      "Registrieren Sie sich bei der Amina Dose-App",
   "register.already_have_an_account": "Haben Sie bereits ein Konto? ",
   "register.sign_in": "Anmelden",
   "register.full_name": "Ihr vollständiger Name",

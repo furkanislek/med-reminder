@@ -231,7 +231,7 @@ const Map<String, String> hiIN = {
   "introduction.start": "शुरू करें",
 
   // Register Page
-  "register.register_to_medreminder_app": "मेडरिमाइंडर ऐप में पंजीकरण करें",
+  "register.register_to_medreminder_app": "Amina Dose ऐप में पंजीकरण करें",
   "register.already_have_an_account": "पहले से ही खाता है? ",
   "register.sign_in": "लॉगिन करें",
   "register.full_name": "आपका पूरा नाम",

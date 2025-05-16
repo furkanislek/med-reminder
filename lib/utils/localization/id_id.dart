@@ -229,7 +229,7 @@ const Map<String, String> idID = {
   "introduction.start": "Mulai",
 
   // Register Page
-  "register.register_to_medreminder_app": "Daftar ke aplikasi Medreminder",
+  "register.register_to_medreminder_app": "Daftar ke aplikasi Amina Dose",
   "register.already_have_an_account": "Sudah punya akun? ",
   "register.sign_in": "Masuk",
   "register.full_name": "Nama lengkap Anda",

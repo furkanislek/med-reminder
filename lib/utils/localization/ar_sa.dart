@@ -223,7 +223,7 @@ const Map<String, String> arSA = {
   "introduction.start": "ابدأ",
 
   // Register Page
-  "register.register_to_medreminder_app": "التسجيل في تطبيق مذكر الدواء",
+  "register.register_to_medreminder_app": "التسجيل في تطبيق Amina Dose",
   "register.already_have_an_account": "هل لديك حساب بالفعل؟ ",
   "register.sign_in": "تسجيل الدخول",
   "register.full_name": "اسمك الكامل",
