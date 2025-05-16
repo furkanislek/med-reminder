@@ -27,8 +27,19 @@ const Map<String, String> frFR = {
   'auth.signupErrorTitle': 'Échec d\'inscription',
   'auth.unknownError': 'Une erreur inconnue s\'est produite.',
   'auth.or': 'OU',
-  'auth.noAccount': 'Pas de compte? Inscrivez-vous',
+  'auth.noAccount': 'Vous n\'avez pas de compte? Inscrivez-vous',
   'auth.haveAccount': 'Vous avez déjà un compte? Connectez-vous',
+  'auth.checkEmail': 'Vérifiez votre e-mail',
+  'auth.resetPasswordInfo':
+      'Nous vous avons envoyé des informations\n pour réinitialiser votre mot de passe',
+  'auth.registerSuccessInfo':
+      'Inscription réussie. Veuillez confirmer votre compte\n avec le lien envoyé à votre adresse e-mail.',
+  'auth.resetPassword': 'Réinitialiser le mot de passe',
+  'auth.resetPasswordInstructions':
+      'Entrez votre adresse e-mail et nous vous enverrons des instructions pour réinitialiser votre mot de passe.',
+  'auth.yourEmail': 'Votre e-mail',
+  'auth.resetButton': 'Réinitialiser le mot de passe',
+  'auth.emailRequired': 'Veuillez entrer votre adresse e-mail.',
 
   // Home / Medicine List
   'home.title': 'Mes Médicaments',

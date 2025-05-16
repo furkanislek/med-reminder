@@ -25,8 +25,19 @@ const Map<String, String> bnBD = {
   'auth.signupErrorTitle': 'নিবন্ধন ব্যর্থ হয়েছে',
   'auth.unknownError': 'একটি অজানা ত্রুটি ঘটেছে।',
   'auth.or': 'অথবা',
-  'auth.noAccount': 'অ্যাকাউন্ট নেই? নিবন্ধন করুন',
-  'auth.haveAccount': 'ইতিমধ্যে অ্যাকাউন্ট আছে? লগইন করুন',
+  'auth.noAccount': 'অ্যাকাউন্ট নেই? সাইন আপ করুন',
+  'auth.haveAccount': 'ইতিমধ্যে একটি অ্যাকাউন্ট আছে? লগ ইন করুন',
+  'auth.checkEmail': 'আপনার ইমেইল চেক করুন',
+  'auth.resetPasswordInfo':
+      'আমরা আপনাকে আপনার পাসওয়ার্ড রিসেট করার জন্য\n তথ্য পাঠিয়েছি',
+  'auth.registerSuccessInfo':
+      'নিবন্ধন সফল। আপনার ইমেইল ঠিকানায় পাঠানো লিঙ্কের\n মাধ্যমে আপনার অ্যাকাউন্ট নিশ্চিত করুন।',
+  'auth.resetPassword': 'পাসওয়ার্ড রিসেট করুন',
+  'auth.resetPasswordInstructions':
+      'আপনার ইমেইল ঠিকানা লিখুন এবং আমরা আপনাকে পাসওয়ার্ড রিসেট করার আরও নির্দেশাবলী পাঠাব।',
+  'auth.yourEmail': 'আপনার ইমেইল',
+  'auth.resetButton': 'পাসওয়ার্ড রিসেট করুন',
+  'auth.emailRequired': 'অনুগ্রহ করে আপনার ইমেইল ঠিকানা লিখুন।',
 
   // Home / Medicine List
   'home.title': 'আমার ঔষধ',

@@ -29,6 +29,17 @@ const Map<String, String> enUS = {
   'auth.or': 'OR',
   'auth.noAccount': 'Don\"t have an account? Sign Up',
   'auth.haveAccount': 'Already have an account? Log In',
+  'auth.checkEmail': 'Check your e-mail',
+  'auth.resetPasswordInfo':
+      'We have sent you informations\n to reset your password',
+  'auth.registerSuccessInfo':
+      'Registration successful. Please confirm your account\n with the link sent to your e-mail address.',
+  'auth.resetPassword': 'Reset password',
+  'auth.resetPasswordInstructions':
+      'Enter your e-mail address and we will send you further instructions on how to reset the password.',
+  'auth.yourEmail': 'Your e-mail',
+  'auth.resetButton': 'Reset Password',
+  'auth.emailRequired': 'Please enter your e-mail address.',
 
   // Home / Medicine List
   'home.title': 'My Medicines',

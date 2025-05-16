@@ -29,6 +29,17 @@ const Map<String, String> idID = {
   'auth.or': 'ATAU',
   'auth.noAccount': 'Belum punya akun? Daftar',
   'auth.haveAccount': 'Sudah punya akun? Masuk',
+  'auth.checkEmail': 'Periksa email Anda',
+  'auth.resetPasswordInfo':
+      'Kami telah mengirimkan informasi\n untuk mereset kata sandi Anda',
+  'auth.registerSuccessInfo':
+      'Pendaftaran berhasil. Silakan konfirmasi akun Anda\n dengan tautan yang dikirim ke alamat email Anda.',
+  'auth.resetPassword': 'Atur ulang kata sandi',
+  'auth.resetPasswordInstructions':
+      'Masukkan alamat email Anda dan kami akan mengirimkan instruksi lebih lanjut tentang cara mengatur ulang kata sandi.',
+  'auth.yourEmail': 'Email Anda',
+  'auth.resetButton': 'Atur Ulang Kata Sandi',
+  'auth.emailRequired': 'Silakan masukkan alamat email Anda.',
 
   // Home / Medicine List
   'home.title': 'Obat Saya',

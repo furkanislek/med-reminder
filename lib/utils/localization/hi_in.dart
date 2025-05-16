@@ -29,6 +29,17 @@ const Map<String, String> hiIN = {
   'auth.or': 'या',
   'auth.noAccount': 'खाता नहीं है? साइन अप करें',
   'auth.haveAccount': 'पहले से ही खाता है? लॉगिन करें',
+  'auth.checkEmail': 'अपना ईमेल जांचें',
+  'auth.resetPasswordInfo':
+      'हमने आपको आपका पासवर्ड रीसेट करने के लिए\n जानकारी भेज दी है',
+  'auth.registerSuccessInfo':
+      'पंजीकरण सफल। कृपया अपने ईमेल पते पर भेजे गए लिंक से\n अपने खाते की पुष्टि करें।',
+  'auth.resetPassword': 'पासवर्ड रीसेट करें',
+  'auth.resetPasswordInstructions':
+      'अपना ईमेल पता दर्ज करें और हम आपको पासवर्ड रीसेट करने के लिए आगे के निर्देश भेजेंगे।',
+  'auth.yourEmail': 'आपका ईमेल',
+  'auth.resetButton': 'पासवर्ड रीसेट करें',
+  'auth.emailRequired': 'कृपया अपना ईमेल पता दर्ज करें।',
 
   // Home / Medicine List
   'home.title': 'मेरी दवाइयां',
@@ -251,7 +262,6 @@ const Map<String, String> hiIN = {
   "login.type_your_password": "अपना पासवर्ड लिखें",
   "login.login": "लॉगिन करें",
   "login.forgot_password": "अपना पासवर्ड भूल गए?",
-  "login.or": "या",
   "login.login_with_google": "Google के साथ लॉगिन करें",
 
   // Menu Page

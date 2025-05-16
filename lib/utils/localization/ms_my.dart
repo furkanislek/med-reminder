@@ -27,8 +27,19 @@ const Map<String, String> msMY = {
   'auth.signupErrorTitle': 'Pendaftaran Gagal',
   'auth.unknownError': 'Ralat yang tidak diketahui telah berlaku.',
   'auth.or': 'ATAU',
-  'auth.noAccount': 'Belum ada akaun? Daftar',
-  'auth.haveAccount': 'Sudah mempunyai akaun? Log Masuk',
+  'auth.noAccount': 'Tidak mempunyai akaun? Daftar',
+  'auth.haveAccount': 'Sudah mempunyai akaun? Log masuk',
+  'auth.checkEmail': 'Periksa e-mel anda',
+  'auth.resetPasswordInfo':
+      'Kami telah menghantar maklumat\n untuk menetapkan semula kata laluan anda',
+  'auth.registerSuccessInfo':
+      'Pendaftaran berjaya. Sila sahkan akaun anda\n dengan pautan yang dihantar ke alamat e-mel anda.',
+  'auth.resetPassword': 'Tetapkan semula kata laluan',
+  'auth.resetPasswordInstructions':
+      'Masukkan alamat e-mel anda dan kami akan menghantar arahan lanjut tentang cara menetapkan semula kata laluan.',
+  'auth.yourEmail': 'E-mel anda',
+  'auth.resetButton': 'Tetapkan Semula Kata Laluan',
+  'auth.emailRequired': 'Sila masukkan alamat e-mel anda.',
 
   // Home / Medicine List
   'home.title': 'Ubat Saya',

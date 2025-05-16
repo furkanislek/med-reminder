@@ -21,7 +21,7 @@ class _ResetPasswordState extends State<ResetPassword> {
     String email = emailController.text;
     if (email.isEmpty) {
       setState(() {
-        errorMessage = "Please enter your e-mail address.";
+        errorMessage = "auth.emailRequired".tr;
       });
       return;
     }
@@ -63,7 +63,7 @@ class _ResetPasswordState extends State<ResetPassword> {
               SvgPicture.asset('assets/svg/reset.svg', height: 200.h),
               SizedBox(height: 40.h),
               Text(
-                "Reset password",
+                "auth.resetPassword".tr,
                 style: TextStyle(
                   fontSize: 26.sp,
                   fontWeight: FontWeight.bold,
@@ -72,7 +72,7 @@ class _ResetPasswordState extends State<ResetPassword> {
               ),
               SizedBox(height: 10.h),
               Text(
-                "Enter your e-mail address and we will send you further instructions on how to reset the password.",
+                "auth.resetPasswordInstructions".tr,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey[700], fontSize: 12.sp),
               ),
@@ -82,7 +82,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 textInputAction: TextInputAction.done,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  labelText: "Your e-mail",
+                  labelText: "auth.yourEmail".tr,
                   prefixIcon: Icon(Icons.email, size: 20.sp),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20.r),
@@ -111,7 +111,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                   ),
                 ),
                 child: Text(
-                  "Register",
+                  "auth.resetButton".tr,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.sp,

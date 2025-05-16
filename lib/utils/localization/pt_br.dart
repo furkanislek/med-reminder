@@ -25,8 +25,18 @@ const Map<String, String> ptBR = {
   'auth.signupErrorTitle': 'Falha no cadastro',
   'auth.unknownError': 'Ocorreu um erro desconhecido.',
   'auth.or': 'OU',
-  'auth.noAccount': 'Não tem uma conta? Cadastre-se',
-  'auth.haveAccount': 'Já tem uma conta? Entre',
+  'auth.noAccount': 'Não tem uma conta? Registre-se',
+  'auth.haveAccount': 'Já tem uma conta? Faça login',
+  'auth.checkEmail': 'Verifique seu e-mail',
+  'auth.resetPasswordInfo': 'Enviamos informações\n para redefinir sua senha',
+  'auth.registerSuccessInfo':
+      'Registro bem-sucedido. Por favor, confirme sua conta\n com o link enviado para o seu endereço de e-mail.',
+  'auth.resetPassword': 'Redefinir senha',
+  'auth.resetPasswordInstructions':
+      'Digite seu endereço de e-mail e enviaremos instruções sobre como redefinir sua senha.',
+  'auth.yourEmail': 'Seu e-mail',
+  'auth.resetButton': 'Redefinir Senha',
+  'auth.emailRequired': 'Por favor, digite seu endereço de e-mail.',
 
   // Home / Medicine List
   'home.title': 'Meus Medicamentos',

@@ -28,7 +28,18 @@ const Map<String, String> arSA = {
   'auth.unknownError': 'حدث خطأ غير معروف.',
   'auth.or': 'أو',
   'auth.noAccount': 'ليس لديك حساب؟ سجل الآن',
-  'auth.haveAccount': 'لديك حساب بالفعل؟ سجل الدخول',
+  'auth.haveAccount': 'لديك حساب بالفعل؟ تسجيل الدخول',
+  'auth.checkEmail': 'تحقق من بريدك الإلكتروني',
+  'auth.resetPasswordInfo':
+      'لقد أرسلنا لك معلومات\n لإعادة تعيين كلمة المرور الخاصة بك',
+  'auth.registerSuccessInfo':
+      'تم التسجيل بنجاح. يرجى تأكيد حسابك\n من خلال الرابط المرسل إلى عنوان بريدك الإلكتروني.',
+  'auth.resetPassword': 'إعادة تعيين كلمة المرور',
+  'auth.resetPasswordInstructions':
+      'أدخل عنوان بريدك الإلكتروني وسنرسل لك تعليمات حول كيفية إعادة تعيين كلمة المرور.',
+  'auth.yourEmail': 'بريدك الإلكتروني',
+  'auth.resetButton': 'إعادة تعيين كلمة المرور',
+  'auth.emailRequired': 'الرجاء إدخال عنوان بريدك الإلكتروني.',
 
   // Home / Medicine List
   'home.title': 'أدويتي',

@@ -27,8 +27,17 @@ const Map<String, String> jaJP = {
   'auth.signupErrorTitle': '登録失敗',
   'auth.unknownError': '不明なエラーが発生しました。',
   'auth.or': 'または',
-  'auth.noAccount': 'アカウントをお持ちでない方は登録',
-  'auth.haveAccount': 'すでにアカウントをお持ちの方はログイン',
+  'auth.noAccount': 'アカウントをお持ちでない方は登録してください',
+  'auth.haveAccount': 'すでにアカウントをお持ちの方はログインしてください',
+  'auth.checkEmail': 'メールをご確認ください',
+  'auth.resetPasswordInfo': 'パスワードをリセットするための\n情報を送信しました',
+  'auth.registerSuccessInfo': '登録に成功しました。メールアドレスに送信された\nリンクでアカウントを確認してください。',
+  'auth.resetPassword': 'パスワードのリセット',
+  'auth.resetPasswordInstructions':
+      'メールアドレスを入力してください。パスワードをリセットする方法についての詳細な手順をお送りします。',
+  'auth.yourEmail': 'あなたのメール',
+  'auth.resetButton': 'パスワードをリセット',
+  'auth.emailRequired': 'メールアドレスを入力してください。',
 
   // Home / Medicine List
   'home.title': '私の薬',

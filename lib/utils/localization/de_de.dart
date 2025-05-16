@@ -27,8 +27,19 @@ const Map<String, String> deDE = {
   'auth.signupErrorTitle': 'Registrierung fehlgeschlagen',
   'auth.unknownError': 'Ein unbekannter Fehler ist aufgetreten.',
   'auth.or': 'ODER',
-  'auth.noAccount': 'Kein Konto? Registrieren',
-  'auth.haveAccount': 'Bereits ein Konto? Anmelden',
+  'auth.noAccount': 'Sie haben noch kein Konto? Registrieren',
+  'auth.haveAccount': 'Sie haben bereits ein Konto? Anmelden',
+  'auth.checkEmail': 'Überprüfen Sie Ihre E-Mail',
+  'auth.resetPasswordInfo':
+      'Wir haben Ihnen Informationen\n zum Zurücksetzen Ihres Passworts gesendet',
+  'auth.registerSuccessInfo':
+      'Registrierung erfolgreich. Bitte bestätigen Sie Ihr Konto\n mit dem Link, der an Ihre E-Mail-Adresse gesendet wurde.',
+  'auth.resetPassword': 'Passwort zurücksetzen',
+  'auth.resetPasswordInstructions':
+      'Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen weitere Anweisungen zum Zurücksetzen des Passworts.',
+  'auth.yourEmail': 'Ihre E-Mail',
+  'auth.resetButton': 'Passwort zurücksetzen',
+  'auth.emailRequired': 'Bitte geben Sie Ihre E-Mail-Adresse ein.',
 
   // Home / Medicine List
   'home.title': 'Meine Medikamente',

@@ -27,8 +27,19 @@ const Map<String, String> esES = {
   'auth.signupErrorTitle': 'Error de registro',
   'auth.unknownError': 'Ha ocurrido un error desconocido.',
   'auth.or': 'O',
-  'auth.noAccount': '¿No tienes cuenta? Regístrate',
-  'auth.haveAccount': '¿Ya tienes cuenta? Inicia sesión',
+  'auth.noAccount': '¿No tienes una cuenta? Regístrate',
+  'auth.haveAccount': '¿Ya tienes una cuenta? Inicia sesión',
+  'auth.checkEmail': 'Revisa tu correo electrónico',
+  'auth.resetPasswordInfo':
+      'Te hemos enviado información\n para restablecer tu contraseña',
+  'auth.registerSuccessInfo':
+      'Registro exitoso. Por favor confirma tu cuenta\n con el enlace enviado a tu dirección de correo electrónico.',
+  'auth.resetPassword': 'Restablecer contraseña',
+  'auth.resetPasswordInstructions':
+      'Ingresa tu dirección de correo electrónico y te enviaremos instrucciones para restablecer tu contraseña.',
+  'auth.yourEmail': 'Tu correo electrónico',
+  'auth.resetButton': 'Restablecer Contraseña',
+  'auth.emailRequired': 'Por favor ingresa tu dirección de correo electrónico.',
 
   // Home / Medicine List
   'home.title': 'Mis Medicamentos',

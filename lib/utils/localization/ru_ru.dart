@@ -29,6 +29,17 @@ const Map<String, String> ruRU = {
   'auth.or': 'ИЛИ',
   'auth.noAccount': 'Нет аккаунта? Зарегистрируйтесь',
   'auth.haveAccount': 'Уже есть аккаунт? Войдите',
+  'auth.checkEmail': 'Проверьте вашу электронную почту',
+  'auth.resetPasswordInfo':
+      'Мы отправили вам информацию\n для сброса вашего пароля',
+  'auth.registerSuccessInfo':
+      'Регистрация прошла успешно. Пожалуйста, подтвердите свой аккаунт\n по ссылке, отправленной на ваш адрес электронной почты.',
+  'auth.resetPassword': 'Сбросить пароль',
+  'auth.resetPasswordInstructions':
+      'Введите свой адрес электронной почты, и мы вышлем вам дальнейшие инструкции по сбросу пароля.',
+  'auth.yourEmail': 'Ваш email',
+  'auth.resetButton': 'Сбросить пароль',
+  'auth.emailRequired': 'Пожалуйста, введите свой адрес электронной почты.',
 
   // Home / Medicine List
   'home.title': 'Мои лекарства',

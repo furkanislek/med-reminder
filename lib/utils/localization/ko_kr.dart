@@ -29,6 +29,15 @@ const Map<String, String> koKR = {
   'auth.or': '또는',
   'auth.noAccount': '계정이 없으신가요? 가입하기',
   'auth.haveAccount': '이미 계정이 있으신가요? 로그인',
+  'auth.checkEmail': '이메일을 확인하세요',
+  'auth.resetPasswordInfo': '비밀번호 재설정을 위한\n 정보를 보내드렸습니다',
+  'auth.registerSuccessInfo': '등록이 성공했습니다. 이메일 주소로 보낸\n 링크로 계정을 확인해 주세요.',
+  'auth.resetPassword': '비밀번호 재설정',
+  'auth.resetPasswordInstructions':
+      '이메일 주소를 입력하시면 비밀번호 재설정 방법에 대한 추가 지침을 보내드립니다.',
+  'auth.yourEmail': '귀하의 이메일',
+  'auth.resetButton': '비밀번호 재설정',
+  'auth.emailRequired': '이메일 주소를 입력하세요.',
 
   // Home / Medicine List
   'home.title': '내 약',

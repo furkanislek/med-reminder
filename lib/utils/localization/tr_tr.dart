@@ -28,6 +28,16 @@ const Map<String, String> trTR = {
   "auth.or": "VEYA",
   "auth.noAccount": "Hesabınız yok mu? Kayıt Olun",
   "auth.haveAccount": "Zaten hesabınız var mı? Giriş Yapın",
+  "auth.checkEmail": "E-postanızı kontrol edin",
+  "auth.resetPasswordInfo": "Şifrenizi sıfırlamanız için\n bilgileri gönderdik",
+  "auth.registerSuccessInfo":
+      "Kayıt işlemi başarılı. Lütfen e-posta adresinize\n gönderilen bağlantı ile hesabınızı onaylayın.",
+  "auth.resetPassword": "Şifre sıfırlama",
+  "auth.resetPasswordInstructions":
+      "E-posta adresinizi girin, şifrenizi sıfırlamanız için gerekli talimatları göndereceğiz.",
+  "auth.yourEmail": "E-posta adresiniz",
+  "auth.resetButton": "Şifreyi Sıfırla",
+  "auth.emailRequired": "Lütfen e-posta adresinizi girin.",
 
   // Home / Medicine List
   "home.title": "İlaçlarım",

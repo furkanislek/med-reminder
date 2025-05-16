@@ -29,6 +29,14 @@ const Map<String, String> zhCN = {
   'auth.or': '或',
   'auth.noAccount': '没有账户？注册',
   'auth.haveAccount': '已有账户？登录',
+  'auth.checkEmail': '检查您的电子邮件',
+  'auth.resetPasswordInfo': '我们已发送信息\n 以重置您的密码',
+  'auth.registerSuccessInfo': '注册成功。请使用发送到您电子邮件地址的链接\n 确认您的账户。',
+  'auth.resetPassword': '重置密码',
+  'auth.resetPasswordInstructions': '输入您的电子邮件地址，我们将向您发送有关如何重置密码的进一步说明。',
+  'auth.yourEmail': '您的电子邮件',
+  'auth.resetButton': '重置密码',
+  'auth.emailRequired': '请输入您的电子邮件地址。',
 
   // Home / Medicine List
   'home.title': '我的药物',

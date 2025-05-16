@@ -29,6 +29,17 @@ const Map<String, String> itIT = {
   'auth.or': 'OPPURE',
   'auth.noAccount': 'Non hai un account? Registrati',
   'auth.haveAccount': 'Hai già un account? Accedi',
+  'auth.checkEmail': 'Controlla la tua email',
+  'auth.resetPasswordInfo':
+      'Ti abbiamo inviato informazioni\n per reimpostare la tua password',
+  'auth.registerSuccessInfo':
+      'Registrazione avvenuta con successo. Per favore conferma il tuo account\n con il link inviato al tuo indirizzo email.',
+  'auth.resetPassword': 'Reimposta password',
+  'auth.resetPasswordInstructions':
+      'Inserisci il tuo indirizzo email e ti invieremo ulteriori istruzioni su come reimpostare la password.',
+  'auth.yourEmail': 'La tua email',
+  'auth.resetButton': 'Reimposta Password',
+  'auth.emailRequired': 'Per favore inserisci il tuo indirizzo email.',
 
   // Home / Medicine List
   'home.title': 'I miei farmaci',

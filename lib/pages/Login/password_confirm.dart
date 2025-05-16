@@ -28,7 +28,7 @@ class Confirm extends StatelessWidget {
                 ),
                 SizedBox(height: 30.h),
                 Text(
-                  "Check your e-mail",
+                  "auth.checkEmail".tr,
                   style: TextStyle(
                     fontSize: 32.sp,
                     fontWeight: FontWeight.bold,
@@ -37,7 +37,7 @@ class Confirm extends StatelessWidget {
                 ),
                 SizedBox(height: 30.h),
                 Text(
-                  "We have sent you informations\n to reset your password",
+                  "auth.resetPasswordInfo".tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 14.sp, color: Colors.black87),
                 ),
@@ -60,7 +60,7 @@ class Confirm extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      "Confirm",
+                      "general.confirm".tr,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18.sp,
