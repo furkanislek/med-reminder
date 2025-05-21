@@ -1,48 +1,48 @@
 {
   "project_info": {
-    "project_number": "352808849408",
-    "project_id": "mdrm-b334b",
-    "storage_bucket": "mdrm-b334b.firebasestorage.app"
+    "project_number": "947314173488",
+    "project_id": "aminadose-7d38f",
+    "storage_bucket": "aminadose-7d38f.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:352808849408:android:c207a4fed11cbb819248e5",
+        "mobilesdk_app_id": "1:947314173488:android:ef3839e87d4e30ac91aff5",
         "android_client_info": {
-          "package_name": "com.example.mr"
+          "package_name": "com.aminadose.mr"
         }
       },
       "oauth_client": [
         {
-          "client_id": "352808849408-kfmr31n410lhh0u4kovigfu5t57nih17.apps.googleusercontent.com",
+          "client_id": "947314173488-p3uqnmrtubusebcpasvhb2c65286a89i.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.mr",
+            "package_name": "com.aminadose.mr",
             "certificate_hash": "049366255511dc9bf83a9c29b83bc6e0186d73e2"
           }
         },
         {
-          "client_id": "352808849408-m58264tc0fn6o5886dhqb7cmeb82n2vf.apps.googleusercontent.com",
+          "client_id": "947314173488-eh6n6fam6ud75djhu7hmijvft9k979no.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAAaRwxWFKTtR5dKdKgC45mHSF8vOdQOic"
+          "current_key": "AIzaSyAVqS93c5FJM9rlKX6WF-tkVqBTegUNLok"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "352808849408-g36joue567iig5ut1tl1vnevvrh2na98.apps.googleusercontent.com",
+              "client_id": "947314173488-eh6n6fam6ud75djhu7hmijvft9k979no.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "352808849408-fnmq1rqqni1d8udaijhfcn387b9up9s3.apps.googleusercontent.com",
+              "client_id": "947314173488-btldeq5dvpv2qtls8r0ft99p4isi5raj.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.mr"
+                "bundle_id": "com.aminadose.mr"
               }
             }
           ]

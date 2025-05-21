@@ -1,4 +1,4 @@
-package com.example.mr
+package com.aminadose.mr
 
 import android.os.Bundle
 import java.util.TimeZone
