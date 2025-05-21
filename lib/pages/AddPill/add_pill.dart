@@ -379,7 +379,7 @@ class AddPillScreen extends StatelessWidget {
     required BuildContext context,
   }) {
     return Container(
-      height: 48.h,
+      height: 54.h,
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 16.h),
       decoration: BoxDecoration(
         color: Colors.white,

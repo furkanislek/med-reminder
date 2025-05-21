@@ -23,14 +23,12 @@ class Auth {
     UserCredential userCredential = await _firebaseAuth
         .createUserWithEmailAndPassword(email: email, password: password);
 
-    print("profileImage: $profileImage");
 
     String? photoBase64;
     if (profileImage != null) {
       photoBase64 = base64Encode(await profileImage.readAsBytes());
     }
 
-    print("photoBase64: $photoBase64");
 
     await FirebaseFirestore.instance
         .collection('users')
