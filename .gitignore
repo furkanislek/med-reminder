@@ -46,4 +46,5 @@ app.*.map.json
 key.properties
 key.properties.jks
 google-services.json
+android/app/google-services.json
 upload-keystore.jks
