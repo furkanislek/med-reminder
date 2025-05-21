@@ -34,7 +34,15 @@ Designed for both body and soul, AnimaDose helps users manage medications, recei
 
 ## 📱 Screenshots
 
-> _Coming soon_ — Add screenshots of key features like medication list, blog, and profile pages.
+![Feature Graph](https://github.com/user-attachments/assets/db24f891-8e2b-419d-96cb-0a719535a1e9)
+![1](https://github.com/user-attachments/assets/2a5fad71-2d16-4cd0-86c0-4ed27e4621b1)
+![2](https://github.com/user-attachments/assets/8847d389-7b91-4237-855d-ead0055d655b)
+![3](https://github.com/user-attachments/assets/a5f4d655-2499-49dd-a189-701bdc3828e3)
+![4](https://github.com/user-attachments/assets/cdb0deae-6937-47e1-95f4-bf04e129d2a1)
+![5](https://github.com/user-attachments/assets/f7844b5b-0e87-4eb3-b04a-eb88741a7ade)
+![6](https://github.com/user-attachments/assets/6a8fa277-f7af-47f6-82ea-8e171d22d2fa)
+![7](https://github.com/user-attachments/assets/c672ea37-15ee-4564-b15a-f92aa3af0846)
+![8](https://github.com/user-attachments/assets/6262ed76-2866-44ca-b60c-736ff5409d14)
 
 ---
 
